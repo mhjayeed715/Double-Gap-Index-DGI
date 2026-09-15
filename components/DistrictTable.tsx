@@ -228,10 +228,10 @@ export default function DistrictTable({ districts }: DistrictTableProps) {
           </div>
         </div>
 
-        {/* Data Table */}
-        <div className="overflow-x-auto rounded-xl border border-slate-200 shadow-sm">
+        {/* Data Table with Internal Scroll and Sticky Header */}
+        <div className="overflow-x-auto overflow-y-auto max-h-[680px] rounded-xl border border-slate-200 shadow-sm relative">
           <table className="w-full text-left text-xs text-slate-600 border-collapse">
-            <thead className="bg-slate-100 text-slate-700 uppercase tracking-wider text-[11px] font-semibold border-b border-slate-200 select-none">
+            <thead className="sticky top-0 z-20 bg-slate-100/95 backdrop-blur-sm text-slate-800 uppercase tracking-wider text-[11px] font-bold border-b border-slate-200 select-none shadow-xs">
               <tr>
                 <th
                   onClick={() => handleSort("name")}

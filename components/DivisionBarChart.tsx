@@ -24,41 +24,42 @@ export default function DivisionBarChart({ divisionStats }: DivisionBarChartProp
   // Format data for Bklit BarChart
   const chartData = divisionStats.map((d) => ({
     name: d.division.replace(" Division", ""),
-    digital: d.avgDigital,
-    service: d.avgService,
+    digital: Number(d.avgDigital.toFixed(2)),
+    service: Number(d.avgService.toFixed(2)),
     doubleGapCount: d.doubleGapCount,
   }));
 
   return (
-    <section id="division-chart-section" className="py-12 bg-slate-50 border-b border-slate-200">
+    <section id="division-chart-section" className="py-16 md:py-24 bg-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-xs font-bold uppercase tracking-wider text-cyan-800 bg-cyan-50 px-2.5 py-0.5 rounded border border-cyan-200 flex items-center gap-1">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs font-semibold uppercase tracking-wider text-slate-700 bg-white px-2.5 py-1 rounded-full border border-slate-200 flex items-center gap-1.5 shadow-sm">
                 <BarChart2 className="w-3.5 h-3.5 text-cyan-600" />
-                bklit-ui Chart Architecture
+                Regional Exclusion Breakdown
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              Divisional Averages & Exclusion Disparity
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Divisional Disparity & Gap Comparison
             </h2>
-            <p className="text-sm text-slate-500 mt-1 max-w-2xl">
-              Comparing average Digital Access Score (Cyan) against average Service Access Score (Amber) across Bangladesh’s 8 divisions.
+            <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl leading-relaxed">
+              Comparing average Digital Access (Cyan) vs. Physical Service Access (Amber) across Bangladesh’s 8 divisions. Notice how Rangpur and Mymensingh lag critically across both dimensions.
             </p>
           </div>
 
-          <div className="flex items-center gap-4 text-xs font-medium bg-white p-2 rounded-lg border border-slate-200 shadow-sm self-start md:self-auto">
-            <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded bg-cyan-600 inline-block" />
-              <span className="text-slate-700 flex items-center gap-1">
+          <div className="flex items-center gap-4 text-xs font-medium bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-sm self-start md:self-auto">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-sm bg-cyan-600 inline-block shadow-xs" />
+              <span className="text-slate-700 font-semibold flex items-center gap-1">
                 <Smartphone className="w-3 h-3 text-cyan-600" />
                 Digital Access (0–1)
               </span>
             </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded bg-amber-600 inline-block" />
-              <span className="text-slate-700 flex items-center gap-1">
+            <div className="h-3 w-px bg-slate-200" />
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-sm bg-amber-600 inline-block shadow-xs" />
+              <span className="text-slate-700 font-semibold flex items-center gap-1">
                 <Building2 className="w-3 h-3 text-amber-600" />
                 Physical Service (0–1)
               </span>
@@ -67,21 +68,32 @@ export default function DivisionBarChart({ divisionStats }: DivisionBarChartProp
         </div>
 
         {/* Bklit BarChart Container */}
-        <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-          <div className="w-full h-[400px]">
-            <BarChart
-              data={chartData}
-              xDataKey="name"
-              barGap={0.25}
-              margin={{ top: 20, right: 30, bottom: 40, left: 40 }}
-              className="w-full h-full"
-            >
-              <BarXAxis />
-              <BarYAxis />
-              <Bar dataKey="digital" fill="#0891b2" lineCap={4} />
-              <Bar dataKey="service" fill="#d97706" lineCap={4} />
-              <ChartTooltip />
-            </BarChart>
+        <div className="bg-white rounded-2xl border border-slate-200/90 p-6 sm:p-8 shadow-sm relative overflow-hidden">
+          <div className="relative w-full h-[400px]">
+            {/* Custom Y-Axis Scale Guides (0.0 to 1.0) */}
+            <div className="absolute left-0 top-6 bottom-14 w-10 flex flex-col justify-between text-[11px] font-mono text-slate-400 select-none pointer-events-none text-right pr-2">
+              <span>1.0</span>
+              <span>0.8</span>
+              <span>0.6</span>
+              <span>0.4</span>
+              <span>0.2</span>
+              <span>0.0</span>
+            </div>
+
+            <div className="w-full h-full pl-8">
+              <BarChart
+                data={chartData}
+                xDataKey="name"
+                barGap={0.25}
+                margin={{ top: 20, right: 20, bottom: 50, left: 20 }}
+                className="w-full h-full"
+              >
+                <BarXAxis />
+                <Bar dataKey="digital" fill="#0891b2" lineCap={4} />
+                <Bar dataKey="service" fill="#d97706" lineCap={4} />
+                <ChartTooltip />
+              </BarChart>
+            </div>
           </div>
 
           {/* Division Summary Footnotes */}

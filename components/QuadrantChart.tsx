@@ -38,16 +38,13 @@ export default function QuadrantChart({
   }, [districts, selectedDivision, searchQuery]);
 
   // SVG dimensions for chart
-  const width = 760;
-  const height = 560;
-  const padding = { top: 40, right: 40, bottom: 60, left: 65 };
+  const width = 720;
+  const height = 480;
+  const padding = { top: 35, right: 35, bottom: 55, left: 65 };
 
-  const plotWidth = width - padding.left - padding.right;
-  const plotHeight = height - padding.top - padding.bottom;
-
-  // Coordinate transforms
-  const scaleX = (val: number) => padding.left + val * plotWidth;
-  const scaleY = (val: number) => padding.top + (1 - val) * plotHeight;
+  // Scales (0.0 to 1.0)
+  const scaleX = (val: number) => padding.left + val * (width - padding.left - padding.right);
+  const scaleY = (val: number) => height - padding.bottom - val * (height - padding.top - padding.bottom);
 
   const thresholdX = scaleX(threshold);
   const thresholdY = scaleY(threshold);
@@ -176,48 +173,52 @@ export default function QuadrantChart({
                   strokeDasharray="5 5"
                 />
 
-                {/* Quadrant Zone Labels */}
+                {/* Quadrant Watermark Labels (Positioned in corners away from data clusters) */}
                 <text
-                  x={padding.left + 15}
-                  y={height - padding.bottom - 15}
+                  x={padding.left + 14}
+                  y={thresholdY + 22}
                   fill="#be123c"
-                  fontSize="12"
-                  fontWeight="700"
-                  className="select-none uppercase tracking-wider"
+                  opacity="0.35"
+                  fontSize="11"
+                  fontWeight="800"
+                  className="select-none uppercase tracking-wider font-mono"
                 >
-                  DOUBLE GAP ZONE (Compounded Deprivation)
+                  Q3: DOUBLE GAP HAZARD
                 </text>
                 <text
-                  x={width - padding.right - 15}
+                  x={width - padding.right - 14}
                   y={padding.top + 22}
                   textAnchor="end"
                   fill="#15803d"
+                  opacity="0.35"
                   fontSize="11"
-                  fontWeight="600"
-                  className="select-none uppercase tracking-wider"
+                  fontWeight="800"
+                  className="select-none uppercase tracking-wider font-mono"
                 >
-                  HIGH RESILIENCE (High Digital + Physical)
+                  Q1: DUAL RESILIENCE
                 </text>
                 <text
-                  x={padding.left + 15}
+                  x={padding.left + 14}
                   y={padding.top + 22}
                   fill="#0369a1"
+                  opacity="0.35"
                   fontSize="11"
-                  fontWeight="600"
-                  className="select-none uppercase tracking-wider"
+                  fontWeight="800"
+                  className="select-none uppercase tracking-wider font-mono"
                 >
-                  PHYSICAL BACKUP (Low Digital, High Physical)
+                  Q2: PHYSICAL BACKUP
                 </text>
                 <text
-                  x={width - padding.right - 15}
-                  y={height - padding.bottom - 15}
+                  x={width - padding.right - 14}
+                  y={thresholdY + 22}
                   textAnchor="end"
                   fill="#b45309"
+                  opacity="0.35"
                   fontSize="11"
-                  fontWeight="600"
-                  className="select-none uppercase tracking-wider"
+                  fontWeight="800"
+                  className="select-none uppercase tracking-wider font-mono"
                 >
-                  DIGITAL WORKAROUND (High Digital, Low Physical)
+                  Q4: DIGITAL WORKAROUND
                 </text>
 
                 {/* Axis Labels */}
@@ -225,20 +226,20 @@ export default function QuadrantChart({
                   x={width / 2}
                   y={height - 15}
                   textAnchor="middle"
-                  fill="#334155"
+                  fill="#475569"
                   fontSize="12"
-                  fontWeight="600"
+                  fontWeight="700"
                 >
                   Digital Access Score → (Internet, Smartphone, Skills, Gender Parity)
                 </text>
                 <text
                   x={-height / 2}
-                  y={20}
+                  y={18}
                   textAnchor="middle"
                   transform="rotate(-90)"
-                  fill="#334155"
+                  fill="#475569"
                   fontSize="12"
-                  fontWeight="600"
+                  fontWeight="700"
                 >
                   Service Access Score → (Healthcare, Education, Transit per Capita)
                 </text>

@@ -8,11 +8,11 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const links = [
-    { href: "/#map-section", label: "National Map", icon: Map },
-    { href: "/#mapcn-section", label: "GIS Vector Map", icon: Map },
-    { href: "/#quadrant-section", label: "Quadrant Matrix", icon: BarChart3 },
-    { href: "/#division-chart-section", label: "Division Charts", icon: BarChart3 },
-    { href: "/#explorer-section", label: "District Table", icon: Table },
+    { href: "/#map-section", label: "Map", icon: Map },
+    { href: "/#mapcn-section", label: "GIS Vector", icon: Map },
+    { href: "/#quadrant-section", label: "Quadrant", icon: BarChart3 },
+    { href: "/#division-chart-section", label: "Divisions", icon: BarChart3 },
+    { href: "/#explorer-section", label: "Districts", icon: Table },
     { href: "/methodology", label: "Methodology", icon: BookOpen },
   ];
 

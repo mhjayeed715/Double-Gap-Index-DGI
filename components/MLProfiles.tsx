@@ -51,21 +51,21 @@ export default function MLProfiles() {
   ];
 
   return (
-    <section className="py-12 bg-gradient-to-b from-white to-slate-50 border-b border-slate-200">
+    <section id="ml-profiles-section" className="py-16 md:py-24 bg-gradient-to-b from-white to-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mb-10">
           <div className="flex items-center gap-2 mb-2">
-            <span className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded border border-indigo-200">
+            <span className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-slate-700 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-sm">
               <BrainCircuit className="w-3.5 h-3.5 text-indigo-600" />
               Interpretable Machine Learning
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             Exclusion Profiles & Feature Attribution (SHAP-Aligned)
           </h2>
-          <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-            Per PRD Section 5 & 7, all statistical models must remain 100% interpretable.
+          <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
+            Per PRD Section 5 & 7, all statistical models remain 100% interpretable.
             Rather than treating deprivation as a black box, unsupervised clustering segments the 64 districts into 4 actionable policy archetypes.
           </p>
         </div>
@@ -75,15 +75,7 @@ export default function MLProfiles() {
           {clusters.map((cluster, i) => (
             <div
               key={i}
-              className={`rounded-xl border p-5 flex flex-col justify-between transition-all ${
-                cluster.color === "rose"
-                  ? "bg-rose-50/40 border-rose-200 hover:border-rose-300"
-                  : cluster.color === "amber"
-                  ? "bg-amber-50/40 border-amber-200 hover:border-amber-300"
-                  : cluster.color === "sky"
-                  ? "bg-sky-50/40 border-sky-200 hover:border-sky-300"
-                  : "bg-emerald-50/40 border-emerald-200 hover:border-emerald-300"
-              }`}
+              className="bg-white rounded-2xl border border-slate-200/90 p-6 flex flex-col justify-between hover:shadow-md hover:border-slate-300 transition-all duration-200 shadow-xs"
             >
               <div>
                 <span
