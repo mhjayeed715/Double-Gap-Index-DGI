@@ -1,0 +1,1602 @@
+[
+  {
+    "id": "dhaka",
+    "name": "Dhaka",
+    "division": "Dhaka Division",
+    "population": 10278882,
+    "digital_access_score": 1.0,
+    "service_access_score": 0.841,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 77.1,
+      "smartphone_ownership_pct": 72.4,
+      "digital_skills_pct": 58.2,
+      "gender_gap_pct": 8.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 1142,
+      "education_facility_count": 2840,
+      "transit_point_count": 1650,
+      "healthcare_per_capita": 11.11,
+      "education_per_capita": 27.63,
+      "transit_per_capita": 16.05,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "gazipur",
+    "name": "Gazipur",
+    "division": "Dhaka Division",
+    "population": 5263474,
+    "digital_access_score": 0.681,
+    "service_access_score": 0.206,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 64.8,
+      "smartphone_ownership_pct": 59.3,
+      "digital_skills_pct": 42.5,
+      "gender_gap_pct": 10.8,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 312,
+      "education_facility_count": 890,
+      "transit_point_count": 430,
+      "healthcare_per_capita": 5.93,
+      "education_per_capita": 16.91,
+      "transit_per_capita": 8.17,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "narayanganj",
+    "name": "Narayanganj",
+    "division": "Dhaka Division",
+    "population": 3909138,
+    "digital_access_score": 0.743,
+    "service_access_score": 0.332,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 68.2,
+      "smartphone_ownership_pct": 63.1,
+      "digital_skills_pct": 45.6,
+      "gender_gap_pct": 10.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 280,
+      "education_facility_count": 720,
+      "transit_point_count": 380,
+      "healthcare_per_capita": 7.16,
+      "education_per_capita": 18.42,
+      "transit_per_capita": 9.72,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "tangail",
+    "name": "Tangail",
+    "division": "Dhaka Division",
+    "population": 4037608,
+    "digital_access_score": 0.262,
+    "service_access_score": 0.117,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 42.5,
+      "smartphone_ownership_pct": 38.1,
+      "digital_skills_pct": 26.4,
+      "gender_gap_pct": 13.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 185,
+      "education_facility_count": 820,
+      "transit_point_count": 210,
+      "healthcare_per_capita": 4.58,
+      "education_per_capita": 20.31,
+      "transit_per_capita": 5.2,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "narsingdi",
+    "name": "Narsingdi",
+    "division": "Dhaka Division",
+    "population": 2584452,
+    "digital_access_score": 0.35,
+    "service_access_score": 0.209,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 51.3,
+      "smartphone_ownership_pct": 46.8,
+      "digital_skills_pct": 32.0,
+      "gender_gap_pct": 13.8,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 140,
+      "education_facility_count": 540,
+      "transit_point_count": 175,
+      "healthcare_per_capita": 5.42,
+      "education_per_capita": 20.89,
+      "transit_per_capita": 6.77,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "manikganj",
+    "name": "Manikganj",
+    "division": "Dhaka Division",
+    "population": 1558024,
+    "digital_access_score": 0.308,
+    "service_access_score": 0.323,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 46.7,
+      "smartphone_ownership_pct": 42.3,
+      "digital_skills_pct": 29.1,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 95,
+      "education_facility_count": 380,
+      "transit_point_count": 120,
+      "healthcare_per_capita": 6.1,
+      "education_per_capita": 24.39,
+      "transit_per_capita": 7.7,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "munshiganj",
+    "name": "Munshiganj",
+    "division": "Dhaka Division",
+    "population": 1625418,
+    "digital_access_score": 0.403,
+    "service_access_score": 0.385,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 54.2,
+      "smartphone_ownership_pct": 49.5,
+      "digital_skills_pct": 34.8,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 110,
+      "education_facility_count": 410,
+      "transit_point_count": 135,
+      "healthcare_per_capita": 6.77,
+      "education_per_capita": 25.22,
+      "transit_per_capita": 8.31,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "faridpur",
+    "name": "Faridpur",
+    "division": "Dhaka Division",
+    "population": 2162876,
+    "digital_access_score": 0.254,
+    "service_access_score": 0.296,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 44.1,
+      "smartphone_ownership_pct": 39.6,
+      "digital_skills_pct": 27.5,
+      "gender_gap_pct": 13.8,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 135,
+      "education_facility_count": 510,
+      "transit_point_count": 150,
+      "healthcare_per_capita": 6.24,
+      "education_per_capita": 23.58,
+      "transit_per_capita": 6.94,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "gopalganj",
+    "name": "Gopalganj",
+    "division": "Dhaka Division",
+    "population": 1295053,
+    "digital_access_score": 0.306,
+    "service_access_score": 0.429,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 45.8,
+      "smartphone_ownership_pct": 41.2,
+      "digital_skills_pct": 28.7,
+      "gender_gap_pct": 13.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 85,
+      "education_facility_count": 390,
+      "transit_point_count": 95,
+      "healthcare_per_capita": 6.56,
+      "education_per_capita": 30.11,
+      "transit_per_capita": 7.34,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "madaripur",
+    "name": "Madaripur",
+    "division": "Dhaka Division",
+    "population": 1293027,
+    "digital_access_score": 0.242,
+    "service_access_score": 0.327,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 41.9,
+      "smartphone_ownership_pct": 37.4,
+      "digital_skills_pct": 25.8,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 78,
+      "education_facility_count": 340,
+      "transit_point_count": 88,
+      "healthcare_per_capita": 6.03,
+      "education_per_capita": 26.29,
+      "transit_per_capita": 6.81,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "rajbari",
+    "name": "Rajbari",
+    "division": "Dhaka Division",
+    "population": 1189821,
+    "digital_access_score": 0.212,
+    "service_access_score": 0.322,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 39.8,
+      "smartphone_ownership_pct": 35.3,
+      "digital_skills_pct": 24.1,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 72,
+      "education_facility_count": 310,
+      "transit_point_count": 80,
+      "healthcare_per_capita": 6.05,
+      "education_per_capita": 26.05,
+      "transit_per_capita": 6.72,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "shariatpur",
+    "name": "Shariatpur",
+    "division": "Dhaka Division",
+    "population": 1294561,
+    "digital_access_score": 0.195,
+    "service_access_score": 0.269,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 38.5,
+      "smartphone_ownership_pct": 34.1,
+      "digital_skills_pct": 23.2,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 75,
+      "education_facility_count": 320,
+      "transit_point_count": 78,
+      "healthcare_per_capita": 5.79,
+      "education_per_capita": 24.72,
+      "transit_per_capita": 6.03,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "kishoreganj",
+    "name": "Kishoreganj",
+    "division": "Dhaka Division",
+    "population": 3484271,
+    "digital_access_score": 0.157,
+    "service_access_score": 0.097,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 36.4,
+      "smartphone_ownership_pct": 32.0,
+      "digital_skills_pct": 21.8,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 165,
+      "education_facility_count": 710,
+      "transit_point_count": 145,
+      "healthcare_per_capita": 4.74,
+      "education_per_capita": 20.38,
+      "transit_per_capita": 4.16,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "chattogram",
+    "name": "Chattogram",
+    "division": "Chattogram Division",
+    "population": 9169464,
+    "digital_access_score": 0.744,
+    "service_access_score": 0.563,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 69.5,
+      "smartphone_ownership_pct": 64.2,
+      "digital_skills_pct": 48.7,
+      "gender_gap_pct": 11.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 780,
+      "education_facility_count": 2150,
+      "transit_point_count": 1180,
+      "healthcare_per_capita": 8.51,
+      "education_per_capita": 23.45,
+      "transit_per_capita": 12.87,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "coxs_bazar",
+    "name": "Cox's Bazar",
+    "division": "Chattogram Division",
+    "population": 2823265,
+    "digital_access_score": 0.178,
+    "service_access_score": 0.103,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 38.2,
+      "smartphone_ownership_pct": 33.8,
+      "digital_skills_pct": 22.4,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 142,
+      "education_facility_count": 490,
+      "transit_point_count": 160,
+      "healthcare_per_capita": 5.03,
+      "education_per_capita": 17.36,
+      "transit_per_capita": 5.67,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "cumilla",
+    "name": "Cumilla",
+    "division": "Chattogram Division",
+    "population": 6212216,
+    "digital_access_score": 0.452,
+    "service_access_score": 0.233,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 56.8,
+      "smartphone_ownership_pct": 51.4,
+      "digital_skills_pct": 36.2,
+      "gender_gap_pct": 13.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 360,
+      "education_facility_count": 1340,
+      "transit_point_count": 410,
+      "healthcare_per_capita": 5.8,
+      "education_per_capita": 21.57,
+      "transit_per_capita": 6.6,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "feni",
+    "name": "Feni",
+    "division": "Chattogram Division",
+    "population": 1648896,
+    "digital_access_score": 0.501,
+    "service_access_score": 0.467,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 58.4,
+      "smartphone_ownership_pct": 53.1,
+      "digital_skills_pct": 38.5,
+      "gender_gap_pct": 12.8,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 125,
+      "education_facility_count": 430,
+      "transit_point_count": 155,
+      "healthcare_per_capita": 7.58,
+      "education_per_capita": 26.08,
+      "transit_per_capita": 9.4,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "brahmanbaria",
+    "name": "Brahmanbaria",
+    "division": "Chattogram Division",
+    "population": 3306559,
+    "digital_access_score": 0.297,
+    "service_access_score": 0.186,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 47.2,
+      "smartphone_ownership_pct": 42.5,
+      "digital_skills_pct": 29.8,
+      "gender_gap_pct": 13.8,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 170,
+      "education_facility_count": 720,
+      "transit_point_count": 195,
+      "healthcare_per_capita": 5.14,
+      "education_per_capita": 21.77,
+      "transit_per_capita": 5.9,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "noakhali",
+    "name": "Noakhali",
+    "division": "Chattogram Division",
+    "population": 3625252,
+    "digital_access_score": 0.288,
+    "service_access_score": 0.208,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 45.3,
+      "smartphone_ownership_pct": 40.6,
+      "digital_skills_pct": 28.2,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 195,
+      "education_facility_count": 810,
+      "transit_point_count": 215,
+      "healthcare_per_capita": 5.38,
+      "education_per_capita": 22.34,
+      "transit_per_capita": 5.93,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "chandpur",
+    "name": "Chandpur",
+    "division": "Chattogram Division",
+    "population": 2635748,
+    "digital_access_score": 0.325,
+    "service_access_score": 0.288,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 49.1,
+      "smartphone_ownership_pct": 44.5,
+      "digital_skills_pct": 31.4,
+      "gender_gap_pct": 13.8,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 155,
+      "education_facility_count": 640,
+      "transit_point_count": 180,
+      "healthcare_per_capita": 5.88,
+      "education_per_capita": 24.28,
+      "transit_per_capita": 6.83,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "lakshmipur",
+    "name": "Lakshmipur",
+    "division": "Chattogram Division",
+    "population": 1938111,
+    "digital_access_score": 0.247,
+    "service_access_score": 0.275,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 41.6,
+      "smartphone_ownership_pct": 37.0,
+      "digital_skills_pct": 25.5,
+      "gender_gap_pct": 13.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 110,
+      "education_facility_count": 480,
+      "transit_point_count": 125,
+      "healthcare_per_capita": 5.68,
+      "education_per_capita": 24.77,
+      "transit_per_capita": 6.45,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "rangamati",
+    "name": "Rangamati",
+    "division": "Chattogram Division",
+    "population": 647587,
+    "digital_access_score": 0.161,
+    "service_access_score": 0.479,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 33.4,
+      "smartphone_ownership_pct": 28.9,
+      "digital_skills_pct": null,
+      "gender_gap_pct": 12.8,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 48,
+      "education_facility_count": 220,
+      "transit_point_count": 35,
+      "healthcare_per_capita": 7.41,
+      "education_per_capita": 33.97,
+      "transit_per_capita": 5.4,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "khagrachhari",
+    "name": "Khagrachhari",
+    "division": "Chattogram Division",
+    "population": 714119,
+    "digital_access_score": 0.14,
+    "service_access_score": 0.472,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 31.8,
+      "smartphone_ownership_pct": 27.3,
+      "digital_skills_pct": null,
+      "gender_gap_pct": 12.8,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 52,
+      "education_facility_count": 240,
+      "transit_point_count": 40,
+      "healthcare_per_capita": 7.28,
+      "education_per_capita": 33.61,
+      "transit_per_capita": 5.6,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "bandarban",
+    "name": "Bandarban",
+    "division": "Chattogram Division",
+    "population": 481109,
+    "digital_access_score": 0.136,
+    "service_access_score": 0.569,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 28.4,
+      "smartphone_ownership_pct": 24.1,
+      "digital_skills_pct": null,
+      "gender_gap_pct": 12.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 38,
+      "education_facility_count": 180,
+      "transit_point_count": 28,
+      "healthcare_per_capita": 7.9,
+      "education_per_capita": 37.41,
+      "transit_per_capita": 5.82,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "rajshahi",
+    "name": "Rajshahi",
+    "division": "Rajshahi Division",
+    "population": 2915013,
+    "digital_access_score": 0.496,
+    "service_access_score": 0.772,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 59.1,
+      "smartphone_ownership_pct": 54.3,
+      "digital_skills_pct": 41.2,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 295,
+      "education_facility_count": 980,
+      "transit_point_count": 340,
+      "healthcare_per_capita": 10.12,
+      "education_per_capita": 33.62,
+      "transit_per_capita": 11.66,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "bogura",
+    "name": "Bogura",
+    "division": "Rajshahi Division",
+    "population": 3734300,
+    "digital_access_score": 0.385,
+    "service_access_score": 0.428,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 52.6,
+      "smartphone_ownership_pct": 47.8,
+      "digital_skills_pct": 34.5,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 260,
+      "education_facility_count": 1020,
+      "transit_point_count": 310,
+      "healthcare_per_capita": 6.96,
+      "education_per_capita": 27.31,
+      "transit_per_capita": 8.3,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "pabna",
+    "name": "Pabna",
+    "division": "Rajshahi Division",
+    "population": 2909622,
+    "digital_access_score": 0.279,
+    "service_access_score": 0.283,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 45.2,
+      "smartphone_ownership_pct": 40.5,
+      "digital_skills_pct": 28.4,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 165,
+      "education_facility_count": 730,
+      "transit_point_count": 190,
+      "healthcare_per_capita": 5.67,
+      "education_per_capita": 25.09,
+      "transit_per_capita": 6.53,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "sirajganj",
+    "name": "Sirajganj",
+    "division": "Rajshahi Division",
+    "population": 3544080,
+    "digital_access_score": 0.176,
+    "service_access_score": 0.187,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 37.8,
+      "smartphone_ownership_pct": 33.4,
+      "digital_skills_pct": 22.8,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 180,
+      "education_facility_count": 820,
+      "transit_point_count": 185,
+      "healthcare_per_capita": 5.08,
+      "education_per_capita": 23.14,
+      "transit_per_capita": 5.22,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "naogaon",
+    "name": "Naogaon",
+    "division": "Rajshahi Division",
+    "population": 2784598,
+    "digital_access_score": 0.197,
+    "service_access_score": 0.259,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 39.4,
+      "smartphone_ownership_pct": 34.8,
+      "digital_skills_pct": 24.0,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 150,
+      "education_facility_count": 710,
+      "transit_point_count": 165,
+      "healthcare_per_capita": 5.39,
+      "education_per_capita": 25.5,
+      "transit_per_capita": 5.93,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "natore",
+    "name": "Natore",
+    "division": "Rajshahi Division",
+    "population": 1859921,
+    "digital_access_score": 0.26,
+    "service_access_score": 0.372,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 43.1,
+      "smartphone_ownership_pct": 38.6,
+      "digital_skills_pct": 26.9,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 115,
+      "education_facility_count": 510,
+      "transit_point_count": 140,
+      "healthcare_per_capita": 6.18,
+      "education_per_capita": 27.42,
+      "transit_per_capita": 7.53,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "joypurhat",
+    "name": "Joypurhat",
+    "division": "Rajshahi Division",
+    "population": 956447,
+    "digital_access_score": 0.28,
+    "service_access_score": 0.597,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 44.5,
+      "smartphone_ownership_pct": 39.9,
+      "digital_skills_pct": 28.1,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 75,
+      "education_facility_count": 310,
+      "transit_point_count": 95,
+      "healthcare_per_capita": 7.84,
+      "education_per_capita": 32.41,
+      "transit_per_capita": 9.93,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "chapainawabganj",
+    "name": "Chapainawabganj",
+    "division": "Rajshahi Division",
+    "population": 1835528,
+    "digital_access_score": 0.235,
+    "service_access_score": 0.339,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 42.0,
+      "smartphone_ownership_pct": 37.5,
+      "digital_skills_pct": 26.0,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 110,
+      "education_facility_count": 490,
+      "transit_point_count": 130,
+      "healthcare_per_capita": 5.99,
+      "education_per_capita": 26.7,
+      "transit_per_capita": 7.08,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "khulna",
+    "name": "Khulna",
+    "division": "Khulna Division",
+    "population": 2613385,
+    "digital_access_score": 0.55,
+    "service_access_score": 0.73,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 62.4,
+      "smartphone_ownership_pct": 57.1,
+      "digital_skills_pct": 43.8,
+      "gender_gap_pct": 13.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 245,
+      "education_facility_count": 860,
+      "transit_point_count": 310,
+      "healthcare_per_capita": 9.37,
+      "education_per_capita": 32.91,
+      "transit_per_capita": 11.86,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "jashore",
+    "name": "Jashore",
+    "division": "Khulna Division",
+    "population": 3076849,
+    "digital_access_score": 0.427,
+    "service_access_score": 0.476,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 55.1,
+      "smartphone_ownership_pct": 50.2,
+      "digital_skills_pct": 35.9,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 220,
+      "education_facility_count": 890,
+      "transit_point_count": 270,
+      "healthcare_per_capita": 7.15,
+      "education_per_capita": 28.93,
+      "transit_per_capita": 8.78,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "kushtia",
+    "name": "Kushtia",
+    "division": "Khulna Division",
+    "population": 2149692,
+    "digital_access_score": 0.337,
+    "service_access_score": 0.466,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 48.7,
+      "smartphone_ownership_pct": 43.9,
+      "digital_skills_pct": 31.0,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 155,
+      "education_facility_count": 610,
+      "transit_point_count": 185,
+      "healthcare_per_capita": 7.21,
+      "education_per_capita": 28.38,
+      "transit_per_capita": 8.61,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "jhenaidah",
+    "name": "Jhenaidah",
+    "division": "Khulna Division",
+    "population": 2005849,
+    "digital_access_score": 0.276,
+    "service_access_score": 0.385,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 45.0,
+      "smartphone_ownership_pct": 40.3,
+      "digital_skills_pct": 28.2,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 130,
+      "education_facility_count": 550,
+      "transit_point_count": 150,
+      "healthcare_per_capita": 6.48,
+      "education_per_capita": 27.42,
+      "transit_per_capita": 7.48,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "satkhira",
+    "name": "Satkhira",
+    "division": "Khulna Division",
+    "population": 2196581,
+    "digital_access_score": 0.232,
+    "service_access_score": 0.322,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 41.2,
+      "smartphone_ownership_pct": 36.7,
+      "digital_skills_pct": 25.2,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 135,
+      "education_facility_count": 580,
+      "transit_point_count": 140,
+      "healthcare_per_capita": 6.15,
+      "education_per_capita": 26.4,
+      "transit_per_capita": 6.37,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "bagerhat",
+    "name": "Bagerhat",
+    "division": "Khulna Division",
+    "population": 1613079,
+    "digital_access_score": 0.223,
+    "service_access_score": 0.471,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 40.5,
+      "smartphone_ownership_pct": 36.0,
+      "digital_skills_pct": 24.8,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 115,
+      "education_facility_count": 490,
+      "transit_point_count": 125,
+      "healthcare_per_capita": 7.13,
+      "education_per_capita": 30.38,
+      "transit_per_capita": 7.75,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "chuadanga",
+    "name": "Chuadanga",
+    "division": "Khulna Division",
+    "population": 1234066,
+    "digital_access_score": 0.282,
+    "service_access_score": 0.536,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 44.8,
+      "smartphone_ownership_pct": 40.1,
+      "digital_skills_pct": 28.0,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 95,
+      "education_facility_count": 380,
+      "transit_point_count": 110,
+      "healthcare_per_capita": 7.7,
+      "education_per_capita": 30.79,
+      "transit_per_capita": 8.91,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "meherpur",
+    "name": "Meherpur",
+    "division": "Khulna Division",
+    "population": 705356,
+    "digital_access_score": 0.261,
+    "service_access_score": 0.61,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 43.2,
+      "smartphone_ownership_pct": 38.7,
+      "digital_skills_pct": 26.8,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 58,
+      "education_facility_count": 230,
+      "transit_point_count": 68,
+      "healthcare_per_capita": 8.22,
+      "education_per_capita": 32.61,
+      "transit_per_capita": 9.64,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "magura",
+    "name": "Magura",
+    "division": "Khulna Division",
+    "population": 1033115,
+    "digital_access_score": 0.252,
+    "service_access_score": 0.484,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 42.6,
+      "smartphone_ownership_pct": 38.0,
+      "digital_skills_pct": 26.4,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 75,
+      "education_facility_count": 310,
+      "transit_point_count": 85,
+      "healthcare_per_capita": 7.26,
+      "education_per_capita": 30.01,
+      "transit_per_capita": 8.23,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "narail",
+    "name": "Narail",
+    "division": "Khulna Division",
+    "population": 788673,
+    "digital_access_score": 0.265,
+    "service_access_score": 0.578,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 43.5,
+      "smartphone_ownership_pct": 39.0,
+      "digital_skills_pct": 27.1,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 62,
+      "education_facility_count": 260,
+      "transit_point_count": 70,
+      "healthcare_per_capita": 7.86,
+      "education_per_capita": 32.97,
+      "transit_per_capita": 8.88,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "barishal",
+    "name": "Barishal",
+    "division": "Barishal Division",
+    "population": 2570450,
+    "digital_access_score": 0.389,
+    "service_access_score": 0.48,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 51.8,
+      "smartphone_ownership_pct": 46.9,
+      "digital_skills_pct": 33.2,
+      "gender_gap_pct": 13.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 190,
+      "education_facility_count": 740,
+      "transit_point_count": 220,
+      "healthcare_per_capita": 7.39,
+      "education_per_capita": 28.79,
+      "transit_per_capita": 8.56,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "patuakhali",
+    "name": "Patuakhali",
+    "division": "Barishal Division",
+    "population": 1727254,
+    "digital_access_score": 0.2,
+    "service_access_score": 0.36,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 38.9,
+      "smartphone_ownership_pct": 34.4,
+      "digital_skills_pct": 23.5,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 115,
+      "education_facility_count": 470,
+      "transit_point_count": 110,
+      "healthcare_per_capita": 6.66,
+      "education_per_capita": 27.21,
+      "transit_per_capita": 6.37,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "bhola",
+    "name": "Bhola",
+    "division": "Barishal Division",
+    "population": 1932514,
+    "digital_access_score": 0.112,
+    "service_access_score": 0.142,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 32.5,
+      "smartphone_ownership_pct": 28.1,
+      "digital_skills_pct": 18.9,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 98,
+      "education_facility_count": 420,
+      "transit_point_count": 85,
+      "healthcare_per_capita": 5.07,
+      "education_per_capita": 21.73,
+      "transit_per_capita": 4.4,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "pirojpur",
+    "name": "Pirojpur",
+    "division": "Barishal Division",
+    "population": 1198193,
+    "digital_access_score": 0.3,
+    "service_access_score": 0.549,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 46.1,
+      "smartphone_ownership_pct": 41.4,
+      "digital_skills_pct": 28.9,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 95,
+      "education_facility_count": 390,
+      "transit_point_count": 95,
+      "healthcare_per_capita": 7.93,
+      "education_per_capita": 32.55,
+      "transit_per_capita": 7.93,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "barguna",
+    "name": "Barguna",
+    "division": "Barishal Division",
+    "population": 1010540,
+    "digital_access_score": 0.125,
+    "service_access_score": 0.365,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 34.2,
+      "smartphone_ownership_pct": 29.8,
+      "digital_skills_pct": 20.1,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 68,
+      "education_facility_count": 280,
+      "transit_point_count": 62,
+      "healthcare_per_capita": 6.73,
+      "education_per_capita": 27.71,
+      "transit_per_capita": 6.14,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "jhalokati",
+    "name": "Jhalokati",
+    "division": "Barishal Division",
+    "population": 715401,
+    "digital_access_score": 0.313,
+    "service_access_score": 0.641,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 47.0,
+      "smartphone_ownership_pct": 42.3,
+      "digital_skills_pct": 29.6,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 60,
+      "education_facility_count": 250,
+      "transit_point_count": 65,
+      "healthcare_per_capita": 8.39,
+      "education_per_capita": 34.95,
+      "transit_per_capita": 9.09,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "sylhet",
+    "name": "Sylhet",
+    "division": "Sylhet Division",
+    "population": 3857037,
+    "digital_access_score": 0.47,
+    "service_access_score": 0.467,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 57.6,
+      "smartphone_ownership_pct": 52.8,
+      "digital_skills_pct": 37.4,
+      "gender_gap_pct": 13.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 285,
+      "education_facility_count": 1080,
+      "transit_point_count": 330,
+      "healthcare_per_capita": 7.39,
+      "education_per_capita": 28.0,
+      "transit_per_capita": 8.56,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "moulvibazar",
+    "name": "Moulvibazar",
+    "division": "Sylhet Division",
+    "population": 2121667,
+    "digital_access_score": 0.302,
+    "service_access_score": 0.397,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 46.3,
+      "smartphone_ownership_pct": 41.6,
+      "digital_skills_pct": 29.0,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 140,
+      "education_facility_count": 580,
+      "transit_point_count": 165,
+      "healthcare_per_capita": 6.6,
+      "education_per_capita": 27.34,
+      "transit_per_capita": 7.78,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "habiganj",
+    "name": "Habiganj",
+    "division": "Sylhet Division",
+    "population": 2358886,
+    "digital_access_score": 0.164,
+    "service_access_score": 0.229,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 37.1,
+      "smartphone_ownership_pct": 32.6,
+      "digital_skills_pct": 22.0,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 130,
+      "education_facility_count": 540,
+      "transit_point_count": 145,
+      "healthcare_per_capita": 5.51,
+      "education_per_capita": 22.89,
+      "transit_per_capita": 6.15,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "sunamganj",
+    "name": "Sunamganj",
+    "division": "Sylhet Division",
+    "population": 2695495,
+    "digital_access_score": 0.104,
+    "service_access_score": 0.049,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 31.4,
+      "smartphone_ownership_pct": 26.9,
+      "digital_skills_pct": 17.8,
+      "gender_gap_pct": 13.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 115,
+      "education_facility_count": 510,
+      "transit_point_count": 110,
+      "healthcare_per_capita": 4.27,
+      "education_per_capita": 18.92,
+      "transit_per_capita": 4.08,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "rangpur",
+    "name": "Rangpur",
+    "division": "Rangpur Division",
+    "population": 3169615,
+    "digital_access_score": 0.329,
+    "service_access_score": 0.427,
+    "double_gap_flag": false,
+    "digital_breakdown": {
+      "internet_usage_pct": 48.2,
+      "smartphone_ownership_pct": 43.5,
+      "digital_skills_pct": 30.5,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 220,
+      "education_facility_count": 870,
+      "transit_point_count": 260,
+      "healthcare_per_capita": 6.94,
+      "education_per_capita": 27.45,
+      "transit_per_capita": 8.2,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "dinajpur",
+    "name": "Dinajpur",
+    "division": "Rangpur Division",
+    "population": 3315238,
+    "digital_access_score": 0.28,
+    "service_access_score": 0.37,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 44.6,
+      "smartphone_ownership_pct": 39.9,
+      "digital_skills_pct": 28.0,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 205,
+      "education_facility_count": 920,
+      "transit_point_count": 240,
+      "healthcare_per_capita": 6.18,
+      "education_per_capita": 27.75,
+      "transit_per_capita": 7.24,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "gaibandha",
+    "name": "Gaibandha",
+    "division": "Rangpur Division",
+    "population": 2562232,
+    "digital_access_score": 0.129,
+    "service_access_score": 0.125,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 33.8,
+      "smartphone_ownership_pct": 29.4,
+      "digital_skills_pct": 19.8,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 120,
+      "education_facility_count": 530,
+      "transit_point_count": 130,
+      "healthcare_per_capita": 4.68,
+      "education_per_capita": 20.69,
+      "transit_per_capita": 5.07,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "kurigram",
+    "name": "Kurigram",
+    "division": "Rangpur Division",
+    "population": 2329161,
+    "digital_access_score": 0.083,
+    "service_access_score": 0.034,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 29.1,
+      "smartphone_ownership_pct": 24.8,
+      "digital_skills_pct": 16.2,
+      "gender_gap_pct": 13.0,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 95,
+      "education_facility_count": 440,
+      "transit_point_count": 90,
+      "healthcare_per_capita": 4.08,
+      "education_per_capita": 18.89,
+      "transit_per_capita": 3.86,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "lalmonirhat",
+    "name": "Lalmonirhat",
+    "division": "Rangpur Division",
+    "population": 1428406,
+    "digital_access_score": 0.14,
+    "service_access_score": 0.225,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 34.5,
+      "smartphone_ownership_pct": 30.1,
+      "digital_skills_pct": 20.4,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 78,
+      "education_facility_count": 330,
+      "transit_point_count": 85,
+      "healthcare_per_capita": 5.46,
+      "education_per_capita": 23.1,
+      "transit_per_capita": 5.95,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "nilphamari",
+    "name": "Nilphamari",
+    "division": "Rangpur Division",
+    "population": 2092567,
+    "digital_access_score": 0.164,
+    "service_access_score": 0.199,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 37.0,
+      "smartphone_ownership_pct": 32.5,
+      "digital_skills_pct": 22.1,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 110,
+      "education_facility_count": 470,
+      "transit_point_count": 120,
+      "healthcare_per_capita": 5.26,
+      "education_per_capita": 22.46,
+      "transit_per_capita": 5.73,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "panchagarh",
+    "name": "Panchagarh",
+    "division": "Rangpur Division",
+    "population": 1179843,
+    "digital_access_score": 0.195,
+    "service_access_score": 0.318,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 39.2,
+      "smartphone_ownership_pct": 34.7,
+      "digital_skills_pct": 23.8,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 72,
+      "education_facility_count": 310,
+      "transit_point_count": 75,
+      "healthcare_per_capita": 6.1,
+      "education_per_capita": 26.27,
+      "transit_per_capita": 6.36,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "thakurgaon",
+    "name": "Thakurgaon",
+    "division": "Rangpur Division",
+    "population": 1533895,
+    "digital_access_score": 0.178,
+    "service_access_score": 0.271,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 38.0,
+      "smartphone_ownership_pct": 33.5,
+      "digital_skills_pct": 22.9,
+      "gender_gap_pct": 13.6,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 88,
+      "education_facility_count": 380,
+      "transit_point_count": 95,
+      "healthcare_per_capita": 5.74,
+      "education_per_capita": 24.77,
+      "transit_per_capita": 6.19,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "mymensingh",
+    "name": "Mymensingh",
+    "division": "Mymensingh Division",
+    "population": 5899052,
+    "digital_access_score": 0.305,
+    "service_access_score": 0.187,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 46.5,
+      "smartphone_ownership_pct": 41.8,
+      "digital_skills_pct": 29.2,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 310,
+      "education_facility_count": 1280,
+      "transit_point_count": 340,
+      "healthcare_per_capita": 5.26,
+      "education_per_capita": 21.7,
+      "transit_per_capita": 5.76,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "jamalpur",
+    "name": "Jamalpur",
+    "division": "Mymensingh Division",
+    "population": 2499737,
+    "digital_access_score": 0.133,
+    "service_access_score": 0.126,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 34.0,
+      "smartphone_ownership_pct": 29.6,
+      "digital_skills_pct": 20.0,
+      "gender_gap_pct": 13.4,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 118,
+      "education_facility_count": 520,
+      "transit_point_count": 125,
+      "healthcare_per_capita": 4.72,
+      "education_per_capita": 20.8,
+      "transit_per_capita": 5.0,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "netrokona",
+    "name": "Netrokona",
+    "division": "Mymensingh Division",
+    "population": 2324856,
+    "digital_access_score": 0.089,
+    "service_access_score": 0.061,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 30.2,
+      "smartphone_ownership_pct": 25.9,
+      "digital_skills_pct": 17.1,
+      "gender_gap_pct": 13.2,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 98,
+      "education_facility_count": 460,
+      "transit_point_count": 95,
+      "healthcare_per_capita": 4.22,
+      "education_per_capita": 19.79,
+      "transit_per_capita": 4.09,
+      "source_citation": "OpenStreetMap"
+    }
+  },
+  {
+    "id": "sherpur",
+    "name": "Sherpur",
+    "division": "Mymensingh Division",
+    "population": 1445747,
+    "digital_access_score": 0.038,
+    "service_access_score": 0.052,
+    "double_gap_flag": true,
+    "digital_breakdown": {
+      "internet_usage_pct": 25.9,
+      "smartphone_ownership_pct": 21.5,
+      "digital_skills_pct": 14.0,
+      "gender_gap_pct": 13.0,
+      "source_citation": "BBS ICT Survey 2024-25"
+    },
+    "service_breakdown": {
+      "healthcare_facility_count": 61,
+      "education_facility_count": 285,
+      "transit_point_count": 55,
+      "healthcare_per_capita": 4.22,
+      "education_per_capita": 19.71,
+      "transit_per_capita": 3.8,
+      "source_citation": "OpenStreetMap"
+    }
+  }
+]

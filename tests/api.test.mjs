@@ -1,0 +1,59 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import path from "node:path";
+
+const dataFilePath = path.join(process.cwd(), "lib", "data", "districts.json");
+
+test("Data file exists and contains all 64 districts", () => {
+  assert.ok(fs.existsSync(dataFilePath), "districts.json must exist");
+  const raw = fs.readFileSync(dataFilePath, "utf8");
+  const districts = JSON.parse(raw);
+
+  assert.equal(districts.length, 64, "Must contain exactly 64 districts");
+});
+
+test("Dhaka and Sherpur adhere to benchmark expectations", () => {
+  const districts = JSON.parse(fs.readFileSync(dataFilePath, "utf8"));
+  const map = new Map(districts.map((d) => [d.id, d]));
+
+  const dhaka = map.get("dhaka");
+  assert.ok(dhaka, "Dhaka district must exist");
+  assert.equal(dhaka.digital_breakdown.internet_usage_pct, 77.1);
+  assert.ok(dhaka.digital_access_score > 0.7, "Dhaka digital score should be > 0.7");
+  assert.equal(dhaka.double_gap_flag, false, "Dhaka should not be double gap");
+
+  const sherpur = map.get("sherpur");
+  assert.ok(sherpur, "Sherpur district must exist");
+  assert.equal(sherpur.digital_breakdown.internet_usage_pct, 25.9);
+  assert.ok(sherpur.digital_access_score < 0.4, "Sherpur digital score should be < 0.4");
+  assert.ok(sherpur.service_access_score < 0.4, "Sherpur service score should be < 0.4");
+  assert.equal(sherpur.double_gap_flag, true, "Sherpur must be flagged as Double Gap");
+});
+
+test("Missing data fields are preserved as null (Rule 4: No fake data)", () => {
+  const districts = JSON.parse(fs.readFileSync(dataFilePath, "utf8"));
+  const bandarban = districts.find((d) => d.id === "bandarban");
+
+  assert.ok(bandarban, "Bandarban district must exist");
+  // Digital skills in hill tracts was set to null in raw data
+  assert.equal(
+    bandarban.digital_breakdown.digital_skills_pct,
+    null,
+    "Missing digital skills must be strictly null, not 0"
+  );
+});
+
+test("Two scores separation rule: scores are distinct and never blended", () => {
+  const districts = JSON.parse(fs.readFileSync(dataFilePath, "utf8"));
+
+  // Check that every district has both fields separately
+  for (const d of districts) {
+    assert.ok(
+      "digital_access_score" in d && "service_access_score" in d,
+      "Both separate score keys must exist"
+    );
+    assert.ok(!("exclusion_score" in d), "Blended exclusion_score is forbidden");
+    assert.ok(!("composite_score" in d), "Blended composite_score is forbidden");
+  }
+});
