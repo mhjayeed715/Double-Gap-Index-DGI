@@ -9,8 +9,10 @@ export default function Navbar() {
 
   const links = [
     { href: "/#map-section", label: "National Map", icon: Map },
+    { href: "/#mapcn-section", label: "GIS Vector Map", icon: Map },
     { href: "/#quadrant-section", label: "Quadrant Matrix", icon: BarChart3 },
-    { href: "/#explorer-section", label: "District Explorer", icon: Table },
+    { href: "/#division-chart-section", label: "Division Charts", icon: BarChart3 },
+    { href: "/#explorer-section", label: "District Table", icon: Table },
     { href: "/methodology", label: "Methodology", icon: BookOpen },
   ];
 
