@@ -84,11 +84,24 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
-          <div>
-            © {new Date().getFullYear()} Double Gap Index (DGI). Free, open-access policy research asset.
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-400 text-xs">
+          <div className="flex flex-wrap items-center gap-2">
+            <span>© {new Date().getFullYear()} Double Gap Index (DGI).</span>
+            <span className="hidden sm:inline text-slate-600">•</span>
+            <span>
+              Made by{" "}
+              <a
+                href="https://www.jayeed.pro.bd/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-cyan-400 hover:text-cyan-300 font-semibold underline underline-offset-4 decoration-cyan-500/40 hover:decoration-cyan-300 transition-colors inline-flex items-center gap-1"
+              >
+                Jayeed
+                <ExternalLink className="w-3 h-3 text-cyan-400/80" />
+              </a>
+            </span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 text-[11px] text-slate-500">
             <Link href="/methodology" className="hover:text-slate-300 transition-colors">
               Methodology & Limitations
             </Link>
@@ -100,6 +113,14 @@ export default function Footer() {
               Public API (REST)
               <ExternalLink className="w-2.5 h-2.5" />
             </Link>
+            <a
+              href="https://www.jayeed.pro.bd/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cyan-400 transition-colors font-medium text-slate-400"
+            >
+              Portfolio ↗
+            </a>
           </div>
         </div>
       </div>

@@ -480,6 +480,7 @@ Copyright (c) 2026 S. M. Mehrab Hossain Jayeed
 **S. M. Mehrab Hossain Jayeed**  
 🎓 *Developed as part of an interpretable AI and public policy intelligence initiative for regional equity in Bangladesh.*
 
+- 🌐 **Portfolio Website:** [https://www.jayeed.pro.bd/](https://www.jayeed.pro.bd/)
 - 🔗 **GitHub Profile:** [@mhjayeed715](https://github.com/mhjayeed715)
 - 📌 **Repository:** [https://github.com/mhjayeed715/Double-Gap-Index-DGI](https://github.com/mhjayeed715/Double-Gap-Index-DGI)
 
