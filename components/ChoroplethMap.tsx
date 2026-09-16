@@ -77,12 +77,12 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
   };
 
   return (
-    <section id="map-section" className="py-12 bg-white border-b border-slate-200">
+    <section id="map-section" className="py-6 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-3">
           <div>
-            <div className="flex items-center gap-2 mb-1.5">
+            <div className="flex items-center gap-2 mb-1">
               <span className="text-xs font-bold uppercase tracking-wider text-cyan-700 bg-cyan-50 px-2 py-0.5 rounded border border-cyan-200">
                 National Geographic View
               </span>
@@ -134,7 +134,7 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
         </div>
 
         {/* Division Filter Bar */}
-        <div className="flex flex-wrap items-center justify-between gap-3 mb-6 p-3 bg-slate-50 rounded-lg border border-slate-200 text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-3 mb-5 p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-xs">
           <div className="flex items-center gap-2">
             <Filter className="w-4 h-4 text-slate-400" />
             <span className="font-semibold text-slate-700">Filter by Division:</span>
@@ -175,9 +175,9 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
           {/* Left / Center: SVG Map */}
           <div className="lg:col-span-8 bg-slate-50/60 rounded-2xl border border-slate-200 p-4 sm:p-6 relative shadow-inner flex flex-col items-center">
             {/* SVG Choropleth */}
-            <div className="w-full max-w-[620px] aspect-[4/5] relative">
+            <div className="w-full max-w-[580px] aspect-[800/1020] relative">
               <svg
-                viewBox="0 0 800 1000"
+                viewBox="0 0 800 1020"
                 className="w-full h-full drop-shadow-sm select-none"
                 role="img"
                 aria-label="Bangladesh District Choropleth Map"
@@ -211,7 +211,6 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                     districtData?.division !== selectedDivision;
                   const isDoubleGap = districtData?.double_gap_flag;
                   const fillColor = getDistrictColor(feature.id);
-                  const isMajorHub = ["dhaka", "chattogram", "sylhet", "rajshahi", "khulna", "barishal", "rangpur", "mymensingh"].includes(feature.id);
 
                   return (
                     <g
@@ -226,7 +225,7 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                         fill={fillColor}
                         fillOpacity={isFilteredOut ? 0.15 : isHovered ? 1.0 : 0.9}
                         stroke={isHovered ? "#0f172a" : "#ffffff"}
-                        strokeWidth={isHovered ? 3 : 1}
+                        strokeWidth={isHovered ? 3 : 1.5}
                         strokeLinejoin="round"
                         className="transition-colors duration-150"
                       />
@@ -235,25 +234,24 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                       <circle
                         cx={feature.cx}
                         cy={feature.cy}
-                        r={isHovered ? 4.5 : isMajorHub ? 3 : 1.8}
-                        fill={isHovered ? "#0f172a" : isMajorHub ? "#1e293b" : "#64748b"}
-                        fillOpacity={isFilteredOut ? 0.2 : 0.9}
+                        r={isHovered ? 4.5 : 2}
+                        fill={isHovered ? "#0f172a" : "#475569"}
+                        fillOpacity={isFilteredOut ? 0.25 : 0.85}
                       />
 
-                      {/* Only display labels for Major Hubs or Hovered district to prevent illegible overlapping clutter */}
-                      {(isMajorHub || isHovered) && !isFilteredOut && (
-                        <text
-                          x={feature.cx}
-                          y={feature.cy - (isHovered ? 9 : 6)}
-                          textAnchor="middle"
-                          fontSize={isHovered ? "12" : "9"}
-                          fontWeight={isHovered ? "800" : "600"}
-                          fill={isHovered ? "#0f172a" : "#334155"}
-                          className="pointer-events-none select-none drop-shadow-[0_1px_2px_rgba(255,255,255,0.9)] tracking-tight"
-                        >
-                          {feature.name}
-                        </text>
-                      )}
+                      {/* Clear, legible district name label */}
+                      <text
+                        x={feature.cx}
+                        y={feature.cy - (isHovered ? 8 : 5)}
+                        textAnchor="middle"
+                        fontSize={isHovered ? "11" : "8"}
+                        fontWeight={isHovered ? "800" : isFilteredOut ? "500" : "600"}
+                        fill={isHovered ? "#0f172a" : isDoubleGap ? "#881337" : "#334155"}
+                        opacity={isFilteredOut ? 0.35 : 0.95}
+                        className="pointer-events-none select-none drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)] tracking-tight"
+                      >
+                        {feature.name}
+                      </text>
                     </g>
                   );
                 })}

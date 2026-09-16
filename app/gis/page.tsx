@@ -1,5 +1,5 @@
 import { getAllDistricts } from "@/lib/data";
-import MapcnExplorer from "@/components/MapcnExplorer";
+import GisVectorExplorer from "@/components/GisVectorExplorer";
 import Link from "next/link";
 import { ArrowLeft, Map as MapIcon, Globe, Layers } from "lucide-react";
 
@@ -26,7 +26,7 @@ export default async function GisPage() {
             </Link>
             <span className="text-slate-300">/</span>
             <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
-              GIS Vector Explorer (mapcn)
+              High-Precision GIS Vector Map
             </span>
           </div>
 
@@ -42,9 +42,9 @@ export default async function GisPage() {
         </div>
       </div>
 
-      {/* Main Mapcn Component */}
+      {/* Main Vector Map Component */}
       <main className="py-6">
-        <MapcnExplorer districts={districts} />
+        <GisVectorExplorer districts={districts} />
       </main>
     </div>
   );

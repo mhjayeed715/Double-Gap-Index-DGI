@@ -34,30 +34,29 @@ print(f"Bangladesh bounds: Lon [{min_lon:.4f}, {max_lon:.4f}], Lat [{min_lat:.4f
 # SVG Viewport setup
 width = 800
 height = 1000
-padding = 40
+padding = 45
 
-# Mercator projection formula:
-# x = lon
-# y = ln(tan(pi/4 + lat/2))
-def mercator_y(lat_deg):
-    lat_rad = math.radians(lat_deg)
-    return math.log(math.tan(math.pi / 4 + lat_rad / 2))
+mid_lat = (min_lat + max_lat) / 2.0
+cos_mid = math.cos(math.radians(mid_lat))
 
-merc_min_y = mercator_y(min_lat)
-merc_max_y = mercator_y(max_lat)
+dx = (max_lon - min_lon) * cos_mid
+dy = max_lat - min_lat
 
-scale_x = (width - 2 * padding) / (max_lon - min_lon)
-scale_y = (height - 2 * padding) / (merc_max_y - merc_min_y)
+scale_x = (width - 2 * padding) / dx
+scale_y = (height - 2 * padding) / dy
 scale = min(scale_x, scale_y)
 
-# Center the map in viewport
-offset_x = padding + ((width - 2 * padding) - (max_lon - min_lon) * scale) / 2
-offset_y = padding + ((height - 2 * padding) - (merc_max_y - merc_min_y) * scale) / 2
+w_px = dx * scale
+h_px = dy * scale
+
+offset_x = (width - w_px) / 2.0
+offset_y = (height - h_px) / 2.0
+
+print(f"Scale: {scale:.2f}, Width px: {w_px:.1f}, Height px: {h_px:.1f}, Offset: ({offset_x:.1f}, {offset_y:.1f})")
 
 def project(lon, lat):
-    x = offset_x + (lon - min_lon) * scale
-    # Invert Y for SVG (top is 0)
-    y = offset_y + (merc_max_y - mercator_y(lat)) * scale
+    x = offset_x + (lon - min_lon) * cos_mid * scale
+    y = offset_y + (max_lat - lat) * scale
     return round(x, 1), round(y, 1)
 
 def polygon_to_path(rings):
@@ -66,7 +65,6 @@ def polygon_to_path(rings):
         pts = [project(p[0], p[1]) for p in ring]
         if not pts:
             continue
-        # Deduplicate consecutive points
         dedup = [pts[0]]
         for p in pts[1:]:
             if p != dedup[-1]:
@@ -105,7 +103,7 @@ for feat in geo["features"]:
             for ring in poly:
                 all_pts.extend(ring)
 
-    # Compute area-weighted or mean centroid
+    # Compute centroid
     c_lon = sum(p[0] for p in all_pts) / len(all_pts)
     c_lat = sum(p[1] for p in all_pts) / len(all_pts)
     cx, cy = project(c_lon, c_lat)
@@ -125,17 +123,15 @@ for feat in geo["features"]:
 features_out.sort(key=lambda x: x["id"])
 
 print(f"Generated {len(features_out)} exact geographic district paths!")
-# Print sample
-sample = features_out[0]
-print("Sample district:", sample["name"], "Path length:", len(sample["d"]), "Centroid:", sample["cx"], sample["cy"])
+sample = [f for f in features_out if f["id"] == "dhaka"][0]
+print("Dhaka:", sample["cx"], sample["cy"], "Panchagarh:", [f for f in features_out if f["id"] == "panchagarh"][0]["cy"])
 
 with open("lib/data/accurate_districts_map.json", "w", encoding="utf-8") as f:
     json.dump(features_out, f, indent=2)
 
-# Also generate the TypeScript file lib/data/map_coordinates.ts
 ts_content = f"""/**
  * Authentic, exact area-wise geographic boundaries for all 64 districts of Bangladesh.
- * Sourced from official BBS/OCHA administrative boundary datasets with full Mercator SVG projection.
+ * Projected with accurate geographic aspect ratio from official BBS/OCHA administrative shapefiles.
  * Viewport: 0 0 {width} {height}
  */
 

@@ -12,13 +12,13 @@ import {
   MapGeoJSON,
 } from "@/components/ui/map";
 import { District } from "@/lib/types";
-import { MapPin, Layers, Globe, AlertTriangle, ArrowUpRight, Compass } from "lucide-react";
+import { MapPin, Layers, AlertTriangle, ArrowUpRight, Compass } from "lucide-react";
 
-interface MapcnExplorerProps {
+interface GisVectorExplorerProps {
   districts: District[];
 }
 
-export default function MapcnExplorer({ districts }: MapcnExplorerProps) {
+export default function GisVectorExplorer({ districts }: GisVectorExplorerProps) {
   const [useBlankBasemap, setUseBlankBasemap] = useState(false);
   const [selectedDistrictId, setSelectedDistrictId] = useState<string>("sherpur");
 
@@ -39,22 +39,22 @@ export default function MapcnExplorer({ districts }: MapcnExplorerProps) {
   const districtDataMap = new globalThis.Map(districts.map((d) => [d.id, d]));
 
   return (
-    <section id="mapcn-section" className="py-12 bg-white border-b border-slate-200">
+    <section id="gis-vector-section" className="py-12 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-xs font-bold uppercase tracking-wider text-indigo-700 bg-indigo-50 px-2.5 py-0.5 rounded border border-indigo-200 flex items-center gap-1">
-                <Globe className="w-3.5 h-3.5 text-indigo-600" />
-                mapcn • MapLibre GL Integration
+              <span className="text-xs font-bold uppercase tracking-wider text-cyan-800 bg-cyan-50 px-2.5 py-0.5 rounded border border-cyan-200 flex items-center gap-1">
+                <Compass className="w-3.5 h-3.5 text-cyan-600" />
+                MapLibre GL • Vector Cartography
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
-              High-Precision GIS Vector Map (mapcn)
+              High-Precision GIS Vector Map
             </h2>
             <p className="text-sm text-slate-500 mt-1 max-w-2xl">
-              Built using mapcn components. Toggle between the CARTO tiled basemap (streets & labels) and the transparent data canvas (`&lt;Map blank&gt;`) with GeoJSON boundaries.
+              Interactive geospatial explorer. Toggle between the CARTO tiled basemap (streets & labels) and the transparent data canvas (<code className="font-mono text-xs bg-slate-100 px-1 py-0.5 rounded">&lt;Map blank&gt;</code>) with GeoJSON boundaries.
             </p>
           </div>
 
@@ -196,7 +196,7 @@ export default function MapcnExplorer({ districts }: MapcnExplorerProps) {
             </span>
           </div>
           <div className="text-[11px] text-slate-400">
-            Powered by <strong>@mapcn/map</strong> (MapLibre GL & CARTO Positron / Natural Earth vector)
+            Powered by <strong>MapLibre GL</strong> & CARTO Positron vector tiles with authentic BBS/OCHA administrative boundaries
           </div>
         </div>
       </div>

@@ -257,7 +257,7 @@ export default async function HomePage() {
                   High-Precision GIS Vector Map
                 </h3>
                 <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-                  Explore streets, highways, and geographic landmarks using mapcn vector tiles with interactive district markers and blank GeoJSON boundary toggles.
+                  Explore streets, highways, and geographic landmarks using high-resolution vector tiles with interactive district markers and blank GeoJSON boundary toggles.
                 </p>
               </div>
 
