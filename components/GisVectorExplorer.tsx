@@ -86,37 +86,36 @@ export default function GisVectorExplorer({ districts }: GisVectorExplorerProps)
         </div>
 
         {/* Sized Map Container */}
-        <div className="relative h-[560px] w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950">
+        <div className="relative h-[560px] w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100">
           <Map
             key={useBlankBasemap ? "map-blank" : "map-carto"}
             center={[90.3563, 23.8500]}
             zoom={6.15}
             blank={useBlankBasemap}
+            theme="light"
             className="w-full h-full"
           >
             <MapControls position="top-right" showZoom showCompass showFullscreen showLocate />
 
-            {/* If blank map is active, render authentic Bangladesh 64-district GeoJSON */}
-            {useBlankBasemap && (
-              <MapGeoJSON
-                id="bangladesh-district-borders"
-                data="/data/bangladesh_districts.geojson"
-                fillPaint={{
-                  "fill-color": "#0284c7",
-                  "fill-opacity": 0.15,
-                }}
-                linePaint={{
-                  "line-color": "#38bdf8",
-                  "line-width": 1.2,
-                  "line-opacity": 0.85,
-                }}
-                fillHoverPaint={{
-                  "fill-color": "#38bdf8",
-                  "fill-opacity": 0.35,
-                }}
-                interactive
-              />
-            )}
+            {/* Authentic Bangladesh 64-district GeoJSON Boundaries */}
+            <MapGeoJSON
+              id="bangladesh-district-borders"
+              data="/data/bangladesh_districts.geojson"
+              fillPaint={{
+                "fill-color": useBlankBasemap ? "#0284c7" : "#0891b2",
+                "fill-opacity": useBlankBasemap ? 0.20 : 0.12,
+              }}
+              linePaint={{
+                "line-color": useBlankBasemap ? "#0284c7" : "#0f766e",
+                "line-width": 1.4,
+                "line-opacity": 0.85,
+              }}
+              fillHoverPaint={{
+                "fill-color": "#38bdf8",
+                "fill-opacity": 0.35,
+              }}
+              interactive
+            />
 
             {/* Interactive District Markers */}
             {keyDistricts.map((d) => {
