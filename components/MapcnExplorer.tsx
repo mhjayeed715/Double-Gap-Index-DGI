@@ -95,19 +95,19 @@ export default function MapcnExplorer({ districts }: MapcnExplorerProps) {
           >
             <MapControls position="top-right" showZoom showCompass showFullscreen showLocate />
 
-            {/* If blank map is active, render world/country border GeoJSON */}
+            {/* If blank map is active, render authentic Bangladesh 64-district GeoJSON */}
             {useBlankBasemap && (
               <MapGeoJSON
-                id="world-countries-borders"
-                data="https://cdn.jsdelivr.net/gh/nvkelso/natural-earth-vector@v5.1.2/geojson/ne_110m_admin_0_countries.geojson"
+                id="bangladesh-district-borders"
+                data="/data/bangladesh_districts.geojson"
                 fillPaint={{
-                  "fill-color": "#1e293b",
-                  "fill-opacity": 0.6,
+                  "fill-color": "#0f172a",
+                  "fill-opacity": 0.45,
                 }}
                 linePaint={{
                   "line-color": "#38bdf8",
-                  "line-width": 1,
-                  "line-opacity": 0.8,
+                  "line-width": 1.5,
+                  "line-opacity": 0.9,
                 }}
               />
             )}

@@ -177,7 +177,7 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
             {/* SVG Choropleth */}
             <div className="w-full max-w-[620px] aspect-[4/5] relative">
               <svg
-                viewBox="0 0 800 1020"
+                viewBox="0 0 800 1000"
                 className="w-full h-full drop-shadow-sm select-none"
                 role="img"
                 aria-label="Bangladesh District Choropleth Map"
