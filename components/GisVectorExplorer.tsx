@@ -86,10 +86,11 @@ export default function GisVectorExplorer({ districts }: GisVectorExplorerProps)
         </div>
 
         {/* Sized Map Container */}
-        <div className="relative h-[520px] w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950">
+        <div className="relative h-[560px] w-full rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-950">
           <Map
-            center={[90.3563, 23.6850]}
-            zoom={6.8}
+            key={useBlankBasemap ? "map-blank" : "map-carto"}
+            center={[90.3563, 23.8500]}
+            zoom={6.15}
             blank={useBlankBasemap}
             className="w-full h-full"
           >
@@ -101,14 +102,19 @@ export default function GisVectorExplorer({ districts }: GisVectorExplorerProps)
                 id="bangladesh-district-borders"
                 data="/data/bangladesh_districts.geojson"
                 fillPaint={{
-                  "fill-color": "#0f172a",
-                  "fill-opacity": 0.45,
+                  "fill-color": "#0284c7",
+                  "fill-opacity": 0.15,
                 }}
                 linePaint={{
                   "line-color": "#38bdf8",
-                  "line-width": 1.5,
-                  "line-opacity": 0.9,
+                  "line-width": 1.2,
+                  "line-opacity": 0.85,
                 }}
+                fillHoverPaint={{
+                  "fill-color": "#38bdf8",
+                  "fill-opacity": 0.35,
+                }}
+                interactive
               />
             )}
 

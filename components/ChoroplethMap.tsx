@@ -175,9 +175,9 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
           {/* Left / Center: SVG Map */}
           <div className="lg:col-span-8 bg-slate-50/60 rounded-2xl border border-slate-200 p-4 sm:p-6 relative shadow-inner flex flex-col items-center">
             {/* SVG Choropleth */}
-            <div className="w-full max-w-[580px] aspect-[800/1020] relative">
+            <div className="w-full max-w-[580px] aspect-[800/1000] relative">
               <svg
-                viewBox="0 0 800 1020"
+                viewBox="0 0 800 1000"
                 className="w-full h-full drop-shadow-sm select-none"
                 role="img"
                 aria-label="Bangladesh District Choropleth Map"
@@ -225,7 +225,7 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                         fill={fillColor}
                         fillOpacity={isFilteredOut ? 0.15 : isHovered ? 1.0 : 0.9}
                         stroke={isHovered ? "#0f172a" : "#ffffff"}
-                        strokeWidth={isHovered ? 3 : 1.5}
+                        strokeWidth={isHovered ? 2.5 : 1}
                         strokeLinejoin="round"
                         className="transition-colors duration-150"
                       />
@@ -234,7 +234,7 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                       <circle
                         cx={feature.cx}
                         cy={feature.cy}
-                        r={isHovered ? 4.5 : 2}
+                        r={isHovered ? 4 : 1.8}
                         fill={isHovered ? "#0f172a" : "#475569"}
                         fillOpacity={isFilteredOut ? 0.25 : 0.85}
                       />
@@ -244,9 +244,9 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                         x={feature.cx}
                         y={feature.cy - (isHovered ? 8 : 5)}
                         textAnchor="middle"
-                        fontSize={isHovered ? "11" : "8"}
+                        fontSize={isHovered ? "11" : "7.5"}
                         fontWeight={isHovered ? "800" : isFilteredOut ? "500" : "600"}
-                        fill={isHovered ? "#0f172a" : isDoubleGap ? "#881337" : "#334155"}
+                        fill={isHovered ? "#0f172a" : isDoubleGap && activeMetric === "doublegap" ? "#881337" : "#334155"}
                         opacity={isFilteredOut ? 0.35 : 0.95}
                         className="pointer-events-none select-none drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)] tracking-tight"
                       >
