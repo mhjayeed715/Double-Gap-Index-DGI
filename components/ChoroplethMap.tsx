@@ -10,6 +10,51 @@ interface ChoroplethMapProps {
   districts: District[];
 }
 
+// Fine-tuned label coordinates and area-proportional font sizing to eliminate overlap
+const DISTRICT_LABEL_CONFIG: Record<
+  string,
+  { dx?: number; dy?: number; fontSize?: number }
+> = {
+  // Dense / small districts - compact font and non-overlapping centroid offsets
+  narayanganj: { dx: 5, dy: 3, fontSize: 5.6 },
+  dhaka: { dx: -6, dy: -2, fontSize: 6.0 },
+  munshiganj: { dx: -2, dy: 6, fontSize: 5.6 },
+  gazipur: { dx: 0, dy: -6, fontSize: 6.4 },
+  narsingdi: { dx: 6, dy: -2, fontSize: 6.0 },
+  manikganj: { dx: -6, dy: 0, fontSize: 6.2 },
+  shariatpur: { dx: 5, dy: 1, fontSize: 5.8 },
+  madaripur: { dx: -5, dy: 0, fontSize: 5.8 },
+  jhalokati: { dx: 4, dy: -2, fontSize: 5.6 },
+  pirojpur: { dx: -4, dy: 2, fontSize: 6.0 },
+  meherpur: { dx: -4, dy: -2, fontSize: 5.6 },
+  chuadanga: { dx: 4, dy: 3, fontSize: 5.8 },
+  feni: { dx: 4, dy: -2, fontSize: 5.8 },
+  joypurhat: { dx: 0, dy: 0, fontSize: 5.8 },
+  magura: { dx: 0, dy: 0, fontSize: 6.0 },
+  narail: { dx: 0, dy: 0, fontSize: 6.0 },
+  rajbari: { dx: 0, dy: 0, fontSize: 6.0 },
+  sherpur: { dx: 3, dy: 0, fontSize: 6.2 },
+  jamalpur: { dx: -3, dy: 0, fontSize: 6.4 },
+  chandpur: { dx: 3, dy: 0, fontSize: 6.2 },
+  lakshmipur: { dx: -2, dy: 0, fontSize: 6.4 },
+  gopalganj: { dx: -3, dy: 0, fontSize: 6.4 },
+  kushtia: { dx: 0, dy: 0, fontSize: 6.4 },
+  jhenaidah: { dx: 0, dy: 0, fontSize: 6.4 },
+
+  // Large expansive districts - comfortable 8.0px font
+  chattogram: { fontSize: 8.0 },
+  rangamati: { fontSize: 8.2 },
+  bandarban: { fontSize: 8.0 },
+  khagrachhari: { fontSize: 7.8 },
+  coxs_bazar: { fontSize: 7.8 },
+  khulna: { fontSize: 8.0 },
+  bagerhat: { fontSize: 7.8 },
+  dinajpur: { fontSize: 8.0 },
+  mymensingh: { fontSize: 8.0 },
+  sunamganj: { fontSize: 8.0 },
+  sylhet: { fontSize: 8.0 },
+};
+
 export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
   const [activeMetric, setActiveMetric] = useState<ScoreType>("doublegap");
   const [selectedDivision, setSelectedDivision] = useState<string>("all");
@@ -40,6 +85,36 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
     }
     return districtMap.get("sherpur") || districts[0];
   }, [hoveredDistrictId, selectedDistrictId, districtMap, districts]);
+
+  // Active feature geometry for top-layer highlight overlay
+  const activeFeatureId = hoveredDistrictId || selectedDistrictId;
+  const activeFeature = useMemo(() => {
+    if (!activeFeatureId) return null;
+    return BANGLADESH_DISTRICTS_MAP.find((f) => f.id === activeFeatureId) || null;
+  }, [activeFeatureId]);
+
+  // Dynamic theme colors for active outline and text (replaces harsh black with professional theme accent)
+  const themeColors = useMemo(() => {
+    if (activeMetric === "doublegap") {
+      return {
+        stroke: "#be123c", // refined rose-700
+        glow: "rgba(244, 63, 94, 0.40)", // rose-500 aura
+        text: "#881337", // rose-900
+      };
+    }
+    if (activeMetric === "digital") {
+      return {
+        stroke: "#0284c7", // sky-600 ocean cyan
+        glow: "rgba(56, 189, 248, 0.40)", // sky-400 aura
+        text: "#0369a1", // sky-700
+      };
+    }
+    return {
+      stroke: "#d97706", // amber-600 warm gold
+      glow: "rgba(251, 191, 36, 0.40)", // amber-400 aura
+      text: "#92400e", // amber-800
+    };
+  }, [activeMetric]);
 
   // Color determination function
   const getDistrictColor = (districtId: string) => {
@@ -202,59 +277,107 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                   </pattern>
                 </defs>
 
-                {/* Render All 64 Districts */}
-                {BANGLADESH_DISTRICTS_MAP.map((feature) => {
-                  const districtData = districtMap.get(feature.id);
-                  const isHovered = (hoveredDistrictId || selectedDistrictId) === feature.id;
-                  const isFilteredOut =
-                    selectedDivision !== "all" &&
-                    districtData?.division !== selectedDivision;
-                  const isDoubleGap = districtData?.double_gap_flag;
-                  const fillColor = getDistrictColor(feature.id);
+                {/* 1. Base District Polygons Layer */}
+                <g id="district-polygons">
+                  {BANGLADESH_DISTRICTS_MAP.map((feature) => {
+                    const districtData = districtMap.get(feature.id);
+                    const isFilteredOut =
+                      selectedDivision !== "all" &&
+                      districtData?.division !== selectedDivision;
+                    const isHovered = (hoveredDistrictId || selectedDistrictId) === feature.id;
+                    const fillColor = getDistrictColor(feature.id);
 
-                  return (
-                    <g
-                      key={feature.id}
-                      className="cursor-pointer transition-all duration-150"
-                      onMouseEnter={() => setHoveredDistrictId(feature.id)}
-                      onMouseLeave={() => setHoveredDistrictId(null)}
-                      onClick={() => setSelectedDistrictId(feature.id)}
-                    >
+                    return (
                       <path
+                        key={feature.id}
                         d={feature.d}
                         fill={fillColor}
-                        fillOpacity={isFilteredOut ? 0.15 : isHovered ? 1.0 : 0.9}
-                        stroke={isHovered ? "#0f172a" : "#ffffff"}
-                        strokeWidth={isHovered ? 2.5 : 1}
+                        fillOpacity={isFilteredOut ? 0.15 : isHovered ? 1.0 : 0.88}
+                        stroke="#ffffff"
+                        strokeWidth={0.8}
+                        strokeOpacity={0.95}
                         strokeLinejoin="round"
-                        className="transition-colors duration-150"
+                        strokeLinecap="round"
+                        className="cursor-pointer transition-colors duration-150"
+                        onMouseEnter={() => setHoveredDistrictId(feature.id)}
+                        onMouseLeave={() => setHoveredDistrictId(null)}
+                        onClick={() => setSelectedDistrictId(feature.id)}
                       />
+                    );
+                  })}
+                </g>
 
-                      {/* District Center Marker */}
-                      <circle
-                        cx={feature.cx}
-                        cy={feature.cy}
-                        r={isHovered ? 4 : 1.8}
-                        fill={isHovered ? "#0f172a" : "#475569"}
-                        fillOpacity={isFilteredOut ? 0.25 : 0.85}
-                      />
+                {/* 2. Active / Hovered District Outline Overlay (Rendered ON TOP of all polygons) */}
+                {activeFeature && (
+                  <g id="active-district-outline" className="pointer-events-none">
+                    {/* Soft luminous aura */}
+                    <path
+                      d={activeFeature.d}
+                      fill="none"
+                      stroke={themeColors.glow}
+                      strokeWidth={4.5}
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                    />
+                    {/* Crisp accent border (replaces harsh black outline with professional executive theme stroke) */}
+                    <path
+                      d={activeFeature.d}
+                      fill="none"
+                      stroke={themeColors.stroke}
+                      strokeWidth={1.8}
+                      strokeLinejoin="round"
+                      strokeLinecap="round"
+                    />
+                  </g>
+                )}
 
-                      {/* Clear, legible district name label */}
+                {/* 3. District Name Labels Layer (With SVG white halo, area-calibrated font size, and zero dot clutter) */}
+                <g id="district-labels" className="pointer-events-none select-none">
+                  {BANGLADESH_DISTRICTS_MAP.map((feature) => {
+                    const districtData = districtMap.get(feature.id);
+                    const isFilteredOut =
+                      selectedDivision !== "all" &&
+                      districtData?.division !== selectedDivision;
+                    const isHovered = (hoveredDistrictId || selectedDistrictId) === feature.id;
+                    const isDoubleGap = districtData?.double_gap_flag;
+
+                    const cfg = DISTRICT_LABEL_CONFIG[feature.id] || {};
+                    const baseSize = cfg.fontSize || 6.8;
+                    const currentSize = isHovered ? baseSize + 0.8 : baseSize;
+                    const posX = feature.cx + (cfg.dx || 0);
+                    const posY = feature.cy + (cfg.dy || 0);
+
+                    return (
                       <text
-                        x={feature.cx}
-                        y={feature.cy - (isHovered ? 8 : 5)}
+                        key={feature.id}
+                        x={posX}
+                        y={posY}
                         textAnchor="middle"
-                        fontSize={isHovered ? "11" : "7.5"}
-                        fontWeight={isHovered ? "800" : isFilteredOut ? "500" : "600"}
-                        fill={isHovered ? "#0f172a" : isDoubleGap && activeMetric === "doublegap" ? "#881337" : "#334155"}
-                        opacity={isFilteredOut ? 0.35 : 0.95}
-                        className="pointer-events-none select-none drop-shadow-[0_1px_2px_rgba(255,255,255,0.95)] tracking-tight"
+                        dominantBaseline="central"
+                        fontSize={currentSize}
+                        fontWeight={isHovered ? "700" : isFilteredOut ? "500" : "600"}
+                        fill={
+                          isHovered
+                            ? themeColors.text
+                            : isDoubleGap && activeMetric === "doublegap"
+                            ? "#9f1239"
+                            : "#334155"
+                        }
+                        opacity={isFilteredOut ? 0.25 : 0.95}
+                        style={{
+                          paintOrder: "stroke fill",
+                          stroke: "#ffffff",
+                          strokeWidth: isHovered ? "2.6px" : "2.0px",
+                          strokeLinejoin: "round",
+                          strokeLinecap: "round",
+                          letterSpacing: "-0.015em",
+                        }}
                       >
                         {feature.name}
                       </text>
-                    </g>
-                  );
-                })}
+                    );
+                  })}
+                </g>
               </svg>
             </div>
 
