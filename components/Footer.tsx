@@ -113,14 +113,6 @@ export default function Footer() {
               Public API (REST)
               <ExternalLink className="w-2.5 h-2.5" />
             </Link>
-            <a
-              href="https://www.jayeed.pro.bd/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-cyan-400 transition-colors font-medium text-slate-400"
-            >
-              Portfolio ↗
-            </a>
           </div>
         </div>
       </div>
