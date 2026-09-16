@@ -31,6 +31,14 @@ export const metadata: Metadata = {
     "Interpretable Machine Learning",
   ],
   authors: [{ name: "Double Gap Index Team" }],
+  icons: {
+    icon: [
+      { url: "/logo.jpeg" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
 };
 
 export default function RootLayout({

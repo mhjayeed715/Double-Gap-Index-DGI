@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { BookOpen, ExternalLink } from "lucide-react";
 
 export default function Footer() {
@@ -8,9 +9,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8 pb-8 border-b border-slate-800">
           {/* Col 1: About */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-7 h-7 rounded bg-white text-slate-900 flex items-center justify-center font-bold text-xs">
-                DGI
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="relative w-7 h-7 rounded-md overflow-hidden border border-slate-700 bg-white flex-shrink-0">
+                <Image
+                  src="/logo.jpeg"
+                  alt="Double Gap Index (DGI) Logo"
+                  width={28}
+                  height={28}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <span className="font-bold text-white text-sm tracking-tight">
                 Double Gap Index (Bangladesh)

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { BarChart3, Map, Table, BookOpen, AlertTriangle } from "lucide-react";
 
@@ -21,12 +22,19 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-sm shadow-sm group-hover:bg-slate-800 transition-colors">
-            DGI
+          <div className="relative w-9 h-9 rounded-lg overflow-hidden border border-slate-200 shadow-sm bg-white flex-shrink-0 group-hover:scale-105 transition-transform">
+            <Image
+              src="/logo.jpeg"
+              alt="Double Gap Index (DGI) Logo"
+              width={36}
+              height={36}
+              className="w-full h-full object-cover"
+              priority
+            />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-slate-900 tracking-tight text-base">
+              <span className="font-semibold text-slate-900 tracking-tight text-base group-hover:text-cyan-700 transition-colors">
                 Double Gap Index
               </span>
               <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-slate-100 text-slate-700 border border-slate-200">
