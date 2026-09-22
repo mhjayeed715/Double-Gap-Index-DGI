@@ -57,7 +57,7 @@ In development economics and spatial planning, regional vulnerability is typical
 The **Double Gap Index (DGI)** addresses a critical policy question for Bangladesh:
 > *Where do digital exclusion and physical service access gaps compound simultaneously, severing both digital workarounds and traditional physical safety nets?*
 
-By synthesizing district-level data from the **Bangladesh Bureau of Statistics (BBS) Population & Housing Census 2022 (Tables P24, P25, P27 - 100% CAPI Enumeration)**, travel-time accessibility models from **HeiGIT / Humanitarian Data Exchange (HDX)**, and verified administrative infrastructure registers, DGI isolates the geographic regions that require simultaneous dual-stream public capital co-investment.
+By synthesizing district-level data from the **Bangladesh Bureau of Statistics (BBS) Population & Housing Census 2022 (Admin 02 Dataset, 100% CAPI Enumeration across 165.1M individuals)**, travel-time accessibility models from **HeiGIT / Humanitarian Data Exchange (HDX)**, and verified administrative infrastructure registers, DGI isolates the geographic regions that require simultaneous dual-stream public capital co-investment.
 
 ---
 
@@ -215,10 +215,10 @@ graph TD
     classDef web fill:#e0f2fe,stroke:#0284c7,stroke-width:2px;
     classDef ui fill:#fdf4ff,stroke:#c026d3,stroke-width:2px;
 
-    BBS[Digital Indicator Pipeline <br> Modeled Demo Inputs]:::source
-    OSM[Physical Service Pipeline <br> Simulated Facility Counts]:::source
-    POP[BBS Census 2022 <br> Population records]:::source
-    GEO[OCHA / HDX Boundaries <br> GeoJSON Shapefiles]:::source
+    BBS[BBS Census 2022 <br> CAPI Enumeration Admin 02 <br> Internet, Mobile, MFS, Electricity]:::source
+    HEI[HeiGIT / HDX Accessibility <br> Travel-Time Models <br> Hospital 30m, School 5km]:::source
+    LGED[LGED Infrastructure GIS <br> Secondary Facility Registers <br> 78k Schools, 2.4k Clinics]:::source
+    GEO[OCHA / HDX Boundaries <br> Conformal District GeoJSON]:::source
 
     ETL[Python Scoring & Sensitivity Pipeline <br> compute_scores.py & sensitivity_analysis.py]:::etl
     SEED[Automated Supabase Seeder <br> seed_supabase.mjs]:::etl
@@ -234,8 +234,8 @@ graph TD
     ML[ML Archetypes <br> Centroid Profiles & Archetypes]:::ui
 
     BBS --> ETL
-    OSM --> ETL
-    POP --> ETL
+    HEI --> ETL
+    LGED --> ETL
     GEO --> ETL
 
     ETL --> SEED

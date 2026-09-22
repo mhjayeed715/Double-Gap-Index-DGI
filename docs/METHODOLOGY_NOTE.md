@@ -45,7 +45,7 @@ For each district $i \in \{1, \dots, 64\}$ and indicator $x$:
 $$\text{norm}(x_i) = \frac{x_i - \min(X)}{\max(X) - \min(X)}$$
 
 ### 2.2 Digital Access Score (DAS)
-Combines three normalized digital sub-indicators from BBS Population & Housing Census 2022 (Tables P24, P25, P27) with equal weighting ($w_j = \frac{1}{3}$):
+Combines three normalized digital sub-indicators from BBS Population & Housing Census 2022 (Admin 02 Dataset: Internet User, Mobile Phone, Mobile Banking) with equal weighting ($w_j = \frac{1}{3}$):
 $$\text{DAS}_i = \frac{1}{3} \cdot \text{norm}(I_i) + \frac{1}{3} \cdot \text{norm}(M_i) + \frac{1}{3} \cdot \text{norm}(B_i)$$
 * $I_i$: Percentage of population aged 15+ using internet.
 * $M_i$: Percentage of population aged 15+ owning a mobile phone.
@@ -60,7 +60,7 @@ Measures physical infrastructure accessibility from standardized HeiGIT travel-t
 $$\text{SAS}_i = \frac{1}{3} \cdot \text{norm}(H_i) + \frac{1}{3} \cdot \text{norm}(E_i) + \frac{1}{3} \cdot \text{norm}(P_i)$$
 * $H_i$: Percentage of population within 30 minutes travel time of a healthcare facility / hospital (HeiGIT HDX model).
 * $E_i$: Percentage of population within 5 km of a secondary school (HeiGIT HDX model).
-* $P_i$: Percentage of households connected to national electricity grid (BBS Census 2022 Table P01).
+* $P_i$: Percentage of households connected to national electricity grid (BBS Census 2022 Admin 02 Electricity Module).
 
 > **Spatial Join Audit & Registry Skew:** A complete spatial intersection of 78,129 raw LGED school points against district boundaries revealed extreme surveyor sampling skew (e.g. Mymensingh: 4,581 schools vs. Panchagarh: 6 schools, reflecting uneven administrative mapping coverage). Standardized travel-time accessibility models (HeiGIT openrouteservice models over OSM and WorldPop) are therefore used for the composite SAS, while raw LGED facility counts are reported as secondary administrative records.
 

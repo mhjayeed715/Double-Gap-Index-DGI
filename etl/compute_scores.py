@@ -324,5 +324,7 @@ def compute_all_scores(base_dir=None):
     print(f"Completed in {time.time() - t_start:.2f}s.")
     return final_records
 
+compute_dgi = compute_all_scores
+
 if __name__ == "__main__":
     compute_all_scores()

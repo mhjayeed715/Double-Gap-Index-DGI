@@ -10,7 +10,7 @@ import math
 
 # Add etl directory to path
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from compute_scores import min_max_scale, compute_dgi
+from compute_scores import min_max_scale, compute_all_scores
 
 
 def test_min_max_scale_basic():
@@ -60,28 +60,35 @@ def test_double_gap_flag_logic():
 
 
 def test_end_to_end_scoring_golden_paths():
-    """Test full pipeline runs across all 64 districts and verifies benchmark assertions."""
-    records = compute_dgi()
+    """Test full pipeline runs across all 64 districts and verifies empirical benchmark assertions."""
+    records = compute_all_scores()
 
     # Rule: All 64 Bangladeshi districts must be present
     assert len(records) == 64, f"Expected 64 districts, found {len(records)}"
 
     rec_map = {r["id"]: r for r in records}
 
-    # Golden check: Dhaka must have high digital access
+    # Golden check: Dhaka must have high digital access (60.97% census internet)
     assert "dhaka" in rec_map
     dhaka = rec_map["dhaka"]
-    assert dhaka["digital_breakdown"]["internet_usage_pct"] == 77.1
-    assert dhaka["digital_access_score"] > 0.7, f"Dhaka score {dhaka['digital_access_score']} <= 0.7"
+    assert dhaka["digital_breakdown"]["internet_usage_pct"] == 60.97
+    assert dhaka["digital_access_score"] > 0.9, f"Dhaka score {dhaka['digital_access_score']} <= 0.9"
     assert dhaka["double_gap_flag"] is False
 
-    # Golden check: Sherpur has 25.9% internet usage and should be a Double Gap district
+    # Golden check: Bandarban has acute service & digital constraints and is an Invariant Core Double Gap district
+    assert "bandarban" in rec_map
+    bandarban = rec_map["bandarban"]
+    assert bandarban["digital_breakdown"]["internet_usage_pct"] == 29.54
+    assert bandarban["digital_access_score"] < 0.40, f"Bandarban digital {bandarban['digital_access_score']} >= 0.40"
+    assert bandarban["service_access_score"] < 0.40, f"Bandarban service {bandarban['service_access_score']} >= 0.40"
+    assert bandarban["double_gap_flag"] is True
+    assert bandarban["is_invariant_core"] is True
+
+    # Golden check: Sherpur has 21.19% internet usage and exhibits a digital-only gap
     assert "sherpur" in rec_map
     sherpur = rec_map["sherpur"]
-    assert sherpur["digital_breakdown"]["internet_usage_pct"] == 25.9
-    assert sherpur["digital_access_score"] < 0.4, f"Sherpur digital {sherpur['digital_access_score']} >= 0.4"
-    assert sherpur["service_access_score"] < 0.4, f"Sherpur service {sherpur['service_access_score']} >= 0.4"
-    assert sherpur["double_gap_flag"] is True
+    assert sherpur["digital_breakdown"]["internet_usage_pct"] == 21.19
+    assert sherpur["quadrant"] == "DIGITAL_ONLY_GAP"
 
     # Two separate scores rule: scores must not be identical across all districts
     identical_count = sum(1 for r in records if r["digital_access_score"] == r["service_access_score"])
