@@ -21,7 +21,7 @@ export function TooltipContent({ title, rows, children }: TooltipContentProps) {
     <div className="overflow-hidden">
       <div className="px-3 py-2.5">
         {title && (
-          <div className="mb-2 text-left font-medium text-chart-tooltip-foreground text-xs">
+          <div className="mb-2 text-left font-bold text-white text-xs tracking-tight">
             {title}
           </div>
         )}
@@ -33,14 +33,14 @@ export function TooltipContent({ title, rows, children }: TooltipContentProps) {
             >
               <div className="flex items-center gap-2">
                 <span
-                  className="h-2.5 w-2.5 shrink-0 rounded-full"
+                  className="h-2.5 w-2.5 shrink-0 rounded-full shadow-xs"
                   style={{ backgroundColor: row.color }}
                 />
-                <span className="text-chart-tooltip-muted text-sm">
+                <span className="text-slate-200 text-xs font-medium capitalize">
                   {row.label}
                 </span>
               </div>
-              <span className="font-medium text-chart-tooltip-foreground text-sm tabular-nums">
+              <span className="font-bold text-white text-xs tabular-nums font-mono">
                 {typeof row.value === "number" ? intFmt(row.value) : row.value}
               </span>
             </div>

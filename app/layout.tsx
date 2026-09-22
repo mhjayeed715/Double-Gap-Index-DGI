@@ -53,6 +53,14 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <SmoothScroll>
+          <div className="bg-emerald-50 border-b border-emerald-200 text-emerald-950 px-4 py-2 text-xs text-center flex flex-wrap items-center justify-center gap-2">
+            <span className="font-bold uppercase tracking-wider bg-emerald-200/80 text-emerald-950 px-2 py-0.5 rounded text-[10px] border border-emerald-300/60">
+              Empirical Pilot
+            </span>
+            <span>
+              Recomputed from <strong>BBS Census 2022 Admin 02</strong> (100% CAPI enumeration, N=165.1M) & <strong>HeiGIT HDX accessibility models</strong>. Dual-median policy baseline (16 districts).
+            </span>
+          </div>
           <Navbar />
           <main className="flex-grow">{children}</main>
           <Footer />

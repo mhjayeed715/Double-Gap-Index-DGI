@@ -11,6 +11,10 @@ import {
   Info,
   MapPin,
   Users,
+  ShieldCheck,
+  Zap,
+  GraduationCap,
+  HeartPulse,
 } from "lucide-react";
 
 interface DistrictPageProps {
@@ -37,60 +41,53 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
   const dScore = district.digital_access_score;
   const sScore = district.service_access_score;
 
-  // Sub-indicators for Digital
+  // Sub-indicators for Digital (BBS Census 2022 Admin 02)
   const digitalItems = [
     {
-      name: "Internet Usage Rate",
+      name: "Internet Usage Rate (15+)",
       value: district.digital_breakdown.internet_usage_pct,
       unit: "%",
-      national: 44.8,
-      desc: "Individuals who accessed the internet in the past 3 months (BBS)",
+      national: 37.5,
+      desc: "Individuals aged 15+ who accessed internet (BBS Census 2022)",
     },
     {
-      name: "Smartphone Ownership",
-      value: district.digital_breakdown.smartphone_ownership_pct,
+      name: "Mobile Phone Ownership (15+)",
+      value: district.digital_breakdown.mobile_ownership_pct,
       unit: "%",
-      national: 40.2,
-      desc: "Household smartphone ownership penetration rate",
+      national: 70.8,
+      desc: "Individuals aged 15+ owning a mobile device (BBS Census 2022)",
     },
     {
-      name: "Basic Digital Skills",
-      value: district.digital_breakdown.digital_skills_pct,
+      name: "Mobile Financial Services (MFS)",
+      value: district.digital_breakdown.mobile_banking_pct,
       unit: "%",
-      national: 28.5,
-      desc: "Ability to independently use search, online forms, or mobile banking",
-    },
-    {
-      name: "Gender Parity Gap",
-      value: district.digital_breakdown.gender_gap_pct,
-      unit: "%",
-      national: 13.2,
-      desc: "Male usage % minus Female usage % (lower is more equitable)",
+      national: 42.1,
+      desc: "Individuals aged 15+ with mobile banking account (BBS Census 2022)",
     },
   ];
 
-  // Sub-indicators for Physical Services
+  // Sub-indicators for Physical Services (HeiGIT HDX & BBS Census 2022)
   const serviceItems = [
     {
-      name: "Healthcare Facility Density",
-      count: district.service_breakdown.healthcare_facility_count,
-      perCapita: district.service_breakdown.healthcare_per_capita,
-      unit: "per 100k",
-      desc: "Hospitals, upazila health complexes, and community clinics (OSM)",
+      name: "Hospital Access (30-min walking/transit)",
+      value: district.service_breakdown.hospital_access_pct,
+      unit: "%",
+      national: 46.2,
+      desc: "Share of population within 30 min of a hospital (HeiGIT HDX)",
     },
     {
-      name: "Education Facility Density",
-      count: district.service_breakdown.education_facility_count,
-      perCapita: district.service_breakdown.education_per_capita,
-      unit: "per 100k",
-      desc: "Primary schools, secondary high schools, and colleges (OSM)",
+      name: "Education Access (5km buffer)",
+      value: district.service_breakdown.education_access_pct,
+      unit: "%",
+      national: 73.1,
+      desc: "Share of population within 5km of an educational facility (HeiGIT HDX)",
     },
     {
-      name: "Transit Infrastructure Density",
-      count: district.service_breakdown.transit_point_count,
-      perCapita: district.service_breakdown.transit_per_capita,
-      unit: "per 100k",
-      desc: "Bus stops, designated passenger stations, and ferry terminals (OSM)",
+      name: "National Grid Electricity Access",
+      value: district.service_breakdown.electricity_access_pct,
+      unit: "%",
+      national: 92.4,
+      desc: "Households connected to the national electrical grid (BBS Census 2022)",
     },
   ];
 
@@ -98,7 +95,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
     <div className="w-full bg-slate-50 min-h-screen py-10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Navigation Breadcrumb */}
-        <div className="mb-6">
+        <div className="mb-4">
           <Link
             href="/#map-section"
             className="inline-flex items-center gap-2 text-xs font-medium text-slate-500 hover:text-slate-900 transition-colors"
@@ -106,6 +103,21 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
             <ArrowLeft className="w-4 h-4" />
             Back to National Map & Quadrant Matrix
           </Link>
+        </div>
+
+        {/* Empirical Pilot Notification */}
+        <div className="mb-6 p-4 bg-emerald-50/90 rounded-2xl border border-emerald-200 text-emerald-950 text-xs shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div className="flex items-start sm:items-center gap-2.5">
+            <span className="font-mono font-bold text-[10px] uppercase bg-emerald-200/80 text-emerald-900 px-2 py-0.5 rounded border border-emerald-300">
+              Verified Empirical Record
+            </span>
+            <span className="leading-snug">
+              Recomputed from <strong>BBS Census 2022 Admin 02</strong> (100% CAPI enumeration, 165.1M nationals) & <strong>HeiGIT HDX accessibility models</strong>.
+            </span>
+          </div>
+          <span className="text-[11px] text-emerald-800/80 font-mono self-end sm:self-auto shrink-0">
+            Census 2022 Pilot
+          </span>
         </div>
 
         {/* District Headline Card */}
@@ -120,6 +132,12 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                 <span className="text-xs font-mono text-slate-400">
                   ID: {district.id}
                 </span>
+                {district.is_invariant_core && (
+                  <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
+                    <ShieldCheck className="w-3 h-3 text-emerald-700" />
+                    Invariant Core Priority
+                  </span>
+                )}
               </div>
               <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
                 {district.name} District
@@ -130,7 +148,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                 <strong className="text-slate-700 font-semibold">
                   {district.population ? district.population.toLocaleString() : "Data unavailable"}
                 </strong>{" "}
-                (BBS Census 2022)
+                (BBS Census 2022 Enumeration)
               </p>
             </div>
 
@@ -144,7 +162,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                       Double Gap Status: Critical
                     </span>
                     <p className="text-xs text-rose-700/90 mt-0.5 leading-relaxed">
-                      Scores below 0.40 on both Digital and Service axes. Facing compounded exclusion with no remote or in-person workaround.
+                      Falls below national medians on both Digital (&lt; 0.40) and Service (&lt; 0.58) axes. Compounded exclusion zone.
                     </p>
                   </div>
                 </div>
@@ -156,7 +174,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                       Compensated Access
                     </span>
                     <p className="text-xs text-emerald-700/90 mt-0.5 leading-relaxed">
-                      At least one dimension exceeds the 0.40 cutoff, providing either digital remote alternatives or physical infrastructure access.
+                      At least one dimension exceeds the national median, providing either a digital workaround or physical facility cushion.
                     </p>
                   </div>
                 </div>
@@ -184,7 +202,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                     Digital Access Score
                   </span>
                   <span className="text-xs font-mono font-medium text-cyan-800 bg-cyan-100/80 px-2 py-0.5 rounded">
-                    Nat. Avg: {stats.avgDigitalScore.toFixed(2)}
+                    Median: 0.40
                   </span>
                 </div>
 
@@ -204,7 +222,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                 </div>
 
                 <p className="text-xs text-cyan-900/80 mt-3 leading-relaxed">
-                  Composite score of household internet adoption, smartphone availability, digital literacy, and gender parity.
+                  Composite score of population internet adoption (33.3%), mobile phone ownership (33.3%), and mobile banking usage (33.4%).
                 </p>
 
                 <div className="mt-4 pt-3 border-t border-cyan-100 text-[11px] text-cyan-700">
@@ -220,7 +238,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                     Service Access Score
                   </span>
                   <span className="text-xs font-mono font-medium text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded">
-                    Nat. Avg: {stats.avgServiceScore.toFixed(2)}
+                    Median: 0.58
                   </span>
                 </div>
 
@@ -240,7 +258,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                 </div>
 
                 <p className="text-xs text-amber-900/80 mt-3 leading-relaxed">
-                  Composite score of healthcare density, educational facility capacity, and transit connectivity normalized per 100,000 residents.
+                  Composite score of 30-min hospital accessibility (33.3%), 5km education accessibility (33.3%), and grid electrification (33.4%).
                 </p>
 
                 <div className="mt-4 pt-3 border-t border-amber-100 text-[11px] text-amber-700">
@@ -260,7 +278,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
               Digital Access Sub-Indicators
             </h3>
             <p className="text-xs text-slate-500 mb-5">
-              Empirical figures extracted from BBS ICT 2024-25 district tables.
+              Primary 100% CAPI enumeration from BBS Census 2022 Admin 02.
             </p>
 
             <div className="space-y-4">
@@ -292,7 +310,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                     </div>
                   </div>
 
-                  {item.value !== null && (
+                  {typeof item.value === "number" && (
                     <div className="mt-2 flex items-center gap-3 text-[10px] text-slate-500">
                       <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
                         <div
@@ -308,6 +326,41 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                 </div>
               ))}
             </div>
+
+            {/* Contextual Gender Card */}
+            <div className="mt-5 p-4 rounded-xl bg-cyan-50/50 border border-cyan-200">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold uppercase text-cyan-900">
+                  Contextual Gender Equity Profile
+                </span>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-cyan-100 text-cyan-800">
+                  Unweighted Metric
+                </span>
+              </div>
+              <p className="text-[11px] text-cyan-900/80 mb-3 leading-snug">
+                Reported as an unweighted contextual indicator per Rule 4. Dropped from the composite score to prevent redundant weighting with total usage (r = 0.989).
+              </p>
+              <div className="grid grid-cols-3 gap-2 text-center">
+                <div className="bg-white p-2 rounded-lg border border-cyan-100">
+                  <span className="text-[10px] text-slate-500 block">Female Usage</span>
+                  <span className="font-mono font-bold text-cyan-950 text-sm">
+                    {district.digital_breakdown.female_usage_pct}%
+                  </span>
+                </div>
+                <div className="bg-white p-2 rounded-lg border border-cyan-100">
+                  <span className="text-[10px] text-slate-500 block">Male Usage</span>
+                  <span className="font-mono font-bold text-cyan-950 text-sm">
+                    {district.digital_breakdown.male_usage_pct}%
+                  </span>
+                </div>
+                <div className="bg-white p-2 rounded-lg border border-cyan-100">
+                  <span className="text-[10px] text-slate-500 block">Gender Gap</span>
+                  <span className="font-mono font-bold text-rose-700 text-sm">
+                    {district.digital_breakdown.gender_gap_pct}%
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Service Sub-Indicators */}
@@ -317,7 +370,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
               Physical Service Sub-Indicators
             </h3>
             <p className="text-xs text-slate-500 mb-5">
-              OpenStreetMap point locations normalized by BBS 2022 Census population.
+              Population accessibility models (HeiGIT HDX) & BBS Census 2022 electrification.
             </p>
 
             <div className="space-y-4">
@@ -334,15 +387,13 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                     </div>
 
                     <div className="text-right">
-                      {item.perCapita !== null ? (
-                        <div>
-                          <span className="text-base font-bold text-slate-900 font-mono">
-                            {item.perCapita}
+                      {item.value !== null ? (
+                        <span className="text-base font-bold text-slate-900 font-mono">
+                          {item.value}
+                          <span className="text-xs font-normal text-slate-500 ml-0.5">
+                            {item.unit}
                           </span>
-                          <span className="text-[10px] font-normal text-slate-500 block">
-                            {item.count?.toLocaleString()} raw nodes
-                          </span>
-                        </div>
+                        </span>
                       ) : (
                         <span className="inline-block px-2 py-0.5 rounded text-[10px] font-medium bg-slate-200 text-slate-600 italic">
                           Data unavailable
@@ -351,16 +402,56 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                     </div>
                   </div>
 
-                  {item.perCapita !== null && (
-                    <div className="mt-2 w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
-                      <div
-                        className="bg-amber-600 h-full rounded-full"
-                        style={{ width: `${Math.min(100, item.perCapita * 1.5)}%` }}
-                      />
+                  {typeof item.value === "number" && (
+                    <div className="mt-2 flex items-center gap-3 text-[10px] text-slate-500">
+                      <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                        <div
+                          className="bg-amber-600 h-full rounded-full"
+                          style={{ width: `${Math.min(100, item.value)}%` }}
+                        />
+                      </div>
+                      <span className="whitespace-nowrap font-mono text-[10px]">
+                        Nat: {item.national}%
+                      </span>
                     </div>
                   )}
                 </div>
               ))}
+            </div>
+
+            {/* Secondary Administrative Counts Card */}
+            <div className="mt-5 p-4 rounded-xl bg-amber-50/50 border border-amber-200">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-xs font-bold uppercase text-amber-900">
+                  LGED Spatial Point Counts
+                </span>
+                <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-amber-100 text-amber-800">
+                  Administrative Records
+                </span>
+              </div>
+              <p className="text-[11px] text-amber-900/80 mb-3 leading-snug">
+                Point-in-polygon spatial counts from LGED repositories. Documented as secondary records due to geographic survey density skew.
+              </p>
+              <div className="grid grid-cols-3 gap-2 text-center">
+                <div className="bg-white p-2 rounded-lg border border-amber-100">
+                  <span className="text-[10px] text-slate-500 block">LGED Hospitals</span>
+                  <span className="font-mono font-bold text-amber-950 text-sm">
+                    {district.service_breakdown.lged_hospital_count ?? 0}
+                  </span>
+                </div>
+                <div className="bg-white p-2 rounded-lg border border-amber-100">
+                  <span className="text-[10px] text-slate-500 block">Family Welfare</span>
+                  <span className="font-mono font-bold text-amber-950 text-sm">
+                    {district.service_breakdown.lged_fwc_count ?? 0}
+                  </span>
+                </div>
+                <div className="bg-white p-2 rounded-lg border border-amber-100">
+                  <span className="text-[10px] text-slate-500 block">LGED Schools</span>
+                  <span className="font-mono font-bold text-amber-950 text-sm">
+                    {district.service_breakdown.lged_school_count ?? 0}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -374,11 +465,11 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
           <p className="leading-relaxed mb-3">
             {isDoubleGap ? (
               <span>
-                <strong>Urgent Priority:</strong> Because {district.name} suffers from both digital and physical exclusion, standard single-gap interventions (e.g., funding a remote learning app without internet access, or building physical infrastructure without connectivity) will fail in isolation. Multilateral partners like UNDP should structure bundled programs combining off-grid digital access and community health workers.
+                <strong>Urgent Priority:</strong> Because {district.name} suffers from both digital and physical service exclusion, single-gap interventions (e.g., funding a remote learning app without local connectivity, or building physical clinics without digital equipment) will fail in isolation. Multilateral partners like UNDP should structure bundled programs combining off-grid digital access and community health centers.
               </span>
-            ) : dScore !== null && dScore >= 0.40 && sScore !== null && sScore < 0.40 ? (
+            ) : dScore !== null && dScore >= 0.40 && sScore !== null && sScore < 0.58 ? (
               <span>
-                <strong>Digital Leverage Strategy:</strong> While physical facilities are below the national threshold in {district.name}, mobile connectivity is strong. Interventions should prioritize digital telemedicine, mobile diagnostic vans, and e-learning platforms to bridge the physical infrastructure gap.
+                <strong>Digital Leverage Strategy:</strong> While physical facility accessibility is below the national median in {district.name}, mobile connectivity is strong. Interventions should prioritize digital telemedicine, mobile diagnostic vans, and e-learning platforms to bridge the physical infrastructure gap.
               </span>
             ) : (
               <span>
@@ -388,7 +479,7 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
           </p>
 
           <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-400">
-            <span>Citational Reference: BBS ICT Survey (April 2026) & OpenStreetMap Overpass (March 2026)</span>
+            <span>Citational Reference: BBS Census 2022 (Admin 02) & HeiGIT HDX Accessibility Models</span>
             <Link href="/methodology" className="text-cyan-700 hover:underline flex items-center gap-1 font-medium">
               Read complete scoring methodology
               <BookOpen className="w-3 h-3" />

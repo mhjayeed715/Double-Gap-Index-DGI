@@ -116,14 +116,23 @@ export default function DistrictTable({ districts }: DistrictTableProps) {
       d.service_breakdown.transit_per_capita ?? "",
     ]);
 
-    const csvContent =
-      "data:text/csv;charset=utf-8," +
-      [headers.join(","), ...rows.map((e) => e.join(","))].join("\n");
+    const metadataLines = [
+      "# DOUBLE GAP INDEX (DGI) - DISTRICT DATA EXPORT",
+      "# NOTICE: PROTOTYPE DEMONSTRATION RECORD - Scores are outputs of modeled placeholder data for pipeline validation.",
+      "# NOT OFFICIAL EMPIRICAL MEASUREMENTS OF BANGLADESH DISTRICTS.",
+      `# Export Date: ${new Date().toISOString().slice(0, 10)}`,
+    ].join("\n");
 
-    const encodedUri = encodeURI(csvContent);
+    const csvBody = [
+      metadataLines,
+      headers.join(","),
+      ...rows.map((e) => e.join(",")),
+    ].join("\n");
+
+    const encodedUri = "data:text/csv;charset=utf-8," + encodeURIComponent(csvBody);
     const link = document.createElement("a");
     link.setAttribute("href", encodedUri);
-    link.setAttribute("download", `dgi_bangladesh_districts_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.setAttribute("download", `dgi_bangladesh_districts_demo_${new Date().toISOString().slice(0, 10)}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

@@ -8,12 +8,19 @@ import { AlertOctagon, Info, ArrowUpRight, Search } from "lucide-react";
 interface QuadrantChartProps {
   districts: District[];
   threshold?: number;
+  digitalThreshold?: number;
+  serviceThreshold?: number;
 }
 
 export default function QuadrantChart({
   districts,
-  threshold = 0.40,
+  threshold,
+  digitalThreshold = 0.3987,
+  serviceThreshold = 0.5829,
 }: QuadrantChartProps) {
+  const effectiveDigitalThreshold = threshold !== undefined ? threshold : digitalThreshold;
+  const effectiveServiceThreshold = threshold !== undefined && threshold !== 0.40 ? threshold : serviceThreshold;
+
   const [selectedDivision, setSelectedDivision] = useState<string>("all");
   const [hoveredDistrict, setHoveredDistrict] = useState<District | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
@@ -46,8 +53,8 @@ export default function QuadrantChart({
   const scaleX = (val: number) => padding.left + val * (width - padding.left - padding.right);
   const scaleY = (val: number) => height - padding.bottom - val * (height - padding.top - padding.bottom);
 
-  const thresholdX = scaleX(threshold);
-  const thresholdY = scaleY(threshold);
+  const thresholdX = scaleX(effectiveDigitalThreshold);
+  const thresholdY = scaleY(effectiveServiceThreshold);
 
   return (
     <section id="quadrant-section" className="py-12 bg-slate-50 border-b border-slate-200">
@@ -101,7 +108,12 @@ export default function QuadrantChart({
         {/* Chart + Callout Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Main SVG Scatter Plot */}
-          <div className="lg:col-span-8 bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-sm overflow-x-auto">
+          <div className="lg:col-span-8 bg-white rounded-2xl border border-slate-200 p-4 sm:p-6 shadow-sm overflow-x-auto relative">
+            {/* Viewport Floating Watermark */}
+            <div className="absolute top-4 right-4 pointer-events-none select-none px-2.5 py-1 bg-emerald-700 text-white text-[10px] font-mono font-bold tracking-wider rounded border border-emerald-600 shadow-xs uppercase z-10">
+              Empirical Pilot: Census 2022 & HeiGIT
+            </div>
+
             <div className="min-w-[640px]">
               <svg
                 viewBox={`0 0 ${width} ${height}`}
@@ -336,6 +348,31 @@ export default function QuadrantChart({
                     </g>
                   );
                 })}
+
+                {/* Embedded SVG Watermark to ensure scatter screenshots carry demo status */}
+                <g id="quadrant-svg-watermark" className="pointer-events-none select-none">
+                  <rect
+                    x={width - padding.right - 195}
+                    y={height - padding.bottom + 26}
+                    width="195"
+                    height="20"
+                    rx="4"
+                    fill="#0f172a"
+                    fillOpacity="0.80"
+                  />
+                  <text
+                    x={width - padding.right - 97}
+                    y={height - padding.bottom + 40}
+                    textAnchor="middle"
+                    fill="#f8fafc"
+                    fontSize="9.5"
+                    fontWeight="700"
+                    letterSpacing="0.08em"
+                    fontFamily="monospace"
+                  >
+                    EMPIRICAL PILOT: DUAL-MEDIAN
+                  </text>
+                </g>
               </svg>
             </div>
           </div>
@@ -371,6 +408,10 @@ export default function QuadrantChart({
                         Compensated
                       </span>
                     )}
+                  </div>
+
+                  <div className="mb-2 px-2 py-1 bg-slate-100 rounded border border-slate-200 text-[10px] text-slate-700">
+                    Empirical pilot: Census 2022 &amp; HeiGIT.
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 my-3">

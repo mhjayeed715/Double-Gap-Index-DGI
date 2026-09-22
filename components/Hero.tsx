@@ -23,8 +23,8 @@ export default function Hero({ stats }: HeroProps) {
             <Layers className="w-3 h-3 text-cyan-400" />
             National Policy Index
           </span>
-          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200 text-[11px]">
-            BBS ICT 2024-25 • OSM Facility Data • Census 2022
+          <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-50 text-emerald-800 border border-emerald-200 text-[11px]">
+            Verified Empirical Pilot • BBS Census 2022 (100% CAPI) & HeiGIT HDX
           </span>
         </div>
 
@@ -35,7 +35,7 @@ export default function Hero({ stats }: HeroProps) {
           </h1>
           <p className="mt-5 text-base sm:text-xl text-slate-600 leading-relaxed max-w-4xl font-normal">
             A district with weak clinics but reliable connectivity can cope through telemedicine and digital workarounds. A district with no internet but nearby facilities gets care in person.
-            <strong className="text-slate-900 font-semibold"> Double Gap districts suffer from both</strong> — leaving 78 million citizens without either a digital lifeline or physical infrastructure.
+            <strong className="text-slate-900 font-semibold"> Double Gap districts suffer from both</strong> — leaving 37.3 million citizens across 16 districts without either a digital lifeline or physical infrastructure.
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export default function Hero({ stats }: HeroProps) {
             </div>
             <p className="text-xs text-slate-500 mt-2 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-              All 64 administrative districts
+              All 64 administrative districts (165.1M pop)
             </p>
           </div>
 
@@ -72,7 +72,7 @@ export default function Hero({ stats }: HeroProps) {
             </div>
             <p className="text-xs text-rose-700/80 mt-2 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
-              Deprived on both digital & physical axes
+              Dual-median policy baseline (9 core priority)
             </p>
           </div>
 
@@ -92,7 +92,7 @@ export default function Hero({ stats }: HeroProps) {
             </div>
             <p className="text-xs text-slate-500 mt-2 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
-              Internet, smartphone, skills & gender parity
+              Internet, mobile phone & MFS (BBS Census 2022)
             </p>
           </div>
 
@@ -112,7 +112,7 @@ export default function Hero({ stats }: HeroProps) {
             </div>
             <p className="text-xs text-slate-500 mt-2 flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-              Healthcare, education & transit per 100k
+              Hospital 30m, education 5km & grid electricity
             </p>
           </div>
         </div>

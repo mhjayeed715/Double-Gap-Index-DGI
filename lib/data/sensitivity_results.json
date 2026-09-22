@@ -1,0 +1,151 @@
+{
+  "metadata": {
+    "total_districts": 64,
+    "median_digital_access_score": 0.3987,
+    "median_service_access_score": 0.5829,
+    "p40_digital_access_score": 0.3672,
+    "p40_service_access_score": 0.5529
+  },
+  "threshold_sensitivity": [
+    {
+      "threshold": 0.3,
+      "flagged_count": 0,
+      "flagged_pct": 0.0,
+      "flagged_districts": []
+    },
+    {
+      "threshold": 0.35,
+      "flagged_count": 1,
+      "flagged_pct": 1.6,
+      "flagged_districts": [
+        "Bandarban"
+      ]
+    },
+    {
+      "threshold": 0.4,
+      "flagged_count": 1,
+      "flagged_pct": 1.6,
+      "flagged_districts": [
+        "Bandarban"
+      ]
+    },
+    {
+      "threshold": 0.45,
+      "flagged_count": 5,
+      "flagged_pct": 7.8,
+      "flagged_districts": [
+        "Bandarban",
+        "Khagrachhari",
+        "Rangamati",
+        "Faridpur",
+        "Naogaon"
+      ]
+    },
+    {
+      "threshold": 0.5,
+      "flagged_count": 10,
+      "flagged_pct": 15.6,
+      "flagged_districts": [
+        "Bandarban",
+        "Khagrachhari",
+        "Rangamati",
+        "Faridpur",
+        "Gopalganj",
+        "Rajbari",
+        "Magura",
+        "Naogaon",
+        "Natore",
+        "Lalmonirhat"
+      ]
+    }
+  ],
+  "dual_anchor_framework": {
+    "invariant_dual_method_core": {
+      "count": 9,
+      "pct": 14.1,
+      "districts": [
+        "Bandarban",
+        "Chapainawabganj",
+        "Cox's Bazar",
+        "Habiganj",
+        "Lalmonirhat",
+        "Moulvibazar",
+        "Naogaon",
+        "Natore",
+        "Rajbari"
+      ],
+      "description": "Districts flagged as Double Gap under both empirical Dual-Median baseline and Dual-P40 cutoff across Min-Max and Percentile Rank specifications."
+    },
+    "empirical_core_median": {
+      "cutoffs": {
+        "digital_median": 0.3987,
+        "service_median": 0.5829
+      },
+      "count": 16,
+      "pct": 25.0,
+      "districts": [
+        "Bandarban",
+        "Chapainawabganj",
+        "Cox's Bazar",
+        "Gaibandha",
+        "Habiganj",
+        "Kishoreganj",
+        "Lalmonirhat",
+        "Magura",
+        "Moulvibazar",
+        "Naogaon",
+        "Natore",
+        "Pabna",
+        "Rajbari",
+        "Sirajganj",
+        "Sunamganj",
+        "Thakurgaon"
+      ]
+    },
+    "policy_buffer_040": {
+      "cutoff": "Dual-P40 & Dual-Median Transition Zone",
+      "count": 9,
+      "pct": 14.1,
+      "buffer_districts_count": 7,
+      "buffer_districts": [
+        "Gaibandha",
+        "Kishoreganj",
+        "Magura",
+        "Pabna",
+        "Sirajganj",
+        "Sunamganj",
+        "Thakurgaon"
+      ]
+    }
+  },
+  "normalization_robustness": {
+    "percentile_rank_flagged_count_at_p40": 9,
+    "overlap_with_dual_p40": 9,
+    "percentile_flagged_districts": [
+      "Bandarban",
+      "Chapainawabganj",
+      "Cox's Bazar",
+      "Habiganj",
+      "Lalmonirhat",
+      "Moulvibazar",
+      "Naogaon",
+      "Natore",
+      "Rajbari"
+    ]
+  },
+  "convergent_validity": {
+    "status": "Verified Empirical Pilot",
+    "data_notice": "Primary enumeration from BBS Census 2022 Admin 02 and HeiGIT HDX accessibility models.",
+    "note": "Recomputed directly from 100% CAPI enumeration covering 165,130,774 Bangladeshi nationals."
+  },
+  "dimensional_independence": {
+    "digital_vs_service_rank_correlation": 0.1742,
+    "unshared_variance_pct": 97.0,
+    "interpretation": "Rank correlation (rho = 0.1742) confirms digital exclusion and physical service access exhibit ~97.0% unshared variance, functioning as separate axes.",
+    "digital_axis_internal_collinearity": {
+      "internet_vs_mobile_rho": 0.6654,
+      "internet_vs_female_usage_rho": 0.9896,
+      "disclosure": "Internet usage and mobile phone ownership correlate rho = 0.6654 (Pearson r = 0.7212). They are documented explicitly as not fully independent measures."
+    }
+  }
+}

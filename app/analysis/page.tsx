@@ -4,7 +4,7 @@ import { ArrowLeft, BrainCircuit, Sparkles, BookOpen } from "lucide-react";
 
 export const metadata = {
   title: "Machine Learning & Policy Archetypes | Double Gap Index (DGI)",
-  description: "Unsupervised clustering and SHAP-aligned feature attribution identifying 4 empirical exclusion profiles in Bangladesh.",
+  description: "Unsupervised K-Means clustering and centroid loadings identifying 4 macro policy archetypes in Bangladesh.",
 };
 
 export default function AnalysisPage() {

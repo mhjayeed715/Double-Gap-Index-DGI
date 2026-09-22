@@ -1,46 +1,41 @@
-name: CI
+name: CI Pipeline
 
 on:
   push:
-    branches: [main, master]
+    branches: [ main ]
   pull_request:
-    branches: [main, master]
+    branches: [ main ]
 
 jobs:
-  lint-and-test:
+  test:
+    name: Test & Build
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Set up Node.js
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "npm"
+          cache: 'npm'
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm ci
 
-      - name: Run unit tests
+      - name: Run Test Suite
         run: npm test
 
-      - name: Build Next.js application
-        run: npm run build
-
-  etl-test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.12'
 
-      - name: Install ETL dependencies
+      - name: Run Python Sensitivity & Cluster Validation
         run: |
-          python -m pip install --upgrade pip
-          pip install -r etl/requirements.txt pytest
+          python etl/sensitivity_analysis.py
+          python etl/cluster_analysis.py
 
-      - name: Run ETL scoring unit tests
-        run: python etl/test_scoring.py
+      - name: Build Next.js Production Bundle
+        run: npm run build

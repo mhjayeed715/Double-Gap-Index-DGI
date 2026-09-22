@@ -1,0 +1,386 @@
+{
+  "barguna": {
+    "name": "Barguna",
+    "lged_hospital_count": 0,
+    "lged_fwc_count": 0,
+    "lged_school_count": 716
+  },
+  "barishal": {
+    "name": "Barisal",
+    "lged_hospital_count": 7,
+    "lged_fwc_count": 34,
+    "lged_school_count": 1368
+  },
+  "bhola": {
+    "name": "Bhola",
+    "lged_hospital_count": 5,
+    "lged_fwc_count": 22,
+    "lged_school_count": 1268
+  },
+  "jhalokati": {
+    "name": "Jhalokati",
+    "lged_hospital_count": 0,
+    "lged_fwc_count": 0,
+    "lged_school_count": 10
+  },
+  "patuakhali": {
+    "name": "Patuakhali",
+    "lged_hospital_count": 4,
+    "lged_fwc_count": 46,
+    "lged_school_count": 1553
+  },
+  "pirojpur": {
+    "name": "Pirojpur",
+    "lged_hospital_count": 9,
+    "lged_fwc_count": 38,
+    "lged_school_count": 739
+  },
+  "bandarban": {
+    "name": "Bandarban",
+    "lged_hospital_count": 10,
+    "lged_fwc_count": 11,
+    "lged_school_count": 329
+  },
+  "brahmanbaria": {
+    "name": "Brahmanbaria",
+    "lged_hospital_count": 6,
+    "lged_fwc_count": 47,
+    "lged_school_count": 1032
+  },
+  "chandpur": {
+    "name": "Chandpur",
+    "lged_hospital_count": 8,
+    "lged_fwc_count": 42,
+    "lged_school_count": 860
+  },
+  "chattogram": {
+    "name": "Chattogram",
+    "lged_hospital_count": 24,
+    "lged_fwc_count": 62,
+    "lged_school_count": 1335
+  },
+  "cumilla": {
+    "name": "Comilla",
+    "lged_hospital_count": 11,
+    "lged_fwc_count": 87,
+    "lged_school_count": 2351
+  },
+  "coxs_bazar": {
+    "name": "Cox's Bazar",
+    "lged_hospital_count": 8,
+    "lged_fwc_count": 8,
+    "lged_school_count": 785
+  },
+  "feni": {
+    "name": "Feni",
+    "lged_hospital_count": 1,
+    "lged_fwc_count": 13,
+    "lged_school_count": 528
+  },
+  "khagrachhari": {
+    "name": "Khagrachhari",
+    "lged_hospital_count": 0,
+    "lged_fwc_count": 0,
+    "lged_school_count": 443
+  },
+  "lakshmipur": {
+    "name": "Lakshmipur",
+    "lged_hospital_count": 0,
+    "lged_fwc_count": 0,
+    "lged_school_count": 792
+  },
+  "noakhali": {
+    "name": "Noakhali",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 14,
+    "lged_school_count": 1587
+  },
+  "rangamati": {
+    "name": "Rangamati",
+    "lged_hospital_count": 16,
+    "lged_fwc_count": 19,
+    "lged_school_count": 653
+  },
+  "dhaka": {
+    "name": "Dhaka",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 12,
+    "lged_school_count": 1173
+  },
+  "faridpur": {
+    "name": "Faridpur",
+    "lged_hospital_count": 5,
+    "lged_fwc_count": 39,
+    "lged_school_count": 1361
+  },
+  "gazipur": {
+    "name": "Gazipur",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 25,
+    "lged_school_count": 1410
+  },
+  "gopalganj": {
+    "name": "Gopalganj",
+    "lged_hospital_count": 0,
+    "lged_fwc_count": 0,
+    "lged_school_count": 1291
+  },
+  "kishoreganj": {
+    "name": "Kishoreganj",
+    "lged_hospital_count": 0,
+    "lged_fwc_count": 0,
+    "lged_school_count": 2125
+  },
+  "madaripur": {
+    "name": "Madaripur",
+    "lged_hospital_count": 5,
+    "lged_fwc_count": 21,
+    "lged_school_count": 1188
+  },
+  "manikganj": {
+    "name": "Manikganj",
+    "lged_hospital_count": 6,
+    "lged_fwc_count": 24,
+    "lged_school_count": 875
+  },
+  "munshiganj": {
+    "name": "Munshiganj",
+    "lged_hospital_count": 4,
+    "lged_fwc_count": 26,
+    "lged_school_count": 949
+  },
+  "narayanganj": {
+    "name": "Narayanganj",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 19,
+    "lged_school_count": 939
+  },
+  "narsingdi": {
+    "name": "Narsingdi",
+    "lged_hospital_count": 0,
+    "lged_fwc_count": 0,
+    "lged_school_count": 1019
+  },
+  "rajbari": {
+    "name": "Rajbari",
+    "lged_hospital_count": 10,
+    "lged_fwc_count": 15,
+    "lged_school_count": 933
+  },
+  "shariatpur": {
+    "name": "Shariatpur",
+    "lged_hospital_count": 5,
+    "lged_fwc_count": 16,
+    "lged_school_count": 1104
+  },
+  "tangail": {
+    "name": "Tangail",
+    "lged_hospital_count": 21,
+    "lged_fwc_count": 60,
+    "lged_school_count": 1566
+  },
+  "bagerhat": {
+    "name": "Bagerhat",
+    "lged_hospital_count": 6,
+    "lged_fwc_count": 39,
+    "lged_school_count": 1259
+  },
+  "chuadanga": {
+    "name": "Chuadanga",
+    "lged_hospital_count": 4,
+    "lged_fwc_count": 21,
+    "lged_school_count": 486
+  },
+  "jashore": {
+    "name": "Jessore",
+    "lged_hospital_count": 7,
+    "lged_fwc_count": 60,
+    "lged_school_count": 2270
+  },
+  "jhenaidah": {
+    "name": "Jhenaidah",
+    "lged_hospital_count": 0,
+    "lged_fwc_count": 0,
+    "lged_school_count": 1044
+  },
+  "khulna": {
+    "name": "Khulna",
+    "lged_hospital_count": 14,
+    "lged_fwc_count": 25,
+    "lged_school_count": 1782
+  },
+  "kushtia": {
+    "name": "Kushtia",
+    "lged_hospital_count": 12,
+    "lged_fwc_count": 33,
+    "lged_school_count": 1505
+  },
+  "magura": {
+    "name": "Magura",
+    "lged_hospital_count": 2,
+    "lged_fwc_count": 19,
+    "lged_school_count": 600
+  },
+  "meherpur": {
+    "name": "Meherpur",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 15,
+    "lged_school_count": 166
+  },
+  "narail": {
+    "name": "Narail",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 25,
+    "lged_school_count": 500
+  },
+  "satkhira": {
+    "name": "Satkhira",
+    "lged_hospital_count": 9,
+    "lged_fwc_count": 31,
+    "lged_school_count": 1242
+  },
+  "jamalpur": {
+    "name": "Jamalpur",
+    "lged_hospital_count": 5,
+    "lged_fwc_count": 29,
+    "lged_school_count": 1906
+  },
+  "mymensingh": {
+    "name": "Mymensingh",
+    "lged_hospital_count": 0,
+    "lged_fwc_count": 0,
+    "lged_school_count": 4581
+  },
+  "netrokona": {
+    "name": "Netrokona",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 28,
+    "lged_school_count": 1766
+  },
+  "sherpur": {
+    "name": "Sherpur",
+    "lged_hospital_count": 6,
+    "lged_fwc_count": 31,
+    "lged_school_count": 1501
+  },
+  "bogura": {
+    "name": "Bogura",
+    "lged_hospital_count": 13,
+    "lged_fwc_count": 90,
+    "lged_school_count": 917
+  },
+  "joypurhat": {
+    "name": "Joypurhat",
+    "lged_hospital_count": 4,
+    "lged_fwc_count": 25,
+    "lged_school_count": 75
+  },
+  "naogaon": {
+    "name": "Naogaon",
+    "lged_hospital_count": 13,
+    "lged_fwc_count": 37,
+    "lged_school_count": 1716
+  },
+  "natore": {
+    "name": "Natore",
+    "lged_hospital_count": 7,
+    "lged_fwc_count": 26,
+    "lged_school_count": 1325
+  },
+  "chapainawabganj": {
+    "name": "Chapainawabganj",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 11,
+    "lged_school_count": 791
+  },
+  "pabna": {
+    "name": "Pabna",
+    "lged_hospital_count": 4,
+    "lged_fwc_count": 23,
+    "lged_school_count": 1428
+  },
+  "rajshahi": {
+    "name": "Rajshahi",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 15,
+    "lged_school_count": 2102
+  },
+  "sirajganj": {
+    "name": "Sirajganj",
+    "lged_hospital_count": 4,
+    "lged_fwc_count": 59,
+    "lged_school_count": 1140
+  },
+  "dinajpur": {
+    "name": "Dinajpur",
+    "lged_hospital_count": 11,
+    "lged_fwc_count": 60,
+    "lged_school_count": 2602
+  },
+  "gaibandha": {
+    "name": "Gaibandha",
+    "lged_hospital_count": 4,
+    "lged_fwc_count": 31,
+    "lged_school_count": 2272
+  },
+  "kurigram": {
+    "name": "Kurigram",
+    "lged_hospital_count": 4,
+    "lged_fwc_count": 27,
+    "lged_school_count": 366
+  },
+  "lalmonirhat": {
+    "name": "Lalmonirhat",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 8,
+    "lged_school_count": 668
+  },
+  "nilphamari": {
+    "name": "Nilphamari",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 44,
+    "lged_school_count": 1367
+  },
+  "panchagarh": {
+    "name": "Panchagarh",
+    "lged_hospital_count": 0,
+    "lged_fwc_count": 0,
+    "lged_school_count": 6
+  },
+  "rangpur": {
+    "name": "Rangpur",
+    "lged_hospital_count": 4,
+    "lged_fwc_count": 44,
+    "lged_school_count": 2245
+  },
+  "thakurgaon": {
+    "name": "Thakurgaon",
+    "lged_hospital_count": 3,
+    "lged_fwc_count": 36,
+    "lged_school_count": 1220
+  },
+  "habiganj": {
+    "name": "Habiganj",
+    "lged_hospital_count": 7,
+    "lged_fwc_count": 20,
+    "lged_school_count": 930
+  },
+  "moulvibazar": {
+    "name": "Moulvibazar",
+    "lged_hospital_count": 8,
+    "lged_fwc_count": 27,
+    "lged_school_count": 1009
+  },
+  "sunamganj": {
+    "name": "Sunamganj",
+    "lged_hospital_count": 10,
+    "lged_fwc_count": 39,
+    "lged_school_count": 1519
+  },
+  "sylhet": {
+    "name": "Sylhet",
+    "lged_hospital_count": 8,
+    "lged_fwc_count": 39,
+    "lged_school_count": 1374
+  }
+}

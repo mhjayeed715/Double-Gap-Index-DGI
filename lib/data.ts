@@ -41,7 +41,7 @@ export async function getAllDistricts(): Promise<District[]> {
             smartphone_ownership_pct: null,
             digital_skills_pct: null,
             gender_gap_pct: null,
-            source_citation: "BBS ICT Survey 2024-25"
+            source_citation: "Modeled Demonstration Inputs"
           },
           service_breakdown: row.service_indicators || {
             healthcare_facility_count: null,
@@ -50,7 +50,7 @@ export async function getAllDistricts(): Promise<District[]> {
             healthcare_per_capita: null,
             education_per_capita: null,
             transit_per_capita: null,
-            source_citation: "OpenStreetMap"
+            source_citation: "Simulated Facility Density"
           }
         }));
       }

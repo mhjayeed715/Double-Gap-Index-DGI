@@ -24,7 +24,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-md">
-              An interpretable policy intelligence framework identifying Bangladeshi districts where digital exclusion and physical service access gaps compound simultaneously. Built on verified BBS and OpenStreetMap records.
+              An interpretable policy intelligence framework identifying Bangladeshi districts where digital exclusion and physical service access gaps compound simultaneously. Evaluates all 64 districts using 100% CAPI enumeration from BBS Census 2022 and travel-time accessibility models.
             </p>
             <div className="mt-3 text-[11px] text-slate-500">
               Core Principle: Digital Access Score and Physical Service Access Score are strictly independent and never blended.
@@ -38,25 +38,24 @@ export default function Footer() {
             </h4>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <Link href="/#map-section" className="hover:text-white transition-colors">
+                <a href="#map-section" className="text-xs hover:text-white transition-colors">
                   National Choropleth Map
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/#quadrant-section" className="hover:text-white transition-colors">
-                  2x2 Quadrant Matrix
-                </Link>
+                <a href="#quadrant-section" className="text-xs hover:text-white transition-colors">
+                  2x2 Policy Quadrant Matrix
+                </a>
               </li>
               <li>
-                <Link href="/#explorer-section" className="hover:text-white transition-colors">
-                  District Explorer & CSV
-                </Link>
+                <a href="#districts-table-section" className="text-xs hover:text-white transition-colors">
+                  64-District Directory
+                </a>
               </li>
               <li>
-                <Link href="/methodology" className="hover:text-white transition-colors flex items-center gap-1">
-                  <BookOpen className="w-3 h-3" />
-                  Full Methodology & Formulas
-                </Link>
+                <a href="#methodology-preview" className="text-xs hover:text-white transition-colors">
+                  Methodology &amp; Formulae
+                </a>
               </li>
             </ul>
           </div>
@@ -64,20 +63,20 @@ export default function Footer() {
           {/* Col 3: Data Sources */}
           <div>
             <h4 className="font-semibold text-white uppercase tracking-wider text-[11px] mb-3">
-              Primary Data Citations
+              Data Status &amp; Citations
             </h4>
             <ul className="space-y-2 text-slate-400 text-[11px]">
               <li>
-                <span className="text-white block font-medium">BBS ICT Survey 2024-25</span>
-                District digital access, skills & gender gap
+                <span className="text-white block font-medium">BBS Census 2022 (Admin 02)</span>
+                100% CAPI enumeration for digital indicators &amp; electricity
               </li>
               <li>
-                <span className="text-white block font-medium">OpenStreetMap (March 2026)</span>
-                Healthcare, education & transit density
+                <span className="text-white block font-medium">HeiGIT / HDX Models</span>
+                Travel-time accessibility models (OpenRouteService &amp; WorldPop)
               </li>
               <li>
-                <span className="text-white block font-medium">BBS Census 2022</span>
-                District population normalizations
+                <span className="text-white block font-medium">LGED GIS Registries</span>
+                Secondary administrative school &amp; clinic counts
               </li>
             </ul>
           </div>

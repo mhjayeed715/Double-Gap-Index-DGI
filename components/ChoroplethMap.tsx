@@ -378,7 +378,39 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                     );
                   })}
                 </g>
+
+                {/* Embedded SVG Watermark to ensure screenshots cannot omit context */}
+                <g id="map-svg-watermark" className="pointer-events-none select-none">
+                  <rect
+                    x="24"
+                    y="942"
+                    width="270"
+                    height="34"
+                    rx="6"
+                    fill="#0f172a"
+                    fillOpacity="0.85"
+                    stroke="#334155"
+                    strokeWidth="1.2"
+                  />
+                  <text
+                    x="159"
+                    y="963"
+                    textAnchor="middle"
+                    fill="#f8fafc"
+                    fontSize="11.5"
+                    fontWeight="700"
+                    letterSpacing="0.08em"
+                    fontFamily="monospace"
+                  >
+                    EMPIRICAL PILOT: CENSUS 2022 & HEIGIT
+                  </text>
+                </g>
               </svg>
+
+              {/* Floating HTML Watermark for viewport screenshots */}
+              <div className="absolute top-3 left-3 pointer-events-none select-none px-2.5 py-1 bg-emerald-700 backdrop-blur-xs text-white text-[10px] font-mono font-bold tracking-wider rounded shadow-xs border border-emerald-600 uppercase">
+                Empirical Pilot: Census 2022 & HeiGIT
+              </div>
             </div>
 
             {/* Dynamic Map Legend */}
@@ -389,11 +421,11 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                   <div className="flex items-center gap-3">
                     <div className="flex items-center gap-1.5">
                       <span className="w-4 h-4 rounded bg-rose-600 border border-rose-700 inline-block" />
-                      <span className="text-slate-800 font-medium">Double Gap Flagged (37)</span>
+                      <span className="text-slate-800 font-medium">Double Gap Flagged ({districts.filter((d) => d.double_gap_flag).length})</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <span className="w-4 h-4 rounded bg-slate-200 border border-slate-300 inline-block" />
-                      <span className="text-slate-600">Single Gap / Resilient (27)</span>
+                      <span className="text-slate-600">Single Gap / Resilient ({districts.length - districts.filter((d) => d.double_gap_flag).length})</span>
                     </div>
                   </div>
                 )}
@@ -466,6 +498,11 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                         Compensated
                       </span>
                     )}
+                  </div>
+
+                  {/* Inline Empirical Pilot Citation */}
+                  <div className="mb-3 px-2.5 py-1.5 bg-emerald-50/80 rounded-lg border border-emerald-200/80 text-[10.5px] text-emerald-900 leading-snug">
+                    <strong className="font-semibold">Empirical Record:</strong> BBS Census 2022 Admin 02 (100% CAPI) & HeiGIT accessibility models.
                   </div>
 
                   {/* Two Separate Scores Cards */}

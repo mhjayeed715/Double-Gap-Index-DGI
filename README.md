@@ -1,8 +1,3 @@
-<!--
-  Double Gap Index (DGI) - Premium Repository Documentation
-  Crafted to represent the definitive empirical and policy intelligence framework.
--->
-
 # <p align="center"><img src="public/logo.jpeg" alt="Double Gap Index Logo" width="105" height="105" style="border-radius: 22px; box-shadow: 0 4px 20px rgba(0,0,0,0.15);"/><br>Double Gap Index (DGI)</p>
 
 <p align="center">
@@ -12,9 +7,10 @@
 
 <p align="center">
   <a href="https://github.com/mhjayeed715/Double-Gap-Index-DGI"><img src="https://img.shields.io/badge/Repository-Double--Gap--Index-0284c7?style=for-the-badge&logo=github" alt="GitHub Repository"/></a>
-  <a href="https://github.com/mhjayeed715/Double-Gap-Index-DGI/releases"><img src="https://img.shields.io/badge/Release-v1.0.0-emerald?style=for-the-badge&logo=github" alt="Release"/></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="License"/></a>
-  <a href="https://github.com/mhjayeed715/Double-Gap-Index-DGI/actions"><img src="https://img.shields.io/badge/Tests-Passing%20(4%2F4)-brightgreen.svg?style=for-the-badge" alt="Tests"/></a>
+  <a href="https://github.com/mhjayeed715/Double-Gap-Index-DGI/actions/workflows/ci.yml"><img src="https://img.shields.io/badge/CI-Passing-emerald.svg?style=for-the-badge&logo=githubactions" alt="CI Status"/></a>
+  <a href="https://github.com/mhjayeed715/Double-Gap-Index-DGI/releases"><img src="https://img.shields.io/badge/Release-v1.0.0-blue?style=for-the-badge&logo=github" alt="Release"/></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-slate.svg?style=for-the-badge" alt="License"/></a>
+  <a href="https://github.com/mhjayeed715/Double-Gap-Index-DGI/actions"><img src="https://img.shields.io/badge/Internal%20Checks-10%2F10%20Passing-emerald.svg?style=for-the-badge" alt="Internal Consistency Checks"/></a>
 </p>
 
 <p align="center">
@@ -28,6 +24,11 @@
 
 ---
 
+> ⚠️ **METHODOLOGICAL NOTICE: EMPIRICAL PILOT (BBS CENSUS 2022 & HEIGIT/HDX ACCESSIBILITY)**  
+> The Double Gap Index (DGI) is an open-source policy intelligence framework and interactive GIS dashboard. This empirical pilot release evaluates all 64 districts using 100% CAPI enumeration from the **BBS Population & Housing Census 2022 (Admin 02 tables, 165.1M enumerated individuals)** for digital infrastructure, combined with **HeiGIT/HDX standardized travel-time accessibility models** and BBS Census 2022 household records for physical service infrastructure.
+
+---
+
 ## 📖 Table of Contents
 - [🌟 Project Overview](#-project-overview)
 - [⚖️ The Core Axiom: Two Scores, Never Blended](#%EF%B8%8F-the-core-axiom-two-scores-never-blended)
@@ -35,21 +36,15 @@
   - [1. Authentic National Choropleth Map](#1-authentic-national-choropleth-map)
   - [2. 2x2 Policy Quadrant Matrix](#2-2x2-policy-quadrant-matrix)
   - [3. Live GIS Vector Explorer](#3-live-gis-vector-explorer)
-  - [4. Interpretable Machine Learning & 4 Policy Archetypes](#4-interpretable-machine-learning--4-policy-archetypes)
+  - [4. Exploratory Machine Learning & Policy Archetypes](#4-exploratory-machine-learning--policy-archetypes)
   - [5. District Directory & Deep-Dive Profiles](#5-district-directory--deep-dive-profiles)
   - [6. Transparent Scoring Engine & Mathematical Formulation](#6-transparent-scoring-engine--mathematical-formulation)
+- [📊 Dual-Anchor Sensitivity & Robustness](#-dual-anchor-sensitivity--robustness)
+- [⚠️ Limitations, Proxy Biases & Ethical Disclosure](#%EF%B8%8F-limitations-proxy-biases--ethical-disclosure)
 - [⚙️ System Architecture & Data Pipeline](#%EF%B8%8F-system-architecture--data-pipeline)
-- [🗄️ Database Schema (Supabase / PostgreSQL)](#%EF%B8%8F-database-schema-supabase--postgresql)
-- [📊 Empirical Data Sources & Citations](#-empirical-data-sources--citations)
-- [📂 Code Structure & Modular Repository Tree](#-code-structure--modular-repository-tree)
-- [🚀 Quickstart & Local Setup Guide](#-quickstart--local-setup-guide)
-  - [Prerequisites](#prerequisites)
-  - [1. Clone Repository](#1-clone-repository)
-  - [2. Supabase Database Activation](#2-supabase-database-activation)
-  - [3. Frontend Setup (Next.js)](#3-frontend-setup-nextjs)
-  - [4. Running the Python ETL Pipeline](#4-running-the-python-etl-pipeline)
+- [🚀 Quick Start & Local Development](#-quick-start--local-development)
 - [🧪 Automated Verification & Test Suite](#-automated-verification--test-suite)
-- [🤝 Contributing & Research Inquiries](#-contributing--research-inquiries)
+- [📄 Working Paper / Methodology Note](#-working-paper--methodology-note)
 - [📜 License](#-license)
 - [👨‍💻 Author & Maintainer](#-author--maintainer)
 
@@ -57,82 +52,47 @@
 
 ## 🌟 Project Overview
 
-**Double Gap Index (DGI)** answers one specific, previously unaddressed public policy question:
+In development economics and spatial planning, regional vulnerability is typically measured through single composite indices (e.g. general human development or poverty index). While informative, single composite indices suffer from a fatal structural flaw: **they average away the compensatory trade-offs between digital and physical infrastructure**.
 
-> **"Which districts in Bangladesh are failing their people on BOTH digital access AND physical service access simultaneously — the vulnerable communities with no digital workaround and no physical safety net?"**
+The **Double Gap Index (DGI)** addresses a critical policy question for Bangladesh:
+> *Where do digital exclusion and physical service access gaps compound simultaneously, severing both digital workarounds and traditional physical safety nets?*
 
-Traditionally in development economics, digital exclusion and physical service poverty have been measured and addressed in strict isolation:
-- **Digital Exclusion:** Measured via household survey connectivity, device ownership, and literacy.
-- **Physical Service Exclusion:** Measured via facility density, GIS buffer rings, and road transit times.
-
-In reality, **these two dimensions compensate for each other**:
-- A community with understaffed physical clinics but strong mobile broadband can partially cope through telemedicine, digital prescriptions, and remote diagnostics.
-- A community with poor internet but accessible brick-and-mortar health complexes can simply walk or take transit to be diagnosed in person.
-- **A district deprived in BOTH dimensions has zero workaround capacity.**
-
-DGI is engineered to locate, quantify, and visualize this critical intersection without obscuring the underlying causal indicators.
-
-<br>
-
-<p align="center">
-  <img src="docs/screenshots/hero_dashboard.png" alt="Double Gap Index Hero Dashboard" width="850" style="border-radius: 12px; border: 1px solid #e2e8f0;"/>
-</p>
+By synthesizing district-level data from the **Bangladesh Bureau of Statistics (BBS) Population & Housing Census 2022 (Tables P24, P25, P27 - 100% CAPI Enumeration)**, travel-time accessibility models from **HeiGIT / Humanitarian Data Exchange (HDX)**, and verified administrative infrastructure registers, DGI isolates the geographic regions that require simultaneous dual-stream public capital co-investment.
 
 ---
 
 ## ⚖️ The Core Axiom: Two Scores, Never Blended
 
-Traditional composite deprivation indices collapse multiple dimensions into a single unified index number (e.g., `0.48`). **In DGI, blending the two scores is strictly banned.**
+Most spatial vulnerability dashboards blend indicators into a single scalar (e.g. $\text{Equity Score} = 0.52$). In Bangladesh's developing geography, this is counter-productive:
 
-```
-               HIGH SERVICE ACCESS
-                        ▲
-                        │
-   Cluster 3:           │   Cluster 4:
-   Physical Safety Net  │   Dual-Access Core
-   (9 Districts)        │   (7 Districts)
-                        │
-────────────────────────┼────────────────────────▶ HIGH DIGITAL ACCESS
-                        │
-   Cluster 1:           │   Cluster 2:
-   COMPOUNDED           │   Digital-First Workaround
-   DOUBLE GAP           │   (11 Districts)
-   (37 Districts)       │
-                        │
-               LOW SERVICE ACCESS
-```
+1. **Digital Offset:** A community with lower hospital proximity can partially compensate if mobile broadband and digital literacy are robust—residents leverage telemedicine, mobile financial services (bKash/Nagad), and remote public services.
+2. **Physical Cushion:** A rural upazila with low digital adoption still maintains an essential safety net if healthcare facilities and schools are geographically accessible.
+3. **The Compounded Double Gap:** When a district suffers from low digital connectivity **AND** low physical service density simultaneously, both survival avenues are severed. Blending would hide this compounded crisis.
 
-| Dimension | 🌐 Digital Access Score ($0.0 - 1.0$) | 🏥 Physical Service Access Score ($0.0 - 1.0$) |
-| :--- | :--- | :--- |
-| **What it Measures** | Household internet penetration %, smartphone ownership %, digital literacy %, and gender parity ratio. | Physical facility density per 100,000 residents: primary & tertiary healthcare, secondary & higher education, and transit hubs. |
-| **Primary Data Source** | **Bangladesh Bureau of Statistics (BBS)** — National ICT Survey (2024–25 round, first district-level release). | **OpenStreetMap (Overpass API)** + **BBS Census 2022** population records. |
-| **Compensatory Role** | Enables remote e-governance, digital banking, and telemedicine. | Enables direct face-to-face clinical treatment, classroom learning, and commercial mobility. |
-| **Policy Mandate** | Telecom infrastructure, tower densification, and digital literacy. | Capital expenditure, hospital beds, road paving, and public transit nodes. |
-
-> **The Compounding Double Gap Zone:**  
-> When both scores fall below the empirical policy threshold ($< 0.40$), the district is flagged with the **Double Gap Flag**. In Bangladesh, **37 out of 64 districts (57.8%)** currently reside in this high-vulnerability quadrant.
+> **Empirical Validation of Independence:** The Spearman rank correlation between the Digital Access Score and Physical Service Access Score across all 64 districts is $\mathbf{\rho = 0.1742}$ (Pearson $r = 0.3350$). Approximately **$88.8\%$ of the cross-district variance is orthogonal and unshared**, demonstrating that the two dimensions represent fundamentally distinct policy axes.
 
 ---
 
 ## 🛠️ Key Features & Core Modules
 
 ### 1. Authentic National Choropleth Map
-- **Authentic Conformal Mercator Geometry:** Rendered using real geographic administrative shapefiles of Bangladesh and its 64 districts, preserving genuine coastal contours, island topologies, and river deltas.
-- **Area-Proportional Typography:** Dense, compact districts (e.g., *Narayanganj, Dhaka, Munshiganj, Feni, Meherpur, Jhalokati*) use calibrated font sizes (`5.6px – 6.0px`) with non-overlapping centroid offsets.
-- **SVG White Halo Readability:** Every district label uses a `2.0px – 2.6px` white contrast halo (`paint-order: stroke fill`), guaranteeing legible text over any background tone.
-- **Luminous Dual-Layer Accent Outline:** Replaces harsh black lines with an executive, theme-matched luminous border (`#0284c7` ocean cyan for Digital, `#be123c` crimson for Double Gap, `#d97706` warm amber for Service) rendered in a dedicated overlay group.
+- **Authentic Conformal Geometry:** Rendered using real geographic administrative boundaries of Bangladesh and its 64 districts, preserving genuine coastal contours, island topologies (Bhola, Sandwip, Hatiya), and river deltas.
+- **Dynamic Choropleth Theming:** Real-time color classification across Digital Access, Physical Service Access, and Compounded Double Gap states.
+- **Accessible Tooltips:** District name, population, digital score, service score, and exclusion tier displayed on hover.
 
 <p align="center">
-  <img src="docs/screenshots/choropleth_map.png" alt="Interactive Bangladesh Choropleth Map" width="850" style="border-radius: 12px; border: 1px solid #e2e8f0;"/>
+  <img src="docs/screenshots/choropleth_map.png" alt="Authentic National Choropleth Map" width="850" style="border-radius: 12px; border: 1px solid #e2e8f0;"/>
 </p>
 
 ---
 
 ### 2. 2x2 Policy Quadrant Matrix
-- **Empirical Cutoff Visualization:** Clearly demarcates the $0.40 \times 0.40$ threshold across all 64 districts.
-- **Interactive Scatter Point Hovering:** Instant inspect cards display exact coordinates, administrative division, and sub-indicator rankings.
-- **Real-Time Division Filtering:** Filter by any of the 8 administrative divisions (*Dhaka, Chattogram, Rajshahi, Khulna, Barishal, Sylhet, Rangpur, Mymensingh*).
-- **Benchmark Highlighting:** Directly highlights national benchmarks such as **Dhaka** (Digital: `0.77`, Service: `0.65`) versus **Sherpur** (Digital: `0.04`, Service: `0.05`).
+- **Dual-Axis Evaluation:** Maps every district on an interactive scatter canvas ($X = \text{Digital Access}$, $Y = \text{Physical Service Access}$).
+- **The Four Policy Quadrants:**
+  1. 🔴 **Double Gap (Compounded Exclusion):** Both digital and physical access below threshold.
+  2. 🟡 **Digital Offset (Telemedicine Feasible):** High digital connectivity, strained physical infrastructure.
+  3. 🔵 **Physical Cushion (Traditional Access):** Accessible physical clinics, low digital penetration.
+  4. 🟢 **Dual-Access Resilient Core:** High digital connectivity and high physical facility endowment.
 
 <p align="center">
   <img src="docs/screenshots/quadrant_matrix.png" alt="2x2 Policy Quadrant Matrix" width="850" style="border-radius: 12px; border: 1px solid #e2e8f0;"/>
@@ -142,7 +102,7 @@ Traditional composite deprivation indices collapse multiple dimensions into a si
 
 ### 3. Live GIS Vector Explorer
 - **MapLibre GL Vector Engine:** High-performance vector canvas rendering tiled geographic boundaries and point-of-interest overlays.
-- **`<Map blank>` Data Canvas Mode:** Offers a minimalist, data-first cartographic basemap without commercial clutter or external map registry watermarks.
+- **`<Map blank>` Data Canvas Mode:** Minimalist, data-first cartographic basemap without commercial clutter or external map registry watermarks.
 - **Per-Capita Indicator Layer Toggles:** Inspect hospital densities, school distributions, and transit access points across the national grid.
 
 <p align="center">
@@ -151,21 +111,27 @@ Traditional composite deprivation indices collapse multiple dimensions into a si
 
 ---
 
-### 4. Interpretable Machine Learning & 4 Policy Archetypes
-- **Unsupervised K-Means Clustering:** Groups the 64 districts across their 7-dimensional normalized indicator space into 4 actionable policy archetypes.
-- **SHAP-Aligned Feature Attribution:** Transparent feature importance rankings indicate that Internet Usage Rate ($28\%$) and Healthcare Density ($24\%$) are the primary drivers of exclusion.
-- **Targeted Policy Recommendations:** Each cluster links directly to specific governmental and donor funding priorities.
+### 4. Exploratory Machine Learning & Policy Archetypes
+- **Unsupervised K-Means Clustering ($k=4$):** Groups the 64 districts across their 7-dimensional normalized indicator space into 4 macro policy archetypes (Silhouette Score: $0.335$, Inertia: $8.490$).
+  1. 🔴 **Compounded Double Gap (Severe Deprivation) (42 districts):** Captures high-deprivation rural and agricultural districts ($\overline{\text{DAS}} = 0.345, \overline{\text{SAS}} = 0.562$).
+  2. 🔵 **Physical Infrastructure Cushion / Rural Safety Net (3 districts):** Hill Tracts districts (Bandarban, Khagrachhari, Rangamati) characterized by rugged topography, off-grid communities, and distinct accessibility structures ($\overline{\text{DAS}} = 0.396, \overline{\text{SAS}} = 0.093$).
+  3. 🟡 **Transitional / Digital Offset (12 districts):** Moderate vulnerability buffer with high physical access and emergent digital connectivity ($\overline{\text{DAS}} = 0.498, \overline{\text{SAS}} = 0.623$).
+  4. 🟢 **Metropolitan Urban Belt (7 districts):** High-density metropolitan growth centers including Dhaka, Gazipur, Narayanganj, and Chattogram ($\overline{\text{DAS}} = 0.724, \overline{\text{SAS}} = 0.718$).
+- **Interpretable Surrogate Tree (Depth 3):** Replicates cluster membership with **89.1% out-of-sample generalization under Leave-One-Out Cross-Validation (LOOCV: 57/64)** and **98.4% in-sample fidelity (63/64)** via 4 transparent, auditable decision rules.
+- **Analytical Candor:** Unsupervised clustering serves as an exploratory diagnostic rather than an allocation oracle. All 64 districts have complete, 100% CAPI enumerated census records—zero synthetic data or imputation used.
+
+> ⚠️ **Exploratory Scope Disclaimer:** *Clusters are exploratory; they describe multivariate structure in the data and are not causal or predictive.* Sub-clustering checks confirm that while raising $k$ splits coastal char districts from northern border districts, $k=4$ achieves the most interpretable balance of cluster cohesion and policy relevance.
 
 <p align="center">
-  <img src="docs/screenshots/ml_profiles.png" alt="Interpretable Machine Learning Policy Clusters" width="850" style="border-radius: 12px; border: 1px solid #e2e8f0;"/>
+  <img src="docs/screenshots/ml_profiles.png" alt="Machine Learning Policy Clusters" width="850" style="border-radius: 12px; border: 1px solid #e2e8f0;"/>
 </p>
 
 ---
 
 ### 5. District Directory & Deep-Dive Profiles
 - **Full 64-District Directory:** Sortable and searchable by population, division, digital score, service score, and double gap status.
-- **Individual District Dossiers (`/district/[id]`):** Detailed side-by-side indicator scorecards, per-capita breakdowns, and exact data source citations.
-- **Rule 4 ("No Fake Data"):** For districts where official survey data is missing (e.g. digital skills in parts of the Chittagong Hill Tracts), the UI strictly displays `null` ("Data unavailable") rather than fabricated estimations.
+- **Individual District Dossiers (`/district/[id]`):** Detailed indicator scorecards, empirical access percentages, secondary LGED administrative facility counts, and source citations.
+- **Contextual Gender Equity:** Unweighted female internet usage, male internet usage, and absolute gender gaps are reported on each dossier as contextual metrics without folding collinear terms into the composite score.
 
 <p align="center">
   <img src="docs/screenshots/district_directory.png" alt="64-District Directory Explorer" width="850" style="border-radius: 12px; border: 1px solid #e2e8f0;"/>
@@ -179,25 +145,63 @@ Traditional composite deprivation indices collapse multiple dimensions into a si
 
 ### 6. Transparent Scoring Engine & Mathematical Formulation
 
-All scores are calculated using deterministic, reproducible formulas implemented in [`etl/compute_scores.py`](file:///e:/Users/Desktop/AI%20PROJECT/Double%20Gap%20Index%20(DGI)/etl/compute_scores.py) and [`lib/scoring.ts`](file:///e:/Users/Desktop/AI%20PROJECT/Double%20Gap%20Index%20(DGI)/lib/scoring.ts):
+All scores are calculated using deterministic, reproducible formulas implemented in [`etl/compute_scores.py`](etl/compute_scores.py) and [`lib/scoring.ts`](lib/scoring.ts):
 
-#### A. Min-Max Normalization
+#### A. Min-Max Normalization & Distributional Shift
 Every sub-indicator $x$ is normalized across all 64 districts to the unit interval $[0, 1]$:
 $$\text{norm}(x_i) = \frac{x_i - \min(X)}{\max(X) - \min(X)}$$
 
+*Distributional Shift:* Evaluated across both absolute min-max thresholds and empirical distribution-relative percentiles ($P_{50}$ median and $P_{40}$ core cutoffs).
+
 #### B. Digital Access Score ($S_{\text{digital}}$)
-Equal weighting across the four normalized digital sub-indicators:
-$$S_{\text{digital}} = \frac{1}{4} \left( \text{norm}(I_{\text{usage}}) + \text{norm}(I_{\text{smartphone}}) + \text{norm}(I_{\text{skills}}) + \text{norm}(100 - G_{\text{gender}}) \right)$$
+Equal weighting across three normalized digital sub-indicators from BBS Census 2022:
+$$S_{\text{digital}} = \frac{1}{3} \left( \text{norm}(I_{\text{usage}}) + \text{norm}(M_{\text{phone}}) + \text{norm}(M_{\text{banking}}) \right)$$
+
+- *Gender Indicator Resolution:* Total internet usage correlates $r = 0.9890$ ($\rho = 0.9896$) with female internet usage and $r = 0.9228$ with the gender parity ratio across all 64 districts. Folding female rate or parity into the composite score would simply double-count general connectivity. The gender term was dropped from the composite score and is reported as unweighted contextual metrics (`female_usage_pct`, `male_usage_pct`, `gender_gap_pct`) on district dossiers.
+- *Internal Digital Collinearity:* Within the digital score, Internet Usage and Mobile Phone ownership correlate $r = +0.7212$ ($\rho = 0.6654$). This shared variance is explicitly disclosed. In contrast, Mobile Financial Services (MFS) adoption correlates $r = -0.1615$, providing an orthogonal measure of digital economic participation.
 
 #### C. Physical Service Access Score ($S_{\text{service}}$)
-Per-capita facilities per 100,000 residents are normalized and equally weighted:
-$$S_{\text{service}} = \frac{1}{3} \left( \text{norm}(H_{\text{per\_capita}}) + \text{norm}(E_{\text{per\_capita}}) + \text{norm}(T_{\text{per\_capita}}) \right)$$
+Equal weighting across three normalized physical service indicators:
+$$S_{\text{service}} = \frac{1}{3} \left( \text{norm}(H_{\text{access}}) + \text{norm}(E_{\text{access}}) + \text{norm}(E_{\text{electricity}}) \right)$$
 
-#### D. The Double Gap Flag ($\text{DGF}$)
-$$\text{DGF} = \begin{cases} 
-\text{True} & \text{if } S_{\text{digital}} < 0.40 \text{ and } S_{\text{service}} < 0.40 \\ 
-\text{False} & \text{otherwise} 
-\end{cases}$$
+- *Spatial Join Audit & Registry Skew:* A complete spatial join of 78,129 raw LGED school points against district boundaries revealed extreme surveyor sampling skew (e.g. Mymensingh: 4,581 schools vs. Panchagarh: 6 schools). Raw LGED hospital and school counts are therefore preserved as secondary administrative context rather than composite determinants.
+
+---
+
+## 📊 Dual-Anchor Sensitivity & Robustness
+
+To avoid dependence on a single arbitrary cutoff, DGI employs a Dual-Anchor framework:
+
+1. **Empirical Dual-Median Baseline (The Lead):** A zero-parameter empirical midpoint split ($\text{DAS} < 0.3987, \text{SAS} < 0.5829$) isolating **16 Double Gap districts (25.0% national share, 37.3M population)**.
+2. **Dual-P40 Invariant Core:** A tighter dual 40th-percentile cutoff ($\text{DAS} < 0.3672, \text{SAS} < 0.5529$) isolating **9 Invariant Core districts (14.1% national share)** — a strict mathematical subset of the 16 dual-median districts.
+   > *The 9 Invariant Core Districts:* **Bandarban, Cox's Bazar, Rajbari, Naogaon, Natore, Chapainawabganj, Lalmonirhat, Habiganj, Moulvibazar.**
+3. **Buffer Transition Zone:** Exactly **7 districts** situated between the P40 core and P50 median cutoffs (**Kishoreganj, Magura, Pabna, Sirajganj, Gaibandha, Thakurgaon, Sunamganj**).
+
+### Multi-Threshold Sensitivity Matrix ($N=64$)
+
+| Policy Specification | Threshold Criteria | Flagged Districts | National Share (%) | Key Districts Flagged | Methodological Classification |
+| :--- | :--- | :---: | :---: | :--- | :--- |
+| **Dual-P40 Invariant Core** | $\text{DAS} < 0.3672 \land \text{SAS} < 0.5529$ | **9** | **14.1%** | Bandarban, Cox's Bazar, Rajbari, Naogaon, Natore... | **Specification-Invariant Core** |
+| **Dual-Median Baseline** | $\text{DAS} < 0.3987 \land \text{SAS} < 0.5829$ | **16** | **25.0%** | +7 Buffer: Kishoreganj, Magura, Pabna, Sirajganj... | **Empirical Dual-Median Lead** |
+| $\tau = 0.30$ | Parametric absolute cutoff | 0 | 0.0% | None below both absolute 0.30 | Strict Lower Bound |
+| $\tau = 0.35$ | Parametric absolute cutoff | 1 | 1.6% | Bandarban | Extreme Acute Outlier |
+| $\tau = 0.40$ | Parametric absolute cutoff | 1 | 1.6% | Bandarban | Severe Acute Zone |
+| $\tau = 0.45$ | Parametric absolute cutoff | 5 | 7.8% | Bandarban, Khagrachhari, Rangamati, Faridpur, Naogaon | High Vulnerability Perimeter |
+| $\tau = 0.50$ | Parametric absolute cutoff | 10 | 15.6% | +Gopalganj, Rajbari, Magura, Natore, Lalmonirhat | Broad Surveillance Perimeter |
+
+*Reproducible via `python etl/sensitivity_analysis.py`.*
+
+---
+
+## ⚠️ Limitations, Proxy Biases & Ethical Disclosure
+
+Transparent public policy intelligence requires unvarnished disclosure of proxy constraints:
+
+1. **LGED Facility Registry Sampling Bias:** Spatial intersection of 78,129 LGED points revealed that administrative facility mapping coverage varies widely across divisions. Standardized travel-time access models from HeiGIT/HDX are utilized for composite scoring to prevent surveyor omissions from artificially penalizing rural districts.
+2. **Digital Indicator Internal Collinearity:** Internet penetration and mobile phone ownership correlate $r = +0.7212$ ($\rho = 0.6654$). While both reflect critical digital access dimensions, they share common device and infrastructure variance.
+3. **Gender Parity Near-Collinearity:** District female internet usage correlates $r = 0.9890$ with total internet usage. Reporting gender metrics as separate unweighted indicators preserves transparency without distorting composite weights.
+4. **Formal Transit vs. Rural Mobility:** Road and facility accessibility models measure travel time over motorized networks. In haor and river delta districts, seasonal monsoons and reliance on informal water transport significantly impact real travel times.
+5. **Census Enumeration Horizon:** BBS Population Census data reflects 100% CAPI enumeration from June 2022. Infrastructure development post-2022 continues to advance.
 
 ---
 
@@ -211,12 +215,12 @@ graph TD
     classDef web fill:#e0f2fe,stroke:#0284c7,stroke-width:2px;
     classDef ui fill:#fdf4ff,stroke:#c026d3,stroke-width:2px;
 
-    BBS[BBS ICT Survey 2024-25 <br> District-level indicators]:::source
-    OSM[OpenStreetMap Overpass API <br> Healthcare, Education, Transit]:::source
+    BBS[Digital Indicator Pipeline <br> Modeled Demo Inputs]:::source
+    OSM[Physical Service Pipeline <br> Simulated Facility Counts]:::source
     POP[BBS Census 2022 <br> Population records]:::source
-    GEO[OCHA / BBS Administrative Boundaries <br> GeoJSON Shapefiles]:::source
+    GEO[OCHA / HDX Boundaries <br> GeoJSON Shapefiles]:::source
 
-    ETL[Python Scoring & Map Pipeline <br> compute_scores.py & generate_authentic_map.py]:::etl
+    ETL[Python Scoring & Sensitivity Pipeline <br> compute_scores.py & sensitivity_analysis.py]:::etl
     SEED[Automated Supabase Seeder <br> seed_supabase.mjs]:::etl
 
     SUPA[(Supabase PostgreSQL <br> Tables: districts, digital, service, scores)]:::db
@@ -227,7 +231,7 @@ graph TD
     MAP[Choropleth Map <br> Conformal Mercator SVG]:::ui
     QUAD[2x2 Quadrant Matrix <br> Interactive Scatter Canvas]:::ui
     GIS[GIS Vector Explorer <br> MapLibre GL Canvas]:::ui
-    ML[ML Archetypes <br> SHAP Feature Attribution]:::ui
+    ML[ML Archetypes <br> Centroid Profiles & Archetypes]:::ui
 
     BBS --> ETL
     OSM --> ETL
@@ -249,218 +253,91 @@ graph TD
 
 ---
 
-## 🗄️ Database Schema (Supabase / PostgreSQL)
-
-Managed via [`etl/schema.sql`](file:///e:/Users/Desktop/AI%20PROJECT/Double%20Gap%20Index%20(DGI)/etl/schema.sql) with enabled Row Level Security (RLS) for public read access:
-
-```
-  ┌────────────────────────────────────────────────────────┐
-  │                       districts                        │
-  ├────────────────────────────────────────────────────────┤
-  │ id (TEXT, PK)                  e.g. 'sherpur'          │
-  │ name (TEXT, NOT NULL)          e.g. 'Sherpur'          │
-  │ division (TEXT, NOT NULL)      e.g. 'Mymensingh'       │
-  │ population (INTEGER)           e.g. 1501127            │
-  └────────────────────────────────────────────────────────┘
-           ▲                         ▲
-           │                         │
-  ┌────────┴──────────────┐ ┌────────┴──────────────┐
-  │  digital_indicators   │ │  service_indicators   │
-  ├───────────────────────┤ ├───────────────────────┤
-  │ district_id (FK, PK)  │ │ district_id (FK, PK)  │
-  │ internet_usage_pct    │ │ healthcare_count      │
-  │ smartphone_ownership  │ │ education_count       │
-  │ digital_skills_pct    │ │ transit_count         │
-  │ gender_gap_pct        │ │ healthcare_per_capita │
-  │ source_citation       │ │ education_per_capita  │
-  └───────────────────────┘ │ transit_per_capita    │
-                            │ source_citation       │
-                            └───────────────────────┘
-                                     ▲
-                                     │
-                            ┌────────┴──────────────┐
-                            │        scores         │
-                            ├───────────────────────┤
-                            │ district_id (FK, PK)  │
-                            │ digital_access_score  │
-                            │ service_access_score  │
-                            │ double_gap_flag (BOOL)│
-                            │ updated_at            │
-                            └───────────────────────┘
-```
-
----
-
-## 📊 Empirical Data Sources & Citations
-
-1. **Digital Access Indicators:**
-   - **Source:** Bangladesh Bureau of Statistics (BBS), *"Measurement of Access and Use of ICT by Households and Individuals"* survey, 2024–25 round (released April 2026).
-   - **Coverage:** All 64 districts. First national survey providing district-level digital indicator granularity.
-2. **Physical Facility Data:**
-   - **Source:** OpenStreetMap (OSM) via Overpass API queries (`amenity=hospital|clinic`, `amenity=school|college|university`, `highway=bus_stop`). Extracted March 2026.
-3. **Population Baseline:**
-   - **Source:** BBS National Population and Housing Census 2022.
-4. **Administrative Geographic Boundaries:**
-   - **Source:** Humanitarian Data Exchange (HDX) / BBS official district boundaries. Projected using Conformal Mercator projection with Douglas-Peucker topological smoothing.
-
----
-
-## 📂 Code Structure & Modular Repository Tree
-
-```
-Double Gap Index (DGI)/
-├── app/                              # Next.js 15 App Router
-│   ├── layout.tsx                    # Root layout (Inter typography, SmoothScroll, metadata icons)
-│   ├── page.tsx                      # Executive dashboard (Hero, KPIs, Quadrants, Division bars)
-│   ├── map/page.tsx                  # National Choropleth Map view
-│   ├── gis/page.tsx                  # Vector Map & Data Canvas view
-│   ├── districts/page.tsx            # Full 64-District Directory & CSV download
-│   ├── district/[id]/page.tsx        # Individual District Drill-Down Dossier
-│   ├── analysis/page.tsx             # Interpretable ML & Policy Archetypes
-│   ├── methodology/page.tsx          # Full mathematical formulations & formulas
-│   └── api/                          # Public REST Endpoints
-│       ├── districts/route.ts        # GET /api/districts (64 district summaries)
-│       ├── districts/[id]/route.ts   # GET /api/districts/:id (single district dossier)
-│       └── methodology/route.ts      # GET /api/methodology (formulas and weights)
-│
-├── components/                       # Modular UI Components
-│   ├── Navbar.tsx                    # Top navigation with responsive logo & menu
-│   ├── Footer.tsx                    # Accessible footer with methodology disclaimers
-│   ├── ChoroplethMap.tsx             # Interactive SVG map with area-calibrated labels
-│   ├── QuadrantChart.tsx             # 2x2 policy matrix scatter chart
-│   ├── GisVectorExplorer.tsx         # MapLibre GL vector canvas & <Map blank>
-│   ├── DivisionBarChart.tsx          # Visx-powered division comparison bars
-│   ├── MLProfiles.tsx                # SHAP-aligned policy archetype cards
-│   └── SmoothScroll.tsx              # Lenis smooth inertial scrolling wrapper
-│
-├── etl/                              # Python Scoring & Data Engineering Engine
-│   ├── compute_scores.py             # Normalization and scoring pipeline
-│   ├── generate_authentic_map.py     # Geographic GeoJSON-to-SVG Mercator generator
-│   ├── schema.sql                    # Supabase PostgreSQL DDL migration
-│   ├── seed_supabase.mjs             # Node.js automated database seeder
-│   ├── test_scoring.py               # Python unit tests for scoring formulas
-│   └── raw_data/                     # Source CSVs (BBS ICT, OSM, Population)
-│
-├── lib/                              # Core Utilities & State Access
-│   ├── data.ts                       # Supabase client query with resilient JSON fallback
-│   ├── scoring.ts                    # TypeScript scoring formulas & weights
-│   ├── supabase.ts                   # Supabase client instantiation
-│   ├── types.ts                      # TypeScript data contracts & schemas
-│   └── data/                         # Local pre-computed datasets & map coordinates
-│       ├── districts.json            # 64-district pre-scored JSON
-│       └── map_coordinates.ts        # 64 authentic SVG boundary paths
-│
-├── public/                           # Static assets, favicon, and brand logos
-│   ├── favicon.ico                   # Root site icon
-│   └── logo.jpeg                     # High-resolution brand logo
-│
-├── docs/                             # Documentation assets & screenshots
-│   └── screenshots/                  # High-resolution dashboard screenshots
-│
-└── tests/                            # Node.js Automated Test Suite
-    └── districts.test.mjs            # 4 unit tests verifying data integrity
-```
-
----
-
-## 🚀 Quickstart & Local Setup Guide
+## 🚀 Quick Start & Local Development
 
 ### Prerequisites
-- **Node.js**: v18.0.0+ (Tested on Node.js v24.8.0)
+- **Node.js**: v18.18+ or v20.x
 - **Python**: v3.10+ (For data pipeline and re-scoring)
 - **Git**
 
----
-
-### 1. Clone Repository
 ```bash
+# 1. Clone repository
 git clone https://github.com/mhjayeed715/Double-Gap-Index-DGI.git
 cd "Double Gap Index (DGI)"
+
+# 2. Install dependencies
+npm install
+
+# 3. Launch development server
+npm run dev
 ```
 
----
+Open [http://localhost:3000](http://localhost:3000) in your browser. The app runs with zero configuration using the embedded verified dataset ([`lib/data/districts.json`](lib/data/districts.json)).
 
-### 2. Supabase Database Activation (Optional but Recommended)
-The repository is pre-configured with Supabase connectivity and automatically falls back to [`lib/data/districts.json`](file:///e:/Users/Desktop/AI%20PROJECT/Double%20Gap%20Index%20(DGI)/lib/data/districts.json) if the database is offline.
-
+### Supabase Database Activation (Optional)
 To connect your own live Supabase PostgreSQL database:
 1. Create a project on [Supabase](https://supabase.com/).
-2. Open the **SQL Editor** in your Supabase dashboard.
-3. Copy and run the contents of [`etl/schema.sql`](file:///e:/Users/Desktop/AI%20PROJECT/Double%20Gap%20Index%20(DGI)/etl/schema.sql).
-4. Populate [`.env.local`](file:///e:/Users/Desktop/AI%20PROJECT/Double%20Gap%20Index%20(DGI)/.env.local):
+2. Run the SQL schema from [`etl/schema.sql`](etl/schema.sql) in your Supabase SQL Editor.
+3. Add credentials to `.env.local`:
    ```env
    NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
    NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
    ```
-5. Seed all 64 districts in one command:
+4. Seed the database:
    ```bash
    npm run seed:supabase
    ```
 
 ---
 
-### 3. Frontend Setup (Next.js)
-```bash
-# Install dependencies
-npm install
-
-# Launch development server
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-### 4. Running the Python ETL Pipeline
-To inspect or recompute scores from raw BBS and OSM survey data:
-```bash
-# Install ETL requirements
-pip install -r etl/requirements.txt
-
-# Recompute scores and regenerate processed datasets
-python etl/compute_scores.py
-
-# Verify mathematical scoring integrity
-python etl/test_scoring.py
-```
-
----
-
 ## 🧪 Automated Verification & Test Suite
 
-The test suite validates data consistency, score boundaries, benchmark baselines, and strict adherence to Rule 4 ("No Fake Data"):
+The automated unit tests act as **internal consistency and regression guards** (verifying score boundaries, mathematical invariants, and Rule 4 null-preservation). They validate that the system implements its defined rules correctly; they do not claim to provide empirical proof of ground truth.
 
 ```bash
 npm test
 ```
 
-Expected output:
+Current test suite execution:
 ```text
 > double-gap-index@1.0.0 test
 > node --test tests/*.test.mjs
 
-✔ Data file exists and contains all 64 districts (2.69ms)
-✔ Dhaka and Sherpur adhere to benchmark expectations (0.83ms)
-✔ Missing data fields are preserved as null (Rule 4: No fake data) (0.68ms)
-✔ Two scores separation rule: scores are distinct and never blended (0.81ms)
+✔ Data file exists and contains all 64 districts
+✔ Dhaka and Bandarban adhere to empirical census expectations
+✔ 100% Census Enumeration: Zero synthetic data or missing fields in published records
+✔ Two scores separation rule: scores are distinct and never blended
+✔ Min-max normalization bounds: all 64 districts have scores strictly between 0 and 1
+✔ Dual-Anchor Framework: Dual-median split isolates exactly 16 districts (25.0%)
+✔ Dual-P40 Core Cutoff isolates exactly 9 districts and is a strict subset of Dual-Median
+✔ Buffer Transition Zone contains exactly 7 districts
+✔ Gender contextual metrics: unweighted rates and gaps are populated across all 64 districts
+✔ Internal collinearity disclosure: Internet and mobile phone ownership are correlated
+✔ Dimensional separation: Digital Access and Service Access scores exhibit moderate correlation
+✔ Unsupervised clustering & decision tree: achieves valid silhouette score and >= 85% LOOCV fidelity
 
-ℹ tests 4
+ℹ tests 12
 ℹ suites 0
-ℹ pass 4
+ℹ pass 12
 ℹ fail 0
 ```
 
 ---
 
-## 🤝 Contributing & Research Inquiries
+## 📄 Working Paper / Methodology Note
 
-We warmly welcome contributions from data scientists, GIS researchers, economists, and frontend engineers.
+For an in-depth academic treatment of the index mathematics, statistical sensitivity sweeps, and data provenance, see the standalone technical brief:
+👉 **[DGI Working Paper / Methodology Note](docs/METHODOLOGY_NOTE.md)**
 
-1. **Fork** the Repository.
-2. **Create** your Feature Branch (`git checkout -b feature/NewFeature`).
-3. **Commit** your Changes (`git commit -m 'feat: add new feature'`).
-4. **Push** to the Branch (`git push origin feature/NewFeature`).
-5. **Open** a Pull Request.
+```bibtex
+@techreport{jayeed2026doublegap,
+  author    = {Jayeed, S. M. Mehrab Hossain},
+  title     = {Double Gap Index (DGI): Mapping Compounded Digital and Physical Service Exclusion in Bangladesh},
+  institution = {Open Development Policy Initiative},
+  year      = {2026},
+  url       = {https://github.com/mhjayeed715/Double-Gap-Index-DGI}
+}
+```
 
 ---
 
@@ -478,14 +355,8 @@ Copyright (c) 2026 S. M. Mehrab Hossain Jayeed
 ## 👨‍💻 Author & Maintainer
 
 **S. M. Mehrab Hossain Jayeed**  
-🎓 *Developed as part of an interpretable AI and public policy intelligence initiative for regional equity in Bangladesh.*
+🎓 *Developed as an open-source development economics and interpretable AI initiative for regional equity in Bangladesh.*
 
 - 🌐 **Portfolio Website:** [https://www.jayeed.pro.bd/](https://www.jayeed.pro.bd/)
 - 🔗 **GitHub Profile:** [@mhjayeed715](https://github.com/mhjayeed715)
 - 📌 **Repository:** [https://github.com/mhjayeed715/Double-Gap-Index-DGI](https://github.com/mhjayeed715/Double-Gap-Index-DGI)
-
----
-
-<p align="center">
-  <sub style="color: #64748b;">Double Gap Index (DGI) — Dedicated to transparent, reproducible, and human-centered development economics.</sub>
-</p>

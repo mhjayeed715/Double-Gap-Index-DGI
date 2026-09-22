@@ -59,7 +59,7 @@ async function seed() {
     smartphone_ownership_pct: d.digital_breakdown.smartphone_ownership_pct,
     digital_skills_pct: d.digital_breakdown.digital_skills_pct,
     gender_gap_pct: d.digital_breakdown.gender_gap_pct,
-    source_citation: d.digital_breakdown.source_citation || "BBS ICT Survey 2024-25",
+    source_citation: d.digital_breakdown.source_citation || "Modeled Demonstration Inputs",
   }));
   const { error: digErr } = await supabase.from("digital_indicators").upsert(digitalPayload);
   if (digErr) console.error("Error inserting digital indicators:", digErr);

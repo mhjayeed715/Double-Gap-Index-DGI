@@ -33,7 +33,7 @@ export default async function DistrictsDirectoryPage() {
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-cyan-50 border border-cyan-200 text-cyan-800">
               <FileSpreadsheet className="w-3.5 h-3.5 text-cyan-600" />
-              BBS ICT 2024-25 & OSM Facilities
+              Modeled Demonstration Baseline & Simulated Facilities
             </span>
           </div>
         </div>

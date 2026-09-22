@@ -14,6 +14,7 @@ coverage/
 out/
 build/
 dist/
+*.tsbuildinfo
 
 # Environment files
 .env
@@ -48,3 +49,9 @@ venv/
 .venv/
 env/
 .env/
+
+# Large GIS and raw shapefile datasets (>100MB exceeds GitHub limits)
+etl/verified_raw/*.zip
+etl/verified_raw/education_facilities_lged/
+etl/verified_raw/health_facilities_lged/
+

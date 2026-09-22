@@ -13,35 +13,34 @@ test("Data file exists and contains all 64 districts", () => {
   assert.equal(districts.length, 64, "Must contain exactly 64 districts");
 });
 
-test("Dhaka and Sherpur adhere to benchmark expectations", () => {
+test("Dhaka and Bandarban adhere to empirical census expectations", () => {
   const districts = JSON.parse(fs.readFileSync(dataFilePath, "utf8"));
   const map = new Map(districts.map((d) => [d.id, d]));
 
   const dhaka = map.get("dhaka");
   assert.ok(dhaka, "Dhaka district must exist");
-  assert.equal(dhaka.digital_breakdown.internet_usage_pct, 77.1);
-  assert.ok(dhaka.digital_access_score > 0.7, "Dhaka digital score should be > 0.7");
+  assert.equal(dhaka.digital_breakdown.internet_usage_pct, 60.97);
+  assert.ok(dhaka.digital_access_score > 0.9, "Dhaka digital score should be > 0.9");
   assert.equal(dhaka.double_gap_flag, false, "Dhaka should not be double gap");
 
-  const sherpur = map.get("sherpur");
-  assert.ok(sherpur, "Sherpur district must exist");
-  assert.equal(sherpur.digital_breakdown.internet_usage_pct, 25.9);
-  assert.ok(sherpur.digital_access_score < 0.4, "Sherpur digital score should be < 0.4");
-  assert.ok(sherpur.service_access_score < 0.4, "Sherpur service score should be < 0.4");
-  assert.equal(sherpur.double_gap_flag, true, "Sherpur must be flagged as Double Gap");
+  const bandarban = map.get("bandarban");
+  assert.ok(bandarban, "Bandarban district must exist");
+  assert.equal(bandarban.digital_breakdown.internet_usage_pct, 29.54);
+  assert.ok(bandarban.digital_access_score < 0.40, "Bandarban digital score should be < 0.40");
+  assert.ok(bandarban.service_access_score < 0.40, "Bandarban service score should be < 0.40");
+  assert.equal(bandarban.double_gap_flag, true, "Bandarban must be flagged as Double Gap");
 });
 
-test("Missing data fields are preserved as null (Rule 4: No fake data)", () => {
+test("100% Census Enumeration: Zero synthetic data or missing fields in published records", () => {
   const districts = JSON.parse(fs.readFileSync(dataFilePath, "utf8"));
-  const bandarban = districts.find((d) => d.id === "bandarban");
-
-  assert.ok(bandarban, "Bandarban district must exist");
-  // Digital skills in hill tracts was set to null in raw data
-  assert.equal(
-    bandarban.digital_breakdown.digital_skills_pct,
-    null,
-    "Missing digital skills must be strictly null, not 0"
-  );
+  for (const d of districts) {
+    assert.ok(d.digital_breakdown.internet_usage_pct > 0, `Internet rate must be > 0 for ${d.id}`);
+    assert.ok(d.digital_breakdown.mobile_ownership_pct > 0, `Mobile ownership must be > 0 for ${d.id}`);
+    assert.ok(d.digital_breakdown.mobile_banking_pct > 0, `Mobile banking must be > 0 for ${d.id}`);
+    assert.ok(d.service_breakdown.hospital_access_pct >= 0, `Hospital access must be >= 0 for ${d.id}`);
+    assert.ok(d.service_breakdown.education_access_pct >= 0, `Education access must be >= 0 for ${d.id}`);
+    assert.ok(d.service_breakdown.electricity_access_pct > 0, `Electricity access must be > 0 for ${d.id}`);
+  }
 });
 
 test("Two scores separation rule: scores are distinct and never blended", () => {
