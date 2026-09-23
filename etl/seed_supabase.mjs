@@ -56,10 +56,12 @@ async function seed() {
   const digitalPayload = districts.map((d) => ({
     district_id: d.id,
     internet_usage_pct: d.digital_breakdown.internet_usage_pct,
-    smartphone_ownership_pct: d.digital_breakdown.smartphone_ownership_pct,
-    digital_skills_pct: d.digital_breakdown.digital_skills_pct,
+    mobile_ownership_pct: d.digital_breakdown.mobile_ownership_pct,
+    mobile_banking_pct: d.digital_breakdown.mobile_banking_pct,
+    male_usage_pct: d.digital_breakdown.male_usage_pct,
+    female_usage_pct: d.digital_breakdown.female_usage_pct,
     gender_gap_pct: d.digital_breakdown.gender_gap_pct,
-    source_citation: d.digital_breakdown.source_citation || "Modeled Demonstration Inputs",
+    source_citation: d.digital_breakdown.source_citation || "BBS Census 2022 (Admin 02 Dataset, HDX)",
   }));
   const { error: digErr } = await supabase.from("digital_indicators").upsert(digitalPayload);
   if (digErr) console.error("Error inserting digital indicators:", digErr);
@@ -69,13 +71,13 @@ async function seed() {
   console.log("Seeding service indicators...");
   const servicePayload = districts.map((d) => ({
     district_id: d.id,
-    healthcare_facility_count: d.service_breakdown.healthcare_facility_count,
-    education_facility_count: d.service_breakdown.education_facility_count,
-    transit_point_count: d.service_breakdown.transit_point_count,
-    healthcare_per_capita: d.service_breakdown.healthcare_per_capita,
-    education_per_capita: d.service_breakdown.education_per_capita,
-    transit_per_capita: d.service_breakdown.transit_per_capita,
-    source_citation: d.service_breakdown.source_citation || "OpenStreetMap / DGHS",
+    hospital_access_pct: d.service_breakdown.hospital_access_pct,
+    education_access_pct: d.service_breakdown.education_access_pct,
+    electricity_access_pct: d.service_breakdown.electricity_access_pct,
+    lged_hospital_count: d.service_breakdown.lged_hospital_count,
+    lged_fwc_count: d.service_breakdown.lged_fwc_count,
+    lged_school_count: d.service_breakdown.lged_school_count,
+    source_citation: d.service_breakdown.source_citation || "HeiGIT Accessibility (HDX) & BBS Census 2022",
   }));
   const { error: srvErr } = await supabase.from("service_indicators").upsert(servicePayload);
   if (srvErr) console.error("Error inserting service indicators:", srvErr);

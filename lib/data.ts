@@ -38,19 +38,16 @@ export async function getAllDistricts(): Promise<District[]> {
           double_gap_flag: row.double_gap_flag,
           digital_breakdown: row.digital_indicators || {
             internet_usage_pct: null,
-            smartphone_ownership_pct: null,
-            digital_skills_pct: null,
+            mobile_ownership_pct: null,
+            mobile_banking_pct: null,
             gender_gap_pct: null,
-            source_citation: "Modeled Demonstration Inputs"
+            source_citation: "BBS Census 2022 (Admin 02 Dataset, HDX)"
           },
           service_breakdown: row.service_indicators || {
-            healthcare_facility_count: null,
-            education_facility_count: null,
-            transit_point_count: null,
-            healthcare_per_capita: null,
-            education_per_capita: null,
-            transit_per_capita: null,
-            source_citation: "Simulated Facility Density"
+            hospital_access_pct: null,
+            education_access_pct: null,
+            electricity_access_pct: null,
+            source_citation: "HeiGIT Accessibility (HDX) & BBS Census 2022"
           }
         }));
       }
