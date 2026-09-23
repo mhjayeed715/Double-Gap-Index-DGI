@@ -61,7 +61,7 @@
   "archetype_profiles": [
     {
       "cluster_id": 1,
-      "title": "Compounded Double Gap (Severe Deprivation)",
+      "title": "Rural Agrarian & Coastal Belt (Low Digital, Moderate Physical)",
       "district_count": 42,
       "double_gap_districts_count": 15,
       "mean_digital_score": 0.345,
@@ -130,7 +130,7 @@
     },
     {
       "cluster_id": 2,
-      "title": "Physical Infrastructure Cushion / Rural Safety Net",
+      "title": "Acute Mountain & Off-Grid Deficit (Chittagong Hill Tracts)",
       "district_count": 3,
       "double_gap_districts_count": 1,
       "mean_digital_score": 0.396,

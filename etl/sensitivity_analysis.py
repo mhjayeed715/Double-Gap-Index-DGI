@@ -64,8 +64,8 @@ def run_sensitivity_analysis():
     p40_d = round(float(np.percentile(valid_d, 40)), 4)
     p40_s = round(float(np.percentile(valid_s, 40)), 4)
 
-    # 1. Multi-Threshold Absolute Sweeps
-    thresholds = [0.30, 0.35, 0.40, 0.45, 0.50]
+    # 1. Multi-Threshold Absolute Sweeps (with marginal breakdown)
+    thresholds = [0.30, 0.35, 0.40, 0.45, 0.50, 0.55, med_s, 0.60]
     threshold_results = []
     for t in thresholds:
         flagged = [
@@ -75,8 +75,34 @@ def run_sensitivity_analysis():
             and d["digital_access_score"] < t
             and d["service_access_score"] < t
         ]
+        cnt_d = sum(1 for d in districts if d["digital_access_score"] is not None and d["digital_access_score"] < t)
+        cnt_s = sum(1 for d in districts if d["service_access_score"] is not None and d["service_access_score"] < t)
         threshold_results.append({
-            "threshold": t,
+            "threshold": round(t, 4),
+            "das_marginal_count": cnt_d,
+            "sas_marginal_count": cnt_s,
+            "flagged_count": len(flagged),
+            "flagged_pct": round(len(flagged) / n_districts * 100, 1),
+            "flagged_districts": flagged
+        })
+
+    # 1B. Dual-Percentile Sensitivity Sweeps (Evaluating each axis by its empirical percentile)
+    percentile_steps = [20, 25, 30, 35, 40, 45, 50, 55, 60]
+    dual_percentile_results = []
+    for p in percentile_steps:
+        c_d = round(float(np.percentile(valid_d, p)), 4)
+        c_s = round(float(np.percentile(valid_s, p)), 4)
+        flagged = sorted([
+            d["name"] for d in districts
+            if d["digital_access_score"] is not None
+            and d["service_access_score"] is not None
+            and d["digital_access_score"] < c_d
+            and d["service_access_score"] < c_s
+        ])
+        dual_percentile_results.append({
+            "percentile": p,
+            "das_cutoff": c_d,
+            "sas_cutoff": c_s,
             "flagged_count": len(flagged),
             "flagged_pct": round(len(flagged) / n_districts * 100, 1),
             "flagged_districts": flagged
@@ -135,6 +161,7 @@ def run_sensitivity_analysis():
             "p40_service_access_score": p40_s
         },
         "threshold_sensitivity": threshold_results,
+        "dual_percentile_sweeps": dual_percentile_results,
         "dual_anchor_framework": {
             "invariant_dual_method_core": {
                 "count": len(invariant_core),

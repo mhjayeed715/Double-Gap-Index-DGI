@@ -85,9 +85,9 @@ def run_clustering_audit():
     )
 
     names = [
-        "Compounded Double Gap (Severe Deprivation)",
-        "Physical Infrastructure Cushion / Rural Safety Net",
-        "Transitional / Digital Offset",
+        "Rural Agrarian & Coastal Belt (Low Digital, Moderate Physical)",
+        "Acute Mountain & Off-Grid Deficit (Chittagong Hill Tracts)",
+        "Transitional / Digital Offset (Intermediate Adoption)",
         "Metropolitan Urban Belt (Dhaka, Gazipur, Narayanganj, Chattogram)"
     ]
 

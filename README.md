@@ -113,10 +113,10 @@ Most spatial vulnerability dashboards blend indicators into a single scalar (e.g
 
 ### 4. Exploratory Machine Learning & Policy Archetypes
 - **Unsupervised K-Means Clustering ($k=4$):** Groups the 64 districts across their 7-dimensional normalized indicator space into 4 macro policy archetypes (Silhouette Score: $0.335$, Inertia: $8.490$).
-  1. 🔴 **Compounded Double Gap (Severe Deprivation) (42 districts):** Captures high-deprivation rural and agricultural districts ($\overline{\text{DAS}} = 0.345, \overline{\text{SAS}} = 0.562$).
-  2. 🔵 **Physical Infrastructure Cushion / Rural Safety Net (3 districts):** Hill Tracts districts (Bandarban, Khagrachhari, Rangamati) characterized by rugged topography, off-grid communities, and distinct accessibility structures ($\overline{\text{DAS}} = 0.396, \overline{\text{SAS}} = 0.093$).
-  3. 🟡 **Transitional / Digital Offset (12 districts):** Moderate vulnerability buffer with high physical access and emergent digital connectivity ($\overline{\text{DAS}} = 0.498, \overline{\text{SAS}} = 0.623$).
-  4. 🟢 **Metropolitan Urban Belt (7 districts):** High-density metropolitan growth centers including Dhaka, Gazipur, Narayanganj, and Chattogram ($\overline{\text{DAS}} = 0.724, \overline{\text{SAS}} = 0.718$).
+  1. 🔴 **Rural Agrarian & Coastal Belt (Low Digital, Moderate Physical) (42 districts):** High-deprivation rural and agricultural plains districts with moderate physical facility access and high grid electrification ($96.7\%$), but low digital penetration ($\overline{\text{DAS}} = 0.345, \overline{\text{SAS}} = 0.562$).
+  2. 🔵 **Acute Mountain & Off-Grid Deficit (Chittagong Hill Tracts) (3 districts):** Hill Tracts districts (Bandarban, Khagrachhari, Rangamati) characterized by rugged topography, severe off-grid energy constraints ($5.4\%$ normalized electricity loading), and severe travel-time isolation ($\overline{\text{DAS}} = 0.396, \overline{\text{SAS}} = 0.093$).
+  3. 🟡 **Transitional / Digital Offset (Intermediate Adoption) (12 districts):** Moderate vulnerability buffer with high physical access and emergent digital connectivity ($\overline{\text{DAS}} = 0.498, \overline{\text{SAS}} = 0.623$).
+  4. 🟢 **Metropolitan Urban Belt (7 districts):** High-density metropolitan growth centers including Dhaka, Gazipur, Narayanganj, Chattogram, Khulna, Jessore, and Sylhet ($\overline{\text{DAS}} = 0.621, \overline{\text{SAS}} = 0.840$).
 - **Interpretable Surrogate Tree (Depth 3):** Replicates cluster membership with **89.1% out-of-sample generalization under Leave-One-Out Cross-Validation (LOOCV: 57/64)** and **98.4% in-sample fidelity (63/64)** via 4 transparent, auditable decision rules.
 - **Analytical Candor:** Unsupervised clustering serves as an exploratory diagnostic rather than an allocation oracle. All 64 districts have complete, 100% CAPI enumerated census records—zero synthetic data or imputation used.
 
@@ -177,17 +177,43 @@ To avoid dependence on a single arbitrary cutoff, DGI employs a Dual-Anchor fram
    > *The 9 Invariant Core Districts:* **Bandarban, Cox's Bazar, Rajbari, Naogaon, Natore, Chapainawabganj, Lalmonirhat, Habiganj, Moulvibazar.**
 3. **Buffer Transition Zone:** Exactly **7 districts** situated between the P40 core and P50 median cutoffs (**Kishoreganj, Magura, Pabna, Sirajganj, Gaibandha, Thakurgaon, Sunamganj**).
 
-### Multi-Threshold Sensitivity Matrix ($N=64$)
+### 1. Dual-Percentile Sensitivity Matrix ($N=64$)
 
-| Policy Specification | Threshold Criteria | Flagged Districts | National Share (%) | Key Districts Flagged | Methodological Classification |
-| :--- | :--- | :---: | :---: | :--- | :--- |
-| **Dual-P40 Invariant Core** | $\text{DAS} < 0.3672 \land \text{SAS} < 0.5529$ | **9** | **14.1%** | Bandarban, Cox's Bazar, Rajbari, Naogaon, Natore... | **Specification-Invariant Core** |
-| **Dual-Median Baseline** | $\text{DAS} < 0.3987 \land \text{SAS} < 0.5829$ | **16** | **25.0%** | +7 Buffer: Kishoreganj, Magura, Pabna, Sirajganj... | **Empirical Dual-Median Lead** |
-| $\tau = 0.30$ | Parametric absolute cutoff | 0 | 0.0% | None below both absolute 0.30 | Strict Lower Bound |
-| $\tau = 0.35$ | Parametric absolute cutoff | 1 | 1.6% | Bandarban | Extreme Acute Outlier |
-| $\tau = 0.40$ | Parametric absolute cutoff | 1 | 1.6% | Bandarban | Severe Acute Zone |
-| $\tau = 0.45$ | Parametric absolute cutoff | 5 | 7.8% | Bandarban, Khagrachhari, Rangamati, Faridpur, Naogaon | High Vulnerability Perimeter |
-| $\tau = 0.50$ | Parametric absolute cutoff | 10 | 15.6% | +Gopalganj, Rajbari, Magura, Natore, Lalmonirhat | Broad Surveillance Perimeter |
+Because the digital and physical service dimensions follow asymmetric empirical distributions ($\text{DAS}_{\text{median}} = 0.3987$, $\text{SAS}_{\text{median}} = 0.5829$), evaluating compounded vulnerability requires quantile-anchored thresholds $(P_k \times P_k)$. The Dual-Anchor framework evaluates nested percentiles across both axes:
+
+| Policy Specification | Quantile Level | DAS Cutoff ($X$) | SAS Cutoff ($Y$) | Flagged Districts | National Share (%) | Key Districts Flagged | Methodological Role |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- | :--- |
+| **Strict Lower Bound** | $P_{20}$ | $< 0.2856$ | $< 0.4972$ | **1** | **1.6%** | Lalmonirhat | Extreme Bivariate Deprivation |
+| **Severe Deep Core** | $P_{25}$ | $< 0.3221$ | $< 0.5049$ | **3** | **4.7%** | Bandarban, Chapainawabganj, Lalmonirhat | Acute Outlier Perimeter |
+| **High Vulnerability** | $P_{30}$ | $< 0.3365$ | $< 0.5171$ | **6** | **9.4%** | +Naogaon, Natore, Rajbari | Deep Priority Perimeter |
+| **High Vulnerability** | $P_{35}$ | $< 0.3583$ | $< 0.5294$ | **8** | **12.5%** | +Habiganj, Moulvibazar | Pre-Core Perimeter |
+| **Dual-P40 Invariant Core** | $\mathbf{P_{40}}$ | $\mathbf{< 0.3672}$ | $\mathbf{< 0.5529}$ | **9** | **14.1%** | +Cox's Bazar | **Specification-Invariant Core** |
+| **Intermediate Transition** | $P_{45}$ | $< 0.3906$ | $< 0.5630$ | **13** | **20.3%** | +Kishoreganj, Magura, Pabna, Thakurgaon | Core Buffer Transition Band |
+| **Dual-Median Baseline** | $\mathbf{P_{50}}$ | $\mathbf{< 0.3987}$ | $\mathbf{< 0.5829}$ | **16** | **25.0%** | +Gaibandha, Sirajganj, Sunamganj | **Empirical Dual-Median Lead** |
+| **Broad Surveillance** | $P_{55}$ | $< 0.4096$ | $< 0.5964$ | **21** | **32.8%** | +Bhola, Patuakhali, Pirojpur, Jamalpur, Netrokona | Moderate Vulnerability Outer Band |
+| **National Upper Bound** | $P_{60}$ | $< 0.4198$ | $< 0.6102$ | **24** | **37.5%** | +Barguna, Barisal, Kurigram | Extended Surveillance Perimeter |
+
+> **Mathematical Invariant:** The 9 districts of the Dual-$P_{40}$ Invariant Core are a **strict mathematical subset** of the 13 districts at $P_{45}$, which are a **strict mathematical subset** of the 16 districts at $P_{50}$ (Dual-Median Baseline). Monotonicity holds at every step.
+
+---
+
+### 2. Parametric Scalar Cutoff ($\tau$) & Distributional Asymmetry Audit
+
+Applying a single uncalibrated scalar cutoff $\tau$ symmetrically to both axes ($\text{DAS} < \tau \land \text{SAS} < \tau$) demonstrates why rigid scalar benchmarks distort empirical planning:
+
+| Parametric Cutoff ($\tau$) | DAS Marginal ($\text{DAS} < \tau$) | SAS Marginal ($\text{SAS} < \tau$) | Joint Flagged ($\text{DAS} < \tau \land \text{SAS} < \tau$) | National Share (%) | Key Districts Flagged | Methodological Diagnosis |
+| :---: | :---: | :---: | :---: | :---: | :--- | :--- |
+| $\tau = 0.30$ | 14 districts | 3 districts | **0** | **0.0%** | None | SAS floor ($\text{SAS}_{\min} = 0.0270$) restricts joint set. |
+| $\tau = 0.35$ | 22 districts | 3 districts | **1** | **1.6%** | Bandarban | Only Bandarban has $\text{DAS} < 0.35$ and $\text{SAS} < 0.35$. |
+| $\tau = 0.40$ | 32 districts ($P_{50}$) | 3 districts ($P_{4.7}$) | **1** | **1.6%** | Bandarban | **Distributional Mismatch:** $\tau=0.40$ cuts at 50th percentile of DAS, but 4.7th percentile of SAS. |
+| $\tau = 0.45$ | 43 districts ($P_{67}$) | 7 districts ($P_{10.9}$) | **5** | **7.8%** | Bandarban, Khagrachhari, Rangamati, Faridpur, Naogaon | SAS remains dominant bottleneck constraint. |
+| $\tau = 0.50$ | 50 districts ($P_{78}$) | 13 districts ($P_{20.3}$) | **10** | **15.6%** | +Gopalganj, Rajbari, Magura, Natore, Lalmonirhat | SAS expands to 13 districts, 10 overlap with low digital. |
+| $\tau = 0.55$ | 57 districts ($P_{89}$) | 25 districts ($P_{39.1}$) | **25** | **39.1%** | +Barisal, Patuakhali, Pirojpur, Cox's Bazar... | Rapid expansion as $\tau$ approaches SAS median. |
+| $\tau = 0.5829$ (SAS Median) | 58 districts ($P_{90.6}$) | 32 districts ($P_{50.0}$) | **32** | **50.0%** | Full lower-half service distribution | All 32 districts below median SAS also have $\text{DAS} < 0.5829$. |
+
+> 🔍 **Why Symmetric $\tau$ Fails on Empirical Data:**  
+> In Bangladesh, **95%–99% of households in 61 plain districts have national grid electricity**, while only the 3 Chittagong Hill Tracts districts (Bandarban, Khagrachhari, Rangamati) face off-grid infrastructure. This pushes the national median of Physical Service Access to $\mathbf{0.5829}$. In contrast, internet adoption varies widely across the country, centering Digital Access around $\mathbf{0.3987}$.  
+> Consequently, applying a symmetric scalar $\tau = 0.40$ creates an extreme distortion: it tests the **50th percentile** of the digital axis against the **4.7th percentile** of the service axis. This structural asymmetry proves why rigid scalar cutoffs fail and empirically justifies why the **Dual-Anchor Percentile Framework ($P_{40}$ core and $P_{50}$ median)** is the only mathematically sound specification for multidimensional infrastructure policy.
 
 *Reproducible via `python etl/sensitivity_analysis.py`.*
 
