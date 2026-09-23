@@ -59,6 +59,10 @@ The **Double Gap Index (DGI)** addresses a critical policy question for Banglade
 
 By synthesizing district-level data from the **Bangladesh Bureau of Statistics (BBS) Population & Housing Census 2022 (Admin 02 Dataset, 100% CAPI Enumeration across 165.1M individuals)**, travel-time accessibility models from **HeiGIT / Humanitarian Data Exchange (HDX)**, and verified administrative infrastructure registers, DGI isolates the geographic regions that require simultaneous dual-stream public capital co-investment.
 
+<p align="center">
+  <img src="docs/screenshots/hero_dashboard.png" alt="Double Gap Index Platform Dashboard" width="850" style="border-radius: 12px; border: 1px solid #e2e8f0;"/>
+</p>
+
 ---
 
 ## ⚖️ The Core Axiom: Two Scores, Never Blended

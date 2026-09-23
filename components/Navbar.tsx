@@ -73,7 +73,7 @@ export default function Navbar() {
           {/* Quick Double Gap Indicator Tag */}
           <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
             <AlertTriangle className="w-3.5 h-3.5 text-rose-600" />
-            <span>37 Critical Districts</span>
+            <span>16 Double Gap Districts</span>
           </div>
         </nav>
       </div>

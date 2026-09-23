@@ -217,7 +217,7 @@ export default function DistrictTable({ districts }: DistrictTableProps) {
                 }`}
               >
                 <AlertTriangle className="w-3 h-3" />
-                Double Gap (37)
+                Double Gap ({districts.filter((d) => d.double_gap_flag).length})
               </button>
               <button
                 onClick={() => setStatusFilter("resilient")}
@@ -227,7 +227,7 @@ export default function DistrictTable({ districts }: DistrictTableProps) {
                     : "text-emerald-700 hover:bg-emerald-50"
                 }`}
               >
-                Compensated (27)
+                Compensated ({districts.filter((d) => !d.double_gap_flag).length})
               </button>
             </div>
           </div>

@@ -31,9 +31,9 @@ export default async function DistrictsDirectoryPage() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-cyan-50 border border-cyan-200 text-cyan-800">
-              <FileSpreadsheet className="w-3.5 h-3.5 text-cyan-600" />
-              Modeled Demonstration Baseline & Simulated Facilities
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-emerald-50 border border-emerald-200 text-emerald-800">
+              <FileSpreadsheet className="w-3.5 h-3.5 text-emerald-600" />
+              BBS Census 2022 (100% CAPI) & HeiGIT HDX
             </span>
           </div>
         </div>

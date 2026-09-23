@@ -242,7 +242,7 @@ export default function QuadrantChart({
                   fontSize="12"
                   fontWeight="700"
                 >
-                  Digital Access Score → (Internet, Smartphone, Skills, Gender Parity)
+                  Digital Access Score → (BBS Census 2022: Internet, Mobile, MFS)
                 </text>
                 <text
                   x={-height / 2}
@@ -253,7 +253,7 @@ export default function QuadrantChart({
                   fontSize="12"
                   fontWeight="700"
                 >
-                  Service Access Score → (Healthcare, Education, Transit per Capita)
+                  Service Access Score → (HeiGIT / BBS: Hospitals, Schools, Grid Power)
                 </text>
 
                 {/* Axis Tick Marks */}
@@ -348,31 +348,6 @@ export default function QuadrantChart({
                     </g>
                   );
                 })}
-
-                {/* Embedded SVG Watermark to ensure scatter screenshots carry demo status */}
-                <g id="quadrant-svg-watermark" className="pointer-events-none select-none">
-                  <rect
-                    x={width - padding.right - 195}
-                    y={height - padding.bottom + 26}
-                    width="195"
-                    height="20"
-                    rx="4"
-                    fill="#0f172a"
-                    fillOpacity="0.80"
-                  />
-                  <text
-                    x={width - padding.right - 97}
-                    y={height - padding.bottom + 40}
-                    textAnchor="middle"
-                    fill="#f8fafc"
-                    fontSize="9.5"
-                    fontWeight="700"
-                    letterSpacing="0.08em"
-                    fontFamily="monospace"
-                  >
-                    EMPIRICAL PILOT: DUAL-MEDIAN
-                  </text>
-                </g>
               </svg>
             </div>
           </div>
@@ -438,11 +413,11 @@ export default function QuadrantChart({
                       <span className="text-rose-700 font-medium">
                         Facing compounding exclusion. Lacks both digital connectivity and physical public services. High priority for integrated intervention.
                       </span>
-                    ) : hoveredDistrict.digital_access_score! >= 0.40 && hoveredDistrict.service_access_score! < 0.40 ? (
+                    ) : hoveredDistrict.digital_access_score! >= effectiveDigitalThreshold && hoveredDistrict.service_access_score! < effectiveServiceThreshold ? (
                       <span className="text-amber-800">
                         Service exclusion exists, but digital connectivity allows potential remote workarounds (telemedicine, online education).
                       </span>
-                    ) : hoveredDistrict.digital_access_score! < 0.40 && hoveredDistrict.service_access_score! >= 0.40 ? (
+                    ) : hoveredDistrict.digital_access_score! < effectiveDigitalThreshold && hoveredDistrict.service_access_score! >= effectiveServiceThreshold ? (
                       <span className="text-sky-800">
                         Digital exclusion exists, but physical public infrastructure provides an in-person safety net.
                       </span>
@@ -466,7 +441,7 @@ export default function QuadrantChart({
                   <AlertOctagon className="w-8 h-8 mx-auto mb-2 text-slate-300" />
                   <p className="text-xs font-medium text-slate-600">Hover any point on the chart</p>
                   <p className="text-[11px] text-slate-400 mt-1">
-                    Inspect where each district falls relative to the 0.40 double exclusion cutoffs.
+                    Inspect where each district falls relative to dual-median cutoffs (DAS &lt; 0.40, SAS &lt; 0.58).
                   </p>
                 </div>
               )}

@@ -33,7 +33,7 @@ export default async function MapPage() {
           <div className="flex items-center gap-2">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-rose-50 border border-rose-200 text-rose-700">
               <ShieldAlert className="w-3.5 h-3.5 text-rose-600" />
-              37 Double Gap Districts Identified
+              16 Double Gap Districts Identified
             </span>
             <Link
               href="/gis"

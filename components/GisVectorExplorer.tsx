@@ -19,7 +19,12 @@ interface GisVectorExplorerProps {
 }
 
 export default function GisVectorExplorer({ districts }: GisVectorExplorerProps) {
-  const [useBlankBasemap, setUseBlankBasemap] = useState(false);
+  const [useBlankBasemap, setUseBlankBasemap] = useState(() => {
+    if (typeof window !== "undefined") {
+      return new URLSearchParams(window.location.search).get("blank") === "true";
+    }
+    return false;
+  });
   const [selectedDistrictId, setSelectedDistrictId] = useState<string>("sherpur");
 
   // Representative districts with coordinates [lng, lat]

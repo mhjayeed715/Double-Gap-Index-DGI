@@ -456,7 +456,7 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
               </div>
 
               <div className="text-slate-400 text-[11px]">
-                Threshold: &lt; 0.40 on both axes
+                Dual-Median Cutoffs: DAS &lt; 0.40, SAS &lt; 0.58
               </div>
             </div>
           </div>
@@ -531,7 +531,7 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                           : "N/A"}
                       </div>
                       <div className="text-[10px] text-amber-700 mt-1">
-                        Health/100k: {activeDistrict.service_breakdown.healthcare_per_capita ?? "N/A"}
+                        Hospital 30m: {activeDistrict.service_breakdown.hospital_access_pct ?? "N/A"}%
                       </div>
                     </div>
                   </div>
@@ -539,31 +539,35 @@ export default function ChoroplethMap({ districts }: ChoroplethMapProps) {
                   {/* Key Indicators Snapshot */}
                   <div className="space-y-2 text-xs border-t border-slate-100 pt-3">
                     <div className="flex justify-between py-1 border-b border-slate-50">
-                      <span className="text-slate-500">Smartphone Ownership:</span>
+                      <span className="text-slate-500">Mobile Phone (15+):</span>
                       <span className="font-medium text-slate-800">
-                        {activeDistrict.digital_breakdown.smartphone_ownership_pct !== null
-                          ? `${activeDistrict.digital_breakdown.smartphone_ownership_pct}%`
-                          : "Data unavailable"}
+                        {activeDistrict.digital_breakdown.mobile_ownership_pct !== null && activeDistrict.digital_breakdown.mobile_ownership_pct !== undefined
+                          ? `${activeDistrict.digital_breakdown.mobile_ownership_pct}%`
+                          : "N/A"}
                       </span>
                     </div>
                     <div className="flex justify-between py-1 border-b border-slate-50">
-                      <span className="text-slate-500">Digital Skills:</span>
+                      <span className="text-slate-500">Mobile Banking (15+):</span>
                       <span className="font-medium text-slate-800">
-                        {activeDistrict.digital_breakdown.digital_skills_pct !== null
-                          ? `${activeDistrict.digital_breakdown.digital_skills_pct}%`
-                          : <span className="text-slate-400 italic">Data unavailable</span>}
+                        {activeDistrict.digital_breakdown.mobile_banking_pct !== null && activeDistrict.digital_breakdown.mobile_banking_pct !== undefined
+                          ? `${activeDistrict.digital_breakdown.mobile_banking_pct}%`
+                          : "N/A"}
                       </span>
                     </div>
                     <div className="flex justify-between py-1 border-b border-slate-50">
-                      <span className="text-slate-500">Education Density:</span>
+                      <span className="text-slate-500">Hospital Access (30m):</span>
                       <span className="font-medium text-slate-800">
-                        {activeDistrict.service_breakdown.education_per_capita ?? "N/A"} / 100k
+                        {activeDistrict.service_breakdown.hospital_access_pct !== null && activeDistrict.service_breakdown.hospital_access_pct !== undefined
+                          ? `${activeDistrict.service_breakdown.hospital_access_pct}%`
+                          : "N/A"}
                       </span>
                     </div>
                     <div className="flex justify-between py-1">
-                      <span className="text-slate-500">Transit Points:</span>
+                      <span className="text-slate-500">Grid Electricity:</span>
                       <span className="font-medium text-slate-800">
-                        {activeDistrict.service_breakdown.transit_per_capita ?? "N/A"} / 100k
+                        {activeDistrict.service_breakdown.electricity_access_pct !== null && activeDistrict.service_breakdown.electricity_access_pct !== undefined
+                          ? `${activeDistrict.service_breakdown.electricity_access_pct}%`
+                          : "N/A"}
                       </span>
                     </div>
                   </div>

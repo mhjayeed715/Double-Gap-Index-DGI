@@ -30,7 +30,7 @@ export default function MLProfiles() {
           <div className="mt-4 p-3.5 rounded-xl bg-amber-50/80 border border-amber-200/90 text-amber-900 text-xs flex items-start gap-2.5">
             <Info className="w-4 h-4 text-amber-700 flex-shrink-0 mt-0.5" />
             <div className="leading-relaxed">
-              <strong>Methodological Clarification:</strong> {metadata.exploratory_disclaimer} They describe multivariate structure in the BBS/OSM cross-section to assist multi-sector policy planning, rather than proving econometric causality.
+              <strong>Methodological Clarification:</strong> {metadata.exploratory_disclaimer} They describe multivariate structure in the BBS Census 2022 and HeiGIT accessibility cross-section to assist multi-sector policy planning, rather than proving econometric causality.
             </div>
           </div>
         </div>
