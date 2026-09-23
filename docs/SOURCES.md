@@ -95,8 +95,11 @@ Both Digital and Service axes have been **fully recomputed from verified primary
    - *Definition:* Percentage of households connected to the national electrical grid. Complete 64-district census enumeration (0 nulls).
 
 2. **HeiGIT Population Accessibility Models (UN OCHA HDX):**
-   - *HDX Dataset:* "Bangladesh - Accessibility Indicators" (HeiGIT / Heidelberg University, `https://data.humdata.org/dataset/hot-access-bgd`)
-   - *Source Files:* `heigit_hospitals_access_wide.csv` & `heigit_education_access_wide.csv`
+   - *HDX Dataset:* "Bangladesh - Accessibility Indicators" (HeiGIT / Heidelberg University: [https://data.humdata.org/dataset/bangladesh-accessibility-indicators](https://data.humdata.org/dataset/bangladesh-accessibility-indicators))
+   - *Source Files & Direct Downloads:*
+     - Hospitals: [`heigit_hospitals_access_wide.csv`](https://hot.storage.heigit.org/heigit-hdx-public/access/bgd/BGD_hospitals_access_wide.csv)
+     - Primary Healthcare: [`heigit_primary_healthcare_access_wide.csv`](https://hot.storage.heigit.org/heigit-hdx-public/access/bgd/BGD_primary_healthcare_access_wide.csv)
+     - Education: [`heigit_education_access_wide.csv`](https://hot.storage.heigit.org/heigit-hdx-public/access/bgd/BGD_education_access_wide.csv)
    - *Metrics:* Share of district population within 30 minutes of a hospital (`range = 1800`), and within 5km of an educational facility (`range = 5000`).
    - *Methodological Disclosure:* These indicators are openrouteservice travel-time models computed over OpenStreetMap (OSM) infrastructure layers and WorldPop population distribution rasters, rather than direct administrative line-ministry censuses.
    - *Advantage:* Standardized cross-sectional coverage across all 64 districts based on friction surfaces and population rasters.
