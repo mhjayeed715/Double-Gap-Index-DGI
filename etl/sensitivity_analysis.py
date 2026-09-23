@@ -212,13 +212,32 @@ def run_sensitivity_analysis():
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2)
 
-    print(f"=== EMPIRICAL SENSITIVITY & ROBUSTNESS AUDIT (N={n_districts}) ===")
-    print(f"Digital Median: {med_d} | Service Median: {med_s}")
+    print(f"\n=== EMPIRICAL SENSITIVITY & ROBUSTNESS AUDIT (N={n_districts}) ===")
+    print(f"Digital Median (P50): {med_d:.4f} | Service Median (P50): {med_s:.4f}")
     print(f"Dual-Median Baseline: {len(dual_median_flagged)} districts ({len(dual_median_flagged)/n_districts*100:.1f}%)")
     print(f"Dual-P40 Invariant Core: {len(dual_p40_flagged)} districts ({len(dual_p40_flagged)/n_districts*100:.1f}%)")
     print(f"Buffer Zone: {len(buffer_districts)} districts")
     print(f"Axis Independence: rho = {corr_digital_service:.4f}")
-    print(f"Saved to: {out_path}")
+
+    print("\n--- 1. DUAL-PERCENTILE SENSITIVITY MATRIX (Quantile-Anchored) ---")
+    print(f"{'Quantile':<10} | {'DAS Cutoff':<10} | {'SAS Cutoff':<10} | {'Flagged':<7} | {'% Share':<7} | {'Districts'}")
+    print("-" * 75)
+    for row in dual_percentile_results:
+        d_sample = ", ".join(row['flagged_districts'][:4])
+        if len(row['flagged_districts']) > 4:
+            d_sample += "..."
+        print(f"P_{row['percentile']:<8} | {row['das_cutoff']:<10.4f} | {row['sas_cutoff']:<10.4f} | {row['flagged_count']:<7} | {row['flagged_pct']:<6.1f}% | {d_sample}")
+
+    print("\n--- 2. PARAMETRIC SCALAR CUTOFF AUDIT (DAS < tau AND SAS < tau) ---")
+    print(f"{'tau':<8} | {'DAS < tau':<10} | {'SAS < tau':<10} | {'Joint':<7} | {'% Share':<7} | {'Flagged Districts'}")
+    print("-" * 75)
+    for row in threshold_results:
+        d_sample = ", ".join(row['flagged_districts'][:4])
+        if len(row['flagged_districts']) > 4:
+            d_sample += "..."
+        print(f"{row['threshold']:<8.4f} | {row['das_marginal_count']:<10} | {row['sas_marginal_count']:<10} | {row['flagged_count']:<7} | {row['flagged_pct']:<6.1f}% | {d_sample}")
+
+    print(f"\nSaved complete results to: {out_path}")
     return output
 
 if __name__ == "__main__":
