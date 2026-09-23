@@ -199,6 +199,8 @@ Because the digital and physical service dimensions follow asymmetric empirical 
 
 ### 2. Parametric Scalar Cutoff ($\tau$) & Distributional Asymmetry Audit
 
+> ℹ️ **Methodological Note on Dual Rulers:** The parametric $\tau$ sweep applies one shared cutoff to both axes simultaneously, which is a much stricter bar on the Service Access axis than a percentile-based cutoff (since SAS is centered near 0.58 while DAS is centered near 0.40). The Dual-Median and Dual-P40 rows instead use each axis's own distribution, which is why they are the primary reported specification.
+
 Applying a single uncalibrated scalar cutoff $\tau$ symmetrically to both axes ($\text{DAS} < \tau \land \text{SAS} < \tau$) demonstrates why rigid scalar benchmarks distort empirical planning:
 
 | Parametric Cutoff ($\tau$) | DAS Marginal ($\text{DAS} < \tau$) | SAS Marginal ($\text{SAS} < \tau$) | Joint Flagged ($\text{DAS} < \tau \land \text{SAS} < \tau$) | National Share (%) | Key Districts Flagged | Methodological Diagnosis |

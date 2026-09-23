@@ -95,6 +95,9 @@ Because the digital and physical service dimensions follow asymmetric empirical 
 > **Monotonic Subsetting:** $P_{40}$ (9 districts) $\subset P_{45}$ (13 districts) $\subset P_{50}$ (16 districts) $\subset P_{55}$ (21 districts).
 
 ### 3.2 Distributional Asymmetry & Parametric Scalar ($\tau$) Audit
+
+> **Methodological Note on Dual Rulers:** The parametric $\tau$ sweep applies one shared cutoff to both axes simultaneously, which is a much stricter bar on the Service Access axis than a percentile-based cutoff (since SAS is centered near 0.58 while DAS is centered near 0.40). The Dual-Median and Dual-P40 rows instead use each axis's own distribution, which is why they are the primary reported specification.
+
 Evaluating symmetric scalar thresholds ($\text{DAS} < \tau \land \text{SAS} < \tau$) reveals why scalar benchmarks fail:
 * At $\tau = 0.40$, 32 districts have $\text{DAS} < 0.40$ ($P_{50}$), but only 3 districts have $\text{SAS} < 0.40$ ($P_{4.7}$) due to 95–99% grid electrification across plain districts. This throttles the joint intersection to 1 district (Bandarban).
 * At $\tau = 0.50$, 50 districts have $\text{DAS} < 0.50$, 13 have $\text{SAS} < 0.50$, and 10 meet both.
